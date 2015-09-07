@@ -1,0 +1,716 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDD763441B9A4EC400946CDE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763431B9A4EC400946CDE /* main.m */; };
+		FDD763471B9A4EC400946CDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763461B9A4EC400946CDE /* AppDelegate.m */; };
+		FDD7634D1B9A4EC400946CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD7634B1B9A4EC400946CDE /* Main.storyboard */; };
+		FDD7634F1B9A4EC400946CDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD7634E1B9A4EC400946CDE /* Assets.xcassets */; };
+		FDD763521B9A4EC400946CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD763501B9A4EC400946CDE /* LaunchScreen.storyboard */; };
+		FDD7635D1B9A4EC400946CDE /* CarManufacturersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7635C1B9A4EC400946CDE /* CarManufacturersTests.m */; };
+		FDD763681B9A4EC400946CDE /* CarManufacturersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763671B9A4EC400946CDE /* CarManufacturersUITests.m */; };
+		FDD763771B9A54EC00946CDE /* LECMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763761B9A54EC00946CDE /* LECMTableCell.m */; settings = {ASSET_TAGS = (); }; };
+		FDD7637A1B9A550A00946CDE /* LECMCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763791B9A550A00946CDE /* LECMCollectionCell.m */; settings = {ASSET_TAGS = (); }; };
+		FDD7637E1B9A554600946CDE /* LECMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7637D1B9A554600946CDE /* LECMCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763801B9A557700946CDE /* LECMTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FDD7638A1B9A577C00946CDE /* LECMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763891B9A577C00946CDE /* LECMContainerViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FDD7638E1B9A589A00946CDE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7638D1B9A589A00946CDE /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FDD763901B9A59E100946CDE /* CarManufacturers.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */; settings = {ASSET_TAGS = (); }; };
+		FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763921B9A6D7F00946CDE /* LECMFactory.m */; settings = {ASSET_TAGS = (); }; };
+		FDD763961B9A6DA600946CDE /* LEDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763951B9A6DA600946CDE /* LEDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		FDD763A11B9A75F000946CDE /* LECMAddNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763A01B9A75F000946CDE /* LECMAddNewViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FDD764401B9B582F00946CDE /* NSString+ApplcationPathes.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7643F1B9B582F00946CDE /* NSString+ApplcationPathes.m */; settings = {ASSET_TAGS = (); }; };
+		FDD764451B9B5BDE00946CDE /* LECMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD764441B9B5BDE00946CDE /* LECMValidator.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDD763591B9A4EC400946CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDD763371B9A4EC400946CDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDD7633E1B9A4EC400946CDE;
+			remoteInfo = CarManufacturers;
+		};
+		FDD763641B9A4EC400946CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDD763371B9A4EC400946CDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDD7633E1B9A4EC400946CDE;
+			remoteInfo = CarManufacturers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FDD7633F1B9A4EC400946CDE /* CarManufacturers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarManufacturers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD763431B9A4EC400946CDE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FDD763451B9A4EC400946CDE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FDD763461B9A4EC400946CDE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FDD7634C1B9A4EC400946CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FDD7634E1B9A4EC400946CDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDD763511B9A4EC400946CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FDD763531B9A4EC400946CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD763581B9A4EC400946CDE /* CarManufacturersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarManufacturersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD7635C1B9A4EC400946CDE /* CarManufacturersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarManufacturersTests.m; sourceTree = "<group>"; };
+		FDD7635E1B9A4EC400946CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD763631B9A4EC400946CDE /* CarManufacturersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarManufacturersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD763671B9A4EC400946CDE /* CarManufacturersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarManufacturersUITests.m; sourceTree = "<group>"; };
+		FDD763691B9A4EC400946CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD763751B9A54EC00946CDE /* LECMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMTableCell.h; sourceTree = "<group>"; };
+		FDD763761B9A54EC00946CDE /* LECMTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMTableCell.m; sourceTree = "<group>"; };
+		FDD763781B9A550A00946CDE /* LECMCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMCollectionCell.h; sourceTree = "<group>"; };
+		FDD763791B9A550A00946CDE /* LECMCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMCollectionCell.m; sourceTree = "<group>"; };
+		FDD7637C1B9A554600946CDE /* LECMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMCollectionViewController.h; sourceTree = "<group>"; };
+		FDD7637D1B9A554600946CDE /* LECMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMCollectionViewController.m; sourceTree = "<group>"; };
+		FDD7637F1B9A557700946CDE /* LECMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMTableViewController.h; sourceTree = "<group>"; };
+		FDD763801B9A557700946CDE /* LECMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMTableViewController.m; sourceTree = "<group>"; };
+		FDD763881B9A577C00946CDE /* LECMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMContainerViewController.h; sourceTree = "<group>"; };
+		FDD763891B9A577C00946CDE /* LECMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMContainerViewController.m; sourceTree = "<group>"; };
+		FDD7638C1B9A589A00946CDE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FDD7638D1B9A589A00946CDE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CarManufacturers.plist; sourceTree = "<group>"; };
+		FDD763911B9A6D7F00946CDE /* LECMFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMFactory.h; sourceTree = "<group>"; };
+		FDD763921B9A6D7F00946CDE /* LECMFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMFactory.m; sourceTree = "<group>"; };
+		FDD763941B9A6DA600946CDE /* LEDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDataSource.h; sourceTree = "<group>"; };
+		FDD763951B9A6DA600946CDE /* LEDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataSource.m; sourceTree = "<group>"; };
+		FDD7639F1B9A75F000946CDE /* LECMAddNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMAddNewViewController.h; sourceTree = "<group>"; };
+		FDD763A01B9A75F000946CDE /* LECMAddNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMAddNewViewController.m; sourceTree = "<group>"; };
+		FDD763A71B9ABE3200946CDE /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		FDD7643E1B9B582F00946CDE /* NSString+ApplcationPathes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ApplcationPathes.h"; sourceTree = "<group>"; };
+		FDD7643F1B9B582F00946CDE /* NSString+ApplcationPathes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ApplcationPathes.m"; sourceTree = "<group>"; };
+		FDD764431B9B5BDE00946CDE /* LECMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMValidator.h; sourceTree = "<group>"; };
+		FDD764441B9B5BDE00946CDE /* LECMValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMValidator.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDD7633C1B9A4EC400946CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD763551B9A4EC400946CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD763601B9A4EC400946CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDD763361B9A4EC400946CDE = {
+			isa = PBXGroup;
+			children = (
+				FDD763411B9A4EC400946CDE /* CarManufacturers */,
+				FDD763A71B9ABE3200946CDE /* constants.h */,
+				FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */,
+				FDD7635B1B9A4EC400946CDE /* CarManufacturersTests */,
+				FDD763661B9A4EC400946CDE /* CarManufacturersUITests */,
+				FDD763401B9A4EC400946CDE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDD763401B9A4EC400946CDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7633F1B9A4EC400946CDE /* CarManufacturers.app */,
+				FDD763581B9A4EC400946CDE /* CarManufacturersTests.xctest */,
+				FDD763631B9A4EC400946CDE /* CarManufacturersUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDD763411B9A4EC400946CDE /* CarManufacturers */ = {
+			isa = PBXGroup;
+			children = (
+				FDD764461B9B5BF100946CDE /* Validator */,
+				FDD763971B9A6DB000946CDE /* CM model */,
+				FDD7637B1B9A551700946CDE /* cells */,
+				FDD763821B9A557F00946CDE /* controllers */,
+				FDD763A61B9ABDB000946CDE /* Categories */,
+				FDD763461B9A4EC400946CDE /* AppDelegate.m */,
+				FDD763451B9A4EC400946CDE /* AppDelegate.h */,
+				FDD7634B1B9A4EC400946CDE /* Main.storyboard */,
+				FDD7634E1B9A4EC400946CDE /* Assets.xcassets */,
+				FDD763501B9A4EC400946CDE /* LaunchScreen.storyboard */,
+				FDD763531B9A4EC400946CDE /* Info.plist */,
+				FDD763421B9A4EC400946CDE /* Supporting Files */,
+			);
+			path = CarManufacturers;
+			sourceTree = "<group>";
+		};
+		FDD763421B9A4EC400946CDE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763431B9A4EC400946CDE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FDD7635B1B9A4EC400946CDE /* CarManufacturersTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7635C1B9A4EC400946CDE /* CarManufacturersTests.m */,
+				FDD7635E1B9A4EC400946CDE /* Info.plist */,
+			);
+			path = CarManufacturersTests;
+			sourceTree = "<group>";
+		};
+		FDD763661B9A4EC400946CDE /* CarManufacturersUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763671B9A4EC400946CDE /* CarManufacturersUITests.m */,
+				FDD763691B9A4EC400946CDE /* Info.plist */,
+			);
+			path = CarManufacturersUITests;
+			sourceTree = "<group>";
+		};
+		FDD7637B1B9A551700946CDE /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763831B9A55A000946CDE /* LECMCollectionCell */,
+				FDD763841B9A55BA00946CDE /* LECMTableCell */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		FDD763821B9A557F00946CDE /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763871B9A55FF00946CDE /* MainViewController */,
+				FDD7638B1B9A586A00946CDE /* LECMContainerViewController */,
+				FDD763851B9A55C800946CDE /* LECMCollectionViewController */,
+				FDD763861B9A55CF00946CDE /* LECMTableViewController */,
+				FDD763A21B9A75FA00946CDE /* LECMAddNewViewController */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		FDD763831B9A55A000946CDE /* LECMCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763781B9A550A00946CDE /* LECMCollectionCell.h */,
+				FDD763791B9A550A00946CDE /* LECMCollectionCell.m */,
+			);
+			name = LECMCollectionCell;
+			sourceTree = "<group>";
+		};
+		FDD763841B9A55BA00946CDE /* LECMTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763751B9A54EC00946CDE /* LECMTableCell.h */,
+				FDD763761B9A54EC00946CDE /* LECMTableCell.m */,
+			);
+			name = LECMTableCell;
+			sourceTree = "<group>";
+		};
+		FDD763851B9A55C800946CDE /* LECMCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7637C1B9A554600946CDE /* LECMCollectionViewController.h */,
+				FDD7637D1B9A554600946CDE /* LECMCollectionViewController.m */,
+			);
+			name = LECMCollectionViewController;
+			sourceTree = "<group>";
+		};
+		FDD763861B9A55CF00946CDE /* LECMTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7637F1B9A557700946CDE /* LECMTableViewController.h */,
+				FDD763801B9A557700946CDE /* LECMTableViewController.m */,
+			);
+			name = LECMTableViewController;
+			sourceTree = "<group>";
+		};
+		FDD763871B9A55FF00946CDE /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7638C1B9A589A00946CDE /* MainViewController.h */,
+				FDD7638D1B9A589A00946CDE /* MainViewController.m */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		FDD7638B1B9A586A00946CDE /* LECMContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763881B9A577C00946CDE /* LECMContainerViewController.h */,
+				FDD763891B9A577C00946CDE /* LECMContainerViewController.m */,
+			);
+			name = LECMContainerViewController;
+			sourceTree = "<group>";
+		};
+		FDD763971B9A6DB000946CDE /* CM model */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763981B9A6DD300946CDE /* LECMFactory */,
+				FDD763991B9A6DDF00946CDE /* LEDataSource */,
+			);
+			name = "CM model";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FDD763981B9A6DD300946CDE /* LECMFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763911B9A6D7F00946CDE /* LECMFactory.h */,
+				FDD763921B9A6D7F00946CDE /* LECMFactory.m */,
+			);
+			name = LECMFactory;
+			sourceTree = "<group>";
+		};
+		FDD763991B9A6DDF00946CDE /* LEDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				FDD763941B9A6DA600946CDE /* LEDataSource.h */,
+				FDD763951B9A6DA600946CDE /* LEDataSource.m */,
+			);
+			name = LEDataSource;
+			sourceTree = "<group>";
+		};
+		FDD763A21B9A75FA00946CDE /* LECMAddNewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7639F1B9A75F000946CDE /* LECMAddNewViewController.h */,
+				FDD763A01B9A75F000946CDE /* LECMAddNewViewController.m */,
+			);
+			name = LECMAddNewViewController;
+			sourceTree = "<group>";
+		};
+		FDD763A61B9ABDB000946CDE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FDD764411B9B583600946CDE /* NSString+Pathes */,
+			);
+			name = Categories;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FDD764411B9B583600946CDE /* NSString+Pathes */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7643E1B9B582F00946CDE /* NSString+ApplcationPathes.h */,
+				FDD7643F1B9B582F00946CDE /* NSString+ApplcationPathes.m */,
+			);
+			name = "NSString+Pathes";
+			sourceTree = "<group>";
+		};
+		FDD764461B9B5BF100946CDE /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				FDD764431B9B5BDE00946CDE /* LECMValidator.h */,
+				FDD764441B9B5BDE00946CDE /* LECMValidator.m */,
+			);
+			name = Validator;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDD7633E1B9A4EC400946CDE /* CarManufacturers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDD7636C1B9A4EC400946CDE /* Build configuration list for PBXNativeTarget "CarManufacturers" */;
+			buildPhases = (
+				FDD7633B1B9A4EC400946CDE /* Sources */,
+				FDD7633C1B9A4EC400946CDE /* Frameworks */,
+				FDD7633D1B9A4EC400946CDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarManufacturers;
+			productName = CarManufacturers;
+			productReference = FDD7633F1B9A4EC400946CDE /* CarManufacturers.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FDD763571B9A4EC400946CDE /* CarManufacturersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDD7636F1B9A4EC400946CDE /* Build configuration list for PBXNativeTarget "CarManufacturersTests" */;
+			buildPhases = (
+				FDD763541B9A4EC400946CDE /* Sources */,
+				FDD763551B9A4EC400946CDE /* Frameworks */,
+				FDD763561B9A4EC400946CDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDD7635A1B9A4EC400946CDE /* PBXTargetDependency */,
+			);
+			name = CarManufacturersTests;
+			productName = CarManufacturersTests;
+			productReference = FDD763581B9A4EC400946CDE /* CarManufacturersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDD763621B9A4EC400946CDE /* CarManufacturersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDD763721B9A4EC400946CDE /* Build configuration list for PBXNativeTarget "CarManufacturersUITests" */;
+			buildPhases = (
+				FDD7635F1B9A4EC400946CDE /* Sources */,
+				FDD763601B9A4EC400946CDE /* Frameworks */,
+				FDD763611B9A4EC400946CDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDD763651B9A4EC400946CDE /* PBXTargetDependency */,
+			);
+			name = CarManufacturersUITests;
+			productName = CarManufacturersUITests;
+			productReference = FDD763631B9A4EC400946CDE /* CarManufacturersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDD763371B9A4EC400946CDE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Jack Lapin";
+				TargetAttributes = {
+					FDD7633E1B9A4EC400946CDE = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = UCN646ZLE7;
+					};
+					FDD763571B9A4EC400946CDE = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = UCN646ZLE7;
+						TestTargetID = FDD7633E1B9A4EC400946CDE;
+					};
+					FDD763621B9A4EC400946CDE = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = UCN646ZLE7;
+						TestTargetID = FDD7633E1B9A4EC400946CDE;
+					};
+				};
+			};
+			buildConfigurationList = FDD7633A1B9A4EC400946CDE /* Build configuration list for PBXProject "CarManufacturers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDD763361B9A4EC400946CDE;
+			productRefGroup = FDD763401B9A4EC400946CDE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDD7633E1B9A4EC400946CDE /* CarManufacturers */,
+				FDD763571B9A4EC400946CDE /* CarManufacturersTests */,
+				FDD763621B9A4EC400946CDE /* CarManufacturersUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDD7633D1B9A4EC400946CDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD763521B9A4EC400946CDE /* LaunchScreen.storyboard in Resources */,
+				FDD7634F1B9A4EC400946CDE /* Assets.xcassets in Resources */,
+				FDD763901B9A59E100946CDE /* CarManufacturers.plist in Resources */,
+				FDD7634D1B9A4EC400946CDE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD763561B9A4EC400946CDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD763611B9A4EC400946CDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDD7633B1B9A4EC400946CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD7637E1B9A554600946CDE /* LECMCollectionViewController.m in Sources */,
+				FDD763961B9A6DA600946CDE /* LEDataSource.m in Sources */,
+				FDD763471B9A4EC400946CDE /* AppDelegate.m in Sources */,
+				FDD7638A1B9A577C00946CDE /* LECMContainerViewController.m in Sources */,
+				FDD764401B9B582F00946CDE /* NSString+ApplcationPathes.m in Sources */,
+				FDD763A11B9A75F000946CDE /* LECMAddNewViewController.m in Sources */,
+				FDD764451B9B5BDE00946CDE /* LECMValidator.m in Sources */,
+				FDD7638E1B9A589A00946CDE /* MainViewController.m in Sources */,
+				FDD763441B9A4EC400946CDE /* main.m in Sources */,
+				FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */,
+				FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */,
+				FDD7637A1B9A550A00946CDE /* LECMCollectionCell.m in Sources */,
+				FDD763771B9A54EC00946CDE /* LECMTableCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD763541B9A4EC400946CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD7635D1B9A4EC400946CDE /* CarManufacturersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDD7635F1B9A4EC400946CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDD763681B9A4EC400946CDE /* CarManufacturersUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDD7635A1B9A4EC400946CDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDD7633E1B9A4EC400946CDE /* CarManufacturers */;
+			targetProxy = FDD763591B9A4EC400946CDE /* PBXContainerItemProxy */;
+		};
+		FDD763651B9A4EC400946CDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDD7633E1B9A4EC400946CDE /* CarManufacturers */;
+			targetProxy = FDD763641B9A4EC400946CDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FDD7634B1B9A4EC400946CDE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDD7634C1B9A4EC400946CDE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FDD763501B9A4EC400946CDE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDD763511B9A4EC400946CDE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FDD7636A1B9A4EC400946CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FDD7636B1B9A4EC400946CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDD7636D1B9A4EC400946CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = CarManufacturers/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEV.CarManufacturers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FDD7636E1B9A4EC400946CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = CarManufacturers/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEV.CarManufacturers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FDD763701B9A4EC400946CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CarManufacturersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEV.CarManufacturersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarManufacturers.app/CarManufacturers";
+			};
+			name = Debug;
+		};
+		FDD763711B9A4EC400946CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CarManufacturersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEV.CarManufacturersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarManufacturers.app/CarManufacturers";
+			};
+			name = Release;
+		};
+		FDD763731B9A4EC400946CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CarManufacturersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEV.CarManufacturersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CarManufacturers;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FDD763741B9A4EC400946CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CarManufacturersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEV.CarManufacturersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CarManufacturers;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDD7633A1B9A4EC400946CDE /* Build configuration list for PBXProject "CarManufacturers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD7636A1B9A4EC400946CDE /* Debug */,
+				FDD7636B1B9A4EC400946CDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDD7636C1B9A4EC400946CDE /* Build configuration list for PBXNativeTarget "CarManufacturers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD7636D1B9A4EC400946CDE /* Debug */,
+				FDD7636E1B9A4EC400946CDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDD7636F1B9A4EC400946CDE /* Build configuration list for PBXNativeTarget "CarManufacturersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD763701B9A4EC400946CDE /* Debug */,
+				FDD763711B9A4EC400946CDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDD763721B9A4EC400946CDE /* Build configuration list for PBXNativeTarget "CarManufacturersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDD763731B9A4EC400946CDE /* Debug */,
+				FDD763741B9A4EC400946CDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FDD763371B9A4EC400946CDE /* Project object */;
+}
