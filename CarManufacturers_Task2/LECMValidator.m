@@ -12,9 +12,12 @@
 @implementation LECMValidator
 
 + (BOOL)isValidModelTitle:(NSString *)title error:(NSError **)error {
+#warning цифру 3 следует вынести в локальные константы, чтобы было ясно, что это
     if ([title length]<3){
         NSString *errorMessage;
         NSInteger errorCode = 0;
+#warning тексты, которые создаются в коде и которые увидит юзер в UI, должны быть объявлены в файле Localizable.strings. Что это за файл и зачем он нужен очень легко найти в гугле
+#warning также, зачем вначале объявлять переменную и затем только задавать ей начальное значение? Инициализируйте уже со значением
         errorMessage = @"The Name must be at least 3 characters.";
         errorCode = 77;
         
@@ -28,7 +31,7 @@
     return YES;
 }
 
-
+#warning создавать алерт - никак не ответственность валидатора, это необходимо делать либо в самом вью контроллере, либо в фабрике алертов
 + (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:title

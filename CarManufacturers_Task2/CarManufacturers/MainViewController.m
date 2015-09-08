@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "LECMContainerViewController.h"
+#warning зачем здесь импорты всех контроллеров?
 #import "LECMCollectionViewController.h"
 #import "LECMTableViewController.h"
 #import "LECMAddNewViewController.h"
@@ -22,7 +23,7 @@
 @implementation MainViewController
 
 #pragma mark - UIViewController methods
-
+#warning этот метод можно удалить
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     return YES;
 }

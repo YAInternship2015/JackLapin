@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#warning этот импорт не нужен в *.h файле
 #import "LECMContainerViewController.h"
 
+#warning потеряли префикс приложения
 @interface MainViewController : UIViewController
 
 

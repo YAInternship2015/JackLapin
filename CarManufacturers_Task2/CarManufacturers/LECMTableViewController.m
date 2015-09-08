@@ -32,6 +32,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LECMTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LECMTableCell class])];
+#warning проверка не будет нужна, если использовать метод dequeueReusableCellWithIdentifier:forIndexPath:
     if (!cell) {
         cell = [LECMTableCell new];
     }
