@@ -7,6 +7,7 @@
 //
 
 #import "constants.h"
+#warning два одинаковых импорта
 #import "LECMContainerViewController.h"
 #import "LECMContainerViewController.h"
 #import "LECMCollectionViewController.h"
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) LECMTableViewController *tableController;
 @property (strong, nonatomic) LECMCollectionViewController *collectionController;
 @property (strong, nonatomic) UIViewController *currentViewController;
+#warning не лучшее название переменной - переименойте
 @property (assign, nonatomic) BOOL isChange;
 
 @end
@@ -61,7 +63,7 @@
     [self.view addSubview:controller.view];
     
     UIViewAnimationOptions opt = UIViewAnimationOptionCurveLinear;
-    
+#warning продолжительность анимации следует вынести в локальные константы
     [UIView animateWithDuration:2.0f delay:0.0f options:opt animations:^{
             } completion:^(BOOL finished) {
         

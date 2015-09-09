@@ -11,6 +11,7 @@
 
 @implementation LECMTableCell
 
+#warning следующие два метода нужно удалить
 - (void)awakeFromNib {
     // Initialization code
 }

@@ -10,6 +10,7 @@
 
 @interface LECMAddNewViewController : UIViewController
 
+#warning действительно ли нужно показывать свойство и метод в *.h?
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 - (IBAction)saveButtonPressed:(id)sender;

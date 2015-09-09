@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#warning здесь справедливы все замечания из LECMCollectionCell
+
 @interface LECMTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *CMImage;

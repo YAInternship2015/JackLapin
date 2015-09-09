@@ -27,6 +27,7 @@
     
 }
 
+#warning этот метод можно удалить
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -35,6 +36,7 @@
 #pragma mark UICollectionViewDelegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+#warning все цифры в этом методе - магические, непонятно, что они означают. По уму для каждой надо обхявить локальную константу
     CGFloat mainScreen = CGRectGetWidth([UIScreen mainScreen].bounds);
     CGFloat cellSize = (mainScreen / 100 < 4) ? (mainScreen - 20.f) / 3 : (mainScreen - 25.f) / 4;
     return CGSizeMake(cellSize, cellSize);

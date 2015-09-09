@@ -22,6 +22,7 @@
     [self.view addGestureRecognizer:tap];
 }
 
+#warning этот метод можно удалить
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

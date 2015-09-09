@@ -11,6 +11,7 @@
 
 @interface LEDataSource ()
 
+#warning имя переменной ничего не говорит о ее содержимом. Лучше как-то вроде factoriesArray
 @property (strong, nonatomic) NSArray *CMArray;
 
 @end
@@ -39,6 +40,7 @@
 
 - (void)loadArrayWithPlist {
     _CMArray = [NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
+#warning перед тем, как вызвать у делегата метод, который был объявлен в протоколе делегата, необходимо убедиться, что делегат действительно реализовал этот метод. Для этого существует метод respondsToSelector:... , иначе можно словить креш
     [self.delegate dataWasChanged:self];
 }
 
@@ -69,6 +71,7 @@
 #pragma mark - DataManage methods
 
 + (void)addCM:(LECMFactory *)cmObject {
+#warning преобразование модели в NSDictionary должно быть реализовано в категории на модель в методе -dictionaryRepresentation
     NSDictionary *newModel = @{@"name" : cmObject.name,@"imageName" : NoImage};
     
     NSMutableArray *tempModelsArray = [NSMutableArray arrayWithContentsOfFile:[NSString documentsFolderPath]];

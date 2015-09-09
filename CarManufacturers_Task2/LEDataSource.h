@@ -19,8 +19,10 @@
 - (instancetype)initWithDelegate:(id<CMDataSourceDelegate>)delegate;
 
 - (NSUInteger)countModels;
+#warning датасорс должен возвращать модель, а не NSDictionary
 - (NSDictionary *)modelForIndex:(NSInteger)index;
 
+#warning методы, которые не вызываются извне, не стоит показывать в *.h файле
 + (void)copyPlistToAppDocumentsFolder;
 + (void)addCM:(LECMFactory *)cmObject;
 

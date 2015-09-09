@@ -14,18 +14,18 @@
 		FDD763521B9A4EC400946CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD763501B9A4EC400946CDE /* LaunchScreen.storyboard */; };
 		FDD7635D1B9A4EC400946CDE /* CarManufacturersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7635C1B9A4EC400946CDE /* CarManufacturersTests.m */; };
 		FDD763681B9A4EC400946CDE /* CarManufacturersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763671B9A4EC400946CDE /* CarManufacturersUITests.m */; };
-		FDD763771B9A54EC00946CDE /* LECMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763761B9A54EC00946CDE /* LECMTableCell.m */; settings = {ASSET_TAGS = (); }; };
-		FDD7637A1B9A550A00946CDE /* LECMCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763791B9A550A00946CDE /* LECMCollectionCell.m */; settings = {ASSET_TAGS = (); }; };
-		FDD7637E1B9A554600946CDE /* LECMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7637D1B9A554600946CDE /* LECMCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763801B9A557700946CDE /* LECMTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FDD7638A1B9A577C00946CDE /* LECMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763891B9A577C00946CDE /* LECMContainerViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FDD7638E1B9A589A00946CDE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7638D1B9A589A00946CDE /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FDD763901B9A59E100946CDE /* CarManufacturers.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */; settings = {ASSET_TAGS = (); }; };
-		FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763921B9A6D7F00946CDE /* LECMFactory.m */; settings = {ASSET_TAGS = (); }; };
-		FDD763961B9A6DA600946CDE /* LEDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763951B9A6DA600946CDE /* LEDataSource.m */; settings = {ASSET_TAGS = (); }; };
-		FDD763A11B9A75F000946CDE /* LECMAddNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763A01B9A75F000946CDE /* LECMAddNewViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FDD764401B9B582F00946CDE /* NSString+ApplcationPathes.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7643F1B9B582F00946CDE /* NSString+ApplcationPathes.m */; settings = {ASSET_TAGS = (); }; };
-		FDD764451B9B5BDE00946CDE /* LECMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD764441B9B5BDE00946CDE /* LECMValidator.m */; settings = {ASSET_TAGS = (); }; };
+		FDD763771B9A54EC00946CDE /* LECMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763761B9A54EC00946CDE /* LECMTableCell.m */; };
+		FDD7637A1B9A550A00946CDE /* LECMCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763791B9A550A00946CDE /* LECMCollectionCell.m */; };
+		FDD7637E1B9A554600946CDE /* LECMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7637D1B9A554600946CDE /* LECMCollectionViewController.m */; };
+		FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763801B9A557700946CDE /* LECMTableViewController.m */; };
+		FDD7638A1B9A577C00946CDE /* LECMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763891B9A577C00946CDE /* LECMContainerViewController.m */; };
+		FDD7638E1B9A589A00946CDE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7638D1B9A589A00946CDE /* MainViewController.m */; };
+		FDD763901B9A59E100946CDE /* CarManufacturers.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */; };
+		FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763921B9A6D7F00946CDE /* LECMFactory.m */; };
+		FDD763961B9A6DA600946CDE /* LEDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763951B9A6DA600946CDE /* LEDataSource.m */; };
+		FDD763A11B9A75F000946CDE /* LECMAddNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763A01B9A75F000946CDE /* LECMAddNewViewController.m */; };
+		FDD764401B9B582F00946CDE /* NSString+ApplcationPathes.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7643F1B9B582F00946CDE /* NSString+ApplcationPathes.m */; };
+		FDD764451B9B5BDE00946CDE /* LECMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD764441B9B5BDE00946CDE /* LECMValidator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,7 +385,6 @@
 				TargetAttributes = {
 					FDD7633E1B9A4EC400946CDE = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = UCN646ZLE7;
 					};
 					FDD763571B9A4EC400946CDE = {
 						CreatedOnToolsVersion = 7.0;
@@ -603,6 +602,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = CarManufacturers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -615,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = CarManufacturers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
