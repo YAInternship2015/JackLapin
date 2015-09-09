@@ -59,7 +59,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="l7C-qU-yPq">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="PFU-vq-TBv"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="addNewController" id="PFU-vq-TBv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -185,7 +185,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVK-u6-Soy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5237" y="1344"/>
+            <point key="canvasLocation" x="-5234" y="1244"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="zJ5-l6-tkh">
@@ -215,7 +215,7 @@
                                             <rect key="frame" x="126" y="8" width="42" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -243,7 +243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-cm-hvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4381" y="1354"/>
+            <point key="canvasLocation" x="-4566" y="1244"/>
         </scene>
     </scenes>
 </document>
