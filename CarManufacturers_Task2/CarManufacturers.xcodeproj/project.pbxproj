@@ -79,7 +79,7 @@
 		FDD763951B9A6DA600946CDE /* LEDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataSource.m; sourceTree = "<group>"; };
 		FDD7639F1B9A75F000946CDE /* LECMAddNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMAddNewViewController.h; sourceTree = "<group>"; };
 		FDD763A01B9A75F000946CDE /* LECMAddNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMAddNewViewController.m; sourceTree = "<group>"; };
-		FDD763A71B9ABE3200946CDE /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		FDD763A71B9ABE3200946CDE /* CMconstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMconstants.h; sourceTree = "<group>"; };
 		FDD7643E1B9B582F00946CDE /* NSString+ApplcationPathes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ApplcationPathes.h"; sourceTree = "<group>"; };
 		FDD7643F1B9B582F00946CDE /* NSString+ApplcationPathes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ApplcationPathes.m"; sourceTree = "<group>"; };
 		FDD764431B9B5BDE00946CDE /* LECMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMValidator.h; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD763411B9A4EC400946CDE /* CarManufacturers */,
-				FDD763A71B9ABE3200946CDE /* constants.h */,
+				FDD763A71B9ABE3200946CDE /* CMconstants.h */,
 				FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */,
 				FDD7635B1B9A4EC400946CDE /* CarManufacturersTests */,
 				FDD763661B9A4EC400946CDE /* CarManufacturersUITests */,

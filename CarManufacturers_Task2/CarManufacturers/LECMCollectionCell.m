@@ -7,7 +7,7 @@
 //
 
 #import "LECMCollectionCell.h"
-#import "constants.h"
+#import "CMconstants.h"
 
 @interface LECMCollectionCell()
 

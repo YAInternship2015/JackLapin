@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#warning потеряли префикс приложения в имени файла
-
-#warning также в именах глобальных "проектных" констант также следует испольщовать префикс приложения в начале имени
-static NSString *const NoImage = @"NoImage";
+static NSString *const NoImage = @"CMNoImage";
 
 
 #pragma mark - Stroryboard IDs

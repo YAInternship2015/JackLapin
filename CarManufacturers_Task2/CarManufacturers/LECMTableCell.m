@@ -7,18 +7,17 @@
 //
 
 #import "LECMTableCell.h"
-#import "constants.h"
+#import "CMconstants.h"
+
+@interface LECMTableCell ()
+
+@property (nonatomic, weak) IBOutlet UIImageView *CMImage;
+
+@property (nonatomic, weak) IBOutlet UILabel *CMName;
+
+@end
 
 @implementation LECMTableCell
-
-#warning следующие два метода нужно удалить
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
 
 - (void)configWithCM:(NSDictionary *)model {
     self.backgroundColor = [UIColor greenColor];

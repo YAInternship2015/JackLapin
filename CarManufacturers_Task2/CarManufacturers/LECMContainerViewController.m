@@ -6,7 +6,9 @@
 //  Copyright © 2015 Jack Lapin. All rights reserved.
 //
 
-#import "constants.h"
+float const animationDuration = 2.0f;
+
+#import "CMconstants.h"
 #import "LECMContainerViewController.h"
 #import "LECMCollectionViewController.h"
 #import "LECMTableViewController.h"
@@ -18,8 +20,7 @@
 @property (strong, nonatomic) LECMTableViewController *tableController;
 @property (strong, nonatomic) LECMCollectionViewController *collectionController;
 @property (strong, nonatomic) UIViewController *currentViewController;
-#warning не лучшее название переменной - переименойте
-@property (assign, nonatomic) BOOL isChange;
+@property (assign, nonatomic) BOOL isCollectionControllerActivated;
 
 @end
 
@@ -27,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.isChange = NO;
+    self.isCollectionControllerActivated = NO;
     
     self.tableController = [self.storyboard instantiateViewControllerWithIdentifier:TableControllerID];
     self.collectionController = [self.storyboard instantiateViewControllerWithIdentifier:CollectionControllerID];
@@ -61,8 +62,7 @@
     [self.view addSubview:controller.view];
     
     UIViewAnimationOptions opt = UIViewAnimationOptionCurveLinear;
-#warning продолжительность анимации следует вынести в локальные константы
-    [UIView animateWithDuration:2.0f delay:0.0f options:opt animations:^{
+    [UIView animateWithDuration:animationDuration delay:0.0f options:opt animations:^{
             } completion:^(BOOL finished) {
         
         [self.currentViewController.view removeFromSuperview];
@@ -75,12 +75,12 @@
 #pragma mark - Actions
 
 - (void)swapViewControllers:(UINavigationItem *)navigationItem {
-    if (!self.isChange) {
+    if (!self.isCollectionControllerActivated) {
         [self swapCurrentControllerWith:self.collectionController];
-        self.isChange = YES;
+        self.isCollectionControllerActivated = YES;
     } else {
         [self swapCurrentControllerWith:self.tableController];
-        self.isChange = NO;
+        self.isCollectionControllerActivated = NO;
     }
 }
 

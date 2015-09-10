@@ -12,10 +12,6 @@
 
 @interface LECMTableCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *CMImage;
-
-@property (weak, nonatomic) IBOutlet UILabel *CMName;
-
 - (void)configWithCM:(NSDictionary *)model;
 
 @end
