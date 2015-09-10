@@ -15,12 +15,4 @@
     return dictModel;
 }
 
-
--(LECMFactory *)modelFromDictionatyRepresentation:(NSDictionary *)dictModel {
-    LECMFactory * model;
-    model.name = [dictModel objectForKey:@"name"];
-
-    return model;
-}
-
 @end

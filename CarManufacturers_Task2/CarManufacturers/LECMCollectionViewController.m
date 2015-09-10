@@ -12,6 +12,12 @@
 #import "LEDataSource.h"
 #import "LECMCollectionCell.h"
 
+int const quantityOfCellsInRow = 4;
+int const preferesCellSize = 100;
+float const cellSpacing = 30.f;
+
+
+
 @interface LECMCollectionViewController () <CMDataSourceDelegate>
 
 @property (strong, nonatomic) LEDataSource *dataSource;
@@ -30,9 +36,9 @@
 #pragma mark UICollectionViewDelegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-#warning все цифры в этом методе - магические, непонятно, что они означают. По уму для каждой надо обхявить локальную константу
+//#warning все цифры в этом методе - магические, непонятно, что они означают. По уму для каждой надо обхявить локальную константу
     CGFloat mainScreen = CGRectGetWidth([UIScreen mainScreen].bounds);
-    CGFloat cellSize = (mainScreen / 100 < 4) ? (mainScreen - 20.f) / 3 : (mainScreen - 25.f) / 4;
+    CGFloat cellSize = (mainScreen / preferesCellSize < quantityOfCellsInRow) ? (mainScreen - cellSpacing) / (quantityOfCellsInRow -1) : (mainScreen - cellSpacing-5) / quantityOfCellsInRow;
     return CGSizeMake(cellSize, cellSize);
 }
 

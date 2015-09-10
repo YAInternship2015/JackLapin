@@ -11,7 +11,5 @@
 @interface LECMFactory (DictionaryRepresentation)
 
 -(NSDictionary*) dictionaryFromModelRepresentation :(LECMFactory*) model;
--(LECMFactory*) modelFromDictionatyRepresentation :(NSDictionary*) dictModel;
-
 
 @end
