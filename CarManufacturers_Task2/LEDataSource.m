@@ -11,8 +11,7 @@
 
 @interface LEDataSource ()
 
-#warning имя переменной ничего не говорит о ее содержимом. Лучше как-то вроде factoriesArray
-@property (strong, nonatomic) NSArray *CMArray;
+@property (strong, nonatomic) NSArray *CMfactoriesArray;
 
 @end
 
@@ -39,17 +38,17 @@
 #pragma mark - DataSource methods
 
 - (void)loadArrayWithPlist {
-    _CMArray = [NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
+    _CMfactoriesArray = [NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
 #warning перед тем, как вызвать у делегата метод, который был объявлен в протоколе делегата, необходимо убедиться, что делегат действительно реализовал этот метод. Для этого существует метод respondsToSelector:... , иначе можно словить креш
     [self.delegate dataWasChanged:self];
 }
 
 - (NSUInteger)countModels {
-    return [self.CMArray count];
+    return [self.CMfactoriesArray count];
 }
 
 - (NSDictionary *)modelForIndex:(NSInteger)index {
-    return self.CMArray[index];
+    return self.CMfactoriesArray[index];
 }
 
 - (void)reloadArrayWithPlist {
