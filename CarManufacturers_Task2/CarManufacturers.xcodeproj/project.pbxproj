@@ -19,7 +19,7 @@
 		FDD7637E1B9A554600946CDE /* LECMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7637D1B9A554600946CDE /* LECMCollectionViewController.m */; };
 		FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763801B9A557700946CDE /* LECMTableViewController.m */; };
 		FDD7638A1B9A577C00946CDE /* LECMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763891B9A577C00946CDE /* LECMContainerViewController.m */; };
-		FDD7638E1B9A589A00946CDE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7638D1B9A589A00946CDE /* MainViewController.m */; };
+		FDD7638E1B9A589A00946CDE /* LECMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD7638D1B9A589A00946CDE /* LECMMainViewController.m */; };
 		FDD763901B9A59E100946CDE /* CarManufacturers.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */; };
 		FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763921B9A6D7F00946CDE /* LECMFactory.m */; };
 		FDD763961B9A6DA600946CDE /* LEDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763951B9A6DA600946CDE /* LEDataSource.m */; };
@@ -70,8 +70,8 @@
 		FDD763801B9A557700946CDE /* LECMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMTableViewController.m; sourceTree = "<group>"; };
 		FDD763881B9A577C00946CDE /* LECMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMContainerViewController.h; sourceTree = "<group>"; };
 		FDD763891B9A577C00946CDE /* LECMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMContainerViewController.m; sourceTree = "<group>"; };
-		FDD7638C1B9A589A00946CDE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		FDD7638D1B9A589A00946CDE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FDD7638C1B9A589A00946CDE /* LECMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMMainViewController.h; sourceTree = "<group>"; };
+		FDD7638D1B9A589A00946CDE /* LECMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMMainViewController.m; sourceTree = "<group>"; };
 		FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CarManufacturers.plist; sourceTree = "<group>"; };
 		FDD763911B9A6D7F00946CDE /* LECMFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMFactory.h; sourceTree = "<group>"; };
 		FDD763921B9A6D7F00946CDE /* LECMFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMFactory.m; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 		FDD763871B9A55FF00946CDE /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FDD7638C1B9A589A00946CDE /* MainViewController.h */,
-				FDD7638D1B9A589A00946CDE /* MainViewController.m */,
+				FDD7638C1B9A589A00946CDE /* LECMMainViewController.h */,
+				FDD7638D1B9A589A00946CDE /* LECMMainViewController.m */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -458,7 +458,7 @@
 				FDD764401B9B582F00946CDE /* NSString+ApplcationPathes.m in Sources */,
 				FDD763A11B9A75F000946CDE /* LECMAddNewViewController.m in Sources */,
 				FDD764451B9B5BDE00946CDE /* LECMValidator.m in Sources */,
-				FDD7638E1B9A589A00946CDE /* MainViewController.m in Sources */,
+				FDD7638E1B9A589A00946CDE /* LECMMainViewController.m in Sources */,
 				FDD763441B9A4EC400946CDE /* main.m in Sources */,
 				FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */,
 				FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */,

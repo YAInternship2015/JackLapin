@@ -12,6 +12,10 @@
 
 @interface LECMAddNewViewController () <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+- (IBAction)saveButtonPressed:(id)sender;
+
 @end
 
 @implementation LECMAddNewViewController

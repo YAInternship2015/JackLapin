@@ -25,7 +25,7 @@
         <!--Main View Controller-->
         <scene sceneID="7nl-x8-uuX">
             <objects>
-                <viewController id="7yg-7j-4wq" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="7yg-7j-4wq" customClass="LECMMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TVD-wo-tjy"/>
                         <viewControllerLayoutGuide type="bottom" id="5C3-zu-tUk"/>
@@ -127,8 +127,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Zhu-VG-0DQ" kind="custom" id="HEi-XL-RVy"/>
-                        <segue destination="Nyz-X9-YHD" kind="custom" id="eN1-OA-6Dh"/>
+                        <segue destination="Zhu-VG-0DQ" kind="custom" identifier="tableVCSegue" id="HEi-XL-RVy"/>
+                        <segue destination="Nyz-X9-YHD" kind="custom" identifier="collectionVCSegue" id="eN1-OA-6Dh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWL-fo-S1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>

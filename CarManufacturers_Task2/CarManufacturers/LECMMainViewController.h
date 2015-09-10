@@ -1,5 +1,5 @@
 //
-//  LECMAddNewViewController.h
+//  MainViewController.h
 //  CarManufacturers
 //
 //  Created by Jack Lapin on 05.09.15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LECMAddNewViewController : UIViewController
+
+@interface LECMMainViewController : UIViewController
+
 
 @end

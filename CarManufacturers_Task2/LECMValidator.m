@@ -8,12 +8,15 @@
 
 #import "LECMValidator.h"
 
+NSInteger const minLenghAllowed = 3;
 
 @implementation LECMValidator
+{
+    
+}
 
 + (BOOL)isValidModelTitle:(NSString *)title error:(NSError **)error {
-#warning цифру 3 следует вынести в локальные константы, чтобы было ясно, что это
-    if ([title length]<3){
+    if ([title length]<minLenghAllowed){
         NSString *errorMessage;
         NSInteger errorCode = 0;
 #warning тексты, которые создаются в коде и которые увидит юзер в UI, должны быть объявлены в файле Localizable.strings. Что это за файл и зачем он нужен очень легко найти в гугле
