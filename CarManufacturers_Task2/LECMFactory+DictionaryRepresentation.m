@@ -10,7 +10,7 @@
 
 @implementation LECMFactory (DictionaryRepresentation)
 
--(NSDictionary *)dictionaryFormModelRepresentation:(LECMFactory *)model {
+-(NSDictionary *)dictionaryFromModelRepresentation:(LECMFactory *)model {
     NSDictionary *dictModel = @{@"name" : model.name,@"imageName" : model.imageName};
     return dictModel;
 }
