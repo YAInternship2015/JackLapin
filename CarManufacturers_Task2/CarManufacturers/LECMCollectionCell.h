@@ -10,9 +10,6 @@
 
 @interface LECMCollectionCell : UICollectionViewCell
 
-#warning аутлет нет необходимости показывать в *.h, перенесите его в *.m
-@property (weak, nonatomic) IBOutlet UIImageView *CMImage;
-
 #warning в метод должна передаваться модель, а не NSDictionary
 - (void)configWithModel:(NSDictionary *)model;
 

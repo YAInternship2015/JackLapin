@@ -22,11 +22,6 @@
     [self.view addGestureRecognizer:tap];
 }
 
-#warning этот метод можно удалить
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
@@ -50,7 +45,7 @@
     }
     else{
         
-        [LEDataSource addCM:[LECMFactory initModelWithName:name]];
+        [LEDataSource addCM:[LECMFactory modelWithName:name]];
         [self.navigationController popViewControllerAnimated:YES];
         
     }

@@ -7,8 +7,6 @@
 //
 
 #import "constants.h"
-#warning два одинаковых импорта
-#import "LECMContainerViewController.h"
 #import "LECMContainerViewController.h"
 #import "LECMCollectionViewController.h"
 #import "LECMTableViewController.h"

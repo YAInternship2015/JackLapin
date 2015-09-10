@@ -9,6 +9,12 @@
 #import "LECMCollectionCell.h"
 #import "constants.h"
 
+@interface LECMCollectionCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *CMImage;
+
+@end
+
 @implementation LECMCollectionCell
 
 - (void)configWithModel:(NSDictionary *)model {

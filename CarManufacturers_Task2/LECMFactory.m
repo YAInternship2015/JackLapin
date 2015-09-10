@@ -7,10 +7,11 @@
 //
 
 #import "LECMFactory.h"
-
+@interface LECMFactory ()
+@property (nonatomic, strong) NSString *name;
+@end
 @implementation LECMFactory
-
-+ (LECMFactory *)initModelWithName:(NSString *)name {
++ (LECMFactory *)modelWithName:(NSString *)name {
     LECMFactory *model = [LECMFactory new];
     model.name = name;
     model.imageName = @"NoImage";

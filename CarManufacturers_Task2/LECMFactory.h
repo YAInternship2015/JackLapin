@@ -11,10 +11,12 @@
 @interface LECMFactory : NSObject
 
 #warning по нашим гайдлайнам следует писать (nonatomic, strong). Также, не стоит в *.h показывать свойства с доступом readwrite, тогда его смодет изменить кто угодно извне. В *.h следует их показывать как readonly, а уже в *.m - readwrite
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *imageName;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, strong) NSString *imageName;
 
 #warning init методы всегда методы экземпляра (-). Если хотите метод класса (+), то называться он должен modelWithName:
-+ (LECMFactory *)initModelWithName:(NSString *)name;
+// правильно сказано. так просто не принято писать
++ (LECMFactory *)modelWithName:(NSString *)name;
+//+ (LECMFactory *)initModelWithName:(NSString *)name;
 
 @end
