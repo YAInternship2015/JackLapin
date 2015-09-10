@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  CarManufacturers
+
+  Created by Jack Lapin on 10.09.15.
+  Copyright © 2015 Jack Lapin. All rights reserved.
+*/
+
+"The Name must be at least 3 characters." = "Наименование не может содержать менее 3-х символов";
+"Error" = "Ошибка";
