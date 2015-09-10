@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6E5258D702F17D44885BB5CB1754A9F45978E96A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "84CD8E4C56C7BC21573CE36216B9E75ADA49952D" : 0,
+    "6E5258D702F17D44885BB5CB1754A9F45978E96A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A8FCCB7B-BDCF-44AA-8287-7FC87AAABABE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "84CD8E4C56C7BC21573CE36216B9E75ADA49952D" : "..",
+    "6E5258D702F17D44885BB5CB1754A9F45978E96A" : "JackLapin\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CarManufacturers",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CarManufacturers_Task2\/CarManufacturers.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/YAInternship2015\/JackLapin.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E5258D702F17D44885BB5CB1754A9F45978E96A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lapin-ev\/study_itStep",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84CD8E4C56C7BC21573CE36216B9E75ADA49952D"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
 //
 #import "CMconstants.h"
 #import "LEDataSource.h"
-#import "LECMFactory.h"
+#import "LECMFactory+DictionaryRepresentation.h"
 
 @interface LEDataSource ()
 
@@ -39,16 +39,28 @@
 
 - (void)loadArrayWithPlist {
     _CMfactoriesArray = [NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
-#warning перед тем, как вызвать у делегата метод, который был объявлен в протоколе делегата, необходимо убедиться, что делегат действительно реализовал этот метод. Для этого существует метод respondsToSelector:... , иначе можно словить креш
-    [self.delegate dataWasChanged:self];
+    
+    
+    //#warning перед тем, как вызвать у делегата метод, который был объявлен в протоколе делегата, необходимо убедиться, что делегат действительно реализовал этот метод. Для этого существует метод respondsToSelector:... , иначе можно словить креш
+    // Проверку пставить можно, но этод метод обьявлен как @required, что обязует любой класс реализующий данный протокол реализовывать этот метод
+    // Если проверка селектора даже для required метода является хорошим тоном, то - не проблема :
+    if ([self.delegate respondsToSelector:@selector(dataWasChanged:)]) {
+        [self.delegate dataWasChanged:self];
+    }
+    
 }
+
 
 - (NSUInteger)countModels {
     return [self.CMfactoriesArray count];
 }
 
-- (NSDictionary *)modelForIndex:(NSInteger)index {
-    return self.CMfactoriesArray[index];
+- (LECMFactory *)modelForIndex:(NSInteger)index {
+    LECMFactory * model = [LECMFactory new];
+    NSMutableDictionary * dict = (NSMutableDictionary*)[self.CMfactoriesArray objectAtIndex:index];
+    model.name =[dict objectForKey:@"name"];
+    model.imageName =[dict objectForKey:@"imageName"];
+    return model;
 }
 
 - (void)reloadArrayWithPlist {
@@ -70,9 +82,7 @@
 #pragma mark - DataManage methods
 
 + (void)addCM:(LECMFactory *)cmObject {
-#warning преобразование модели в NSDictionary должно быть реализовано в категории на модель в методе -dictionaryRepresentation
-    NSDictionary *newModel = @{@"name" : cmObject.name,@"imageName" : NoImage};
-    
+    NSDictionary *newModel = [cmObject dictionaryFromModelRepresentation:cmObject];
     NSMutableArray *tempModelsArray = [NSMutableArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
     [tempModelsArray addObject:newModel];
     

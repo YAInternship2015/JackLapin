@@ -6,7 +6,7 @@
 //  Copyright © 2015 Jack Lapin. All rights reserved.
 //
 
-float const animationDuration = 2.0f;
+float const animationDuration = 0.5f;
 
 #import "CMconstants.h"
 #import "LECMContainerViewController.h"
@@ -17,10 +17,10 @@ float const animationDuration = 2.0f;
 
 @interface LECMContainerViewController ()
 
-@property (strong, nonatomic) LECMTableViewController *tableController;
-@property (strong, nonatomic) LECMCollectionViewController *collectionController;
-@property (strong, nonatomic) UIViewController *currentViewController;
-@property (assign, nonatomic) BOOL isCollectionControllerActivated;
+@property (nonatomic, strong) LECMTableViewController *tableController;
+@property (nonatomic, strong) LECMCollectionViewController *collectionController;
+@property (nonatomic, strong) UIViewController *currentViewController;
+@property (nonatomic, assign) BOOL isCollectionControllerActivated;
 
 @end
 
@@ -39,47 +39,34 @@ float const animationDuration = 2.0f;
 #pragma mark - ContainerViewController methods
 
 - (void)presentController:(UIViewController *)controller {
-    if (self.currentViewController) {
-        [self removeCurrentViewController];
-    }
+    UIViewController *prewVC = self.currentViewController;
+    self.currentViewController = controller;
+    [self.currentViewController willMoveToParentViewController:self];
     [self addChildViewController:controller];
     controller.view.frame = self.view.bounds;
     [self.view addSubview:controller.view];
-    self.currentViewController = controller;
-    [controller didMoveToParentViewController:self];
-}
-
-- (void)removeCurrentViewController {
-    [self.currentViewController willMoveToParentViewController:nil];
-    [self.currentViewController.view removeFromSuperview];
-    [self.currentViewController removeFromParentViewController];
-}
-
-- (void)swapCurrentControllerWith:(UIViewController *)controller {
+    [self.currentViewController didMoveToParentViewController:self];
     
-    [self.currentViewController willMoveToParentViewController:nil];
-    [self addChildViewController:controller];
-    [self.view addSubview:controller.view];
-    
-    UIViewAnimationOptions opt = UIViewAnimationOptionCurveLinear;
-    [UIView animateWithDuration:animationDuration delay:0.0f options:opt animations:^{
-            } completion:^(BOOL finished) {
-        
-        [self.currentViewController.view removeFromSuperview];
-        [self.currentViewController removeFromParentViewController];
-        self.currentViewController = controller;
-        [self.currentViewController didMoveToParentViewController:self];
-    }];
+    if (prewVC) {
+        UIViewAnimationOptions flipDirection = controller == self.tableController ? UIViewAnimationOptionTransitionFlipFromLeft : UIViewAnimationOptionTransitionFlipFromRight;
+        [UIView transitionFromView:prewVC.view toView:controller.view duration:animationDuration options:flipDirection completion:^(BOOL finished) {
+            //#comment проверка на завершение анимации прежде чем убивать вьюху
+            if (finished) {
+                [prewVC.view removeFromSuperview];
+                [prewVC removeFromParentViewController];
+            }
+        }];
+    }
 }
 
 #pragma mark - Actions
 
 - (void)swapViewControllers:(UINavigationItem *)navigationItem {
     if (!self.isCollectionControllerActivated) {
-        [self swapCurrentControllerWith:self.collectionController];
+        [self presentController:self.collectionController];
         self.isCollectionControllerActivated = YES;
     } else {
-        [self swapCurrentControllerWith:self.tableController];
+        [self presentController:self.tableController];
         self.isCollectionControllerActivated = NO;
     }
 }

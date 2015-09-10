@@ -42,6 +42,11 @@
     return [self.dataSource countModels];
 }
 
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LECMCollectionCell *cell = (LECMCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([LECMCollectionCell class]) forIndexPath:indexPath];
     [cell configWithModel:[self.dataSource modelForIndex:indexPath.row]];

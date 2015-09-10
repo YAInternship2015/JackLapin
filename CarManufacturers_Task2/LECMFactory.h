@@ -10,7 +10,7 @@
 
 @interface LECMFactory : NSObject
 
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *imageName;
 
 + (LECMFactory *)modelWithName:(NSString *)name;

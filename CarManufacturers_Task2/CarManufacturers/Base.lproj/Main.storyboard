@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAd-ZT-MW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5631" y="427"/>
+            <point key="canvasLocation" x="-5615" y="427"/>
         </scene>
         <!--Add New View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4917" y="-310"/>
+            <point key="canvasLocation" x="-4911" y="-311"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="5AC-BZ-SI8">
@@ -127,8 +127,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Zhu-VG-0DQ" kind="custom" identifier="tableVCSegue" id="HEi-XL-RVy"/>
-                        <segue destination="Nyz-X9-YHD" kind="custom" identifier="collectionVCSegue" id="eN1-OA-6Dh"/>
+                        <segue destination="Zhu-VG-0DQ" kind="show" identifier="tableVCSegue" id="HEi-XL-RVy"/>
+                        <segue destination="Nyz-X9-YHD" kind="show" identifier="collectionVCSegue" id="eN1-OA-6Dh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWL-fo-S1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,7 +140,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="LECMCollectionViewController" id="Nyz-X9-YHD" customClass="LECMCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Zkz-iX-0TG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uwK-oz-xwF">
@@ -192,7 +192,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="LECMTableViewController" id="Zhu-VG-0DQ" customClass="LECMTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="o1h-eK-oHr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

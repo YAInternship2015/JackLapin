@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#warning здесь справедливы все замечания из LECMCollectionCell
+#import "LECMFactory.h"
 
 @interface LECMTableCell : UITableViewCell
 
-- (void)configWithCM:(NSDictionary *)model;
+- (void)configWithCM:(LECMFactory *)model;
 
 @end

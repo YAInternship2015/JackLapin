@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class LECMFactory;
+
+
+
 @interface LECMCollectionCell : UICollectionViewCell
 
-#warning в метод должна передаваться модель, а не NSDictionary
-- (void)configWithModel:(NSDictionary *)model;
+//#warning в метод должна передаваться модель, а не NSDictionary
+- (void)configWithModel:(LECMFactory *)model;
 
 @end

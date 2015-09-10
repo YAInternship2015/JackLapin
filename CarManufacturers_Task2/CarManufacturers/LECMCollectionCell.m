@@ -8,6 +8,7 @@
 
 #import "LECMCollectionCell.h"
 #import "CMconstants.h"
+#import "LECMFactory.h"
 
 @interface LECMCollectionCell()
 
@@ -17,9 +18,8 @@
 
 @implementation LECMCollectionCell
 
-- (void)configWithModel:(NSDictionary *)model {
-    self.backgroundColor = [UIColor grayColor];
-    self.CMImage.image = [UIImage imageNamed:model[@"imageName"]];
+- (void)configWithModel:(LECMFactory *)model {
+    self.CMImage.image = [UIImage imageNamed:model.imageName];
 }
 
 @end

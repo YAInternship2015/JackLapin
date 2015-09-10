@@ -17,13 +17,8 @@ NSInteger const minLenghAllowed = 3;
 
 + (BOOL)isValidModelTitle:(NSString *)title error:(NSError **)error {
     if ([title length]<minLenghAllowed){
-        NSString *errorMessage;
-        NSInteger errorCode = 0;
-#warning тексты, которые создаются в коде и которые увидит юзер в UI, должны быть объявлены в файле Localizable.strings. Что это за файл и зачем он нужен очень легко найти в гугле
-#warning также, зачем вначале объявлять переменную и затем только задавать ей начальное значение? Инициализируйте уже со значением
-        errorMessage = @"The Name must be at least 3 characters.";
-        errorCode = 77;
-        
+        NSInteger errorCode = 77;
+        NSString *errorMessage =[NSString stringWithFormat:NSLocalizedString(@"The Name must be at least 3 characters.", nil)];
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey : errorMessage};
         
         if (error != NULL) {
@@ -34,22 +29,5 @@ NSInteger const minLenghAllowed = 3;
     return YES;
 }
 
-#warning создавать алерт - никак не ответственность валидатора, это необходимо делать либо в самом вью контроллере, либо в фабрике алертов
-+ (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:title
-                                  message:message
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"OK"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                         }];
-    
-    [alert addAction:ok];
-    return alert;
-}
+
 @end

@@ -14,6 +14,5 @@
 @interface LECMValidator : NSObject
 
 + (BOOL)isValidModelTitle:(NSString *)title error:(NSError **)error;
-+ (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "LECMAddNewViewController.h"
+#import "LEAlertFactory.h"
 #import "LECMValidator.h"
 #import "LEDataSource.h"
 
@@ -43,7 +44,7 @@
     
     if (![LECMValidator isValidModelTitle:name error:&error]) {
         
-        UIAlertController * alert = [LECMValidator showAlertWithTitle:@"Error" message:[error localizedDescription]];
+        UIAlertController * alert = [LEAlertFactory showAlertWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Error", nil)] message:[error localizedDescription]];
         
         [self presentViewController:alert animated:YES completion:nil];
     }

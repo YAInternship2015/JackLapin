@@ -19,10 +19,10 @@
 
 @implementation LECMTableCell
 
-- (void)configWithCM:(NSDictionary *)model {
+- (void)configWithCM:(LECMFactory *)model {
     self.backgroundColor = [UIColor greenColor];
-    self.CMName.text = model[@"name"];
-    self.CMImage.image = [UIImage imageNamed:model[@"imageName"]];
+    self.CMName.text = model.name;
+    self.CMImage.image = [UIImage imageNamed:model.imageName];
 }
 
 @end

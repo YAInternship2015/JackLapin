@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD3540711BA1CF89004CC521 /* LECMSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3540701BA1CF89004CC521 /* LECMSegue.m */; settings = {ASSET_TAGS = (); }; };
+		FD3540751BA1E5B2004CC521 /* LEAlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3540741BA1E5B2004CC521 /* LEAlertFactory.m */; settings = {ASSET_TAGS = (); }; };
+		FD35407B1BA1EA3C004CC521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD35407D1BA1EA3C004CC521 /* Localizable.strings */; };
+		FD3540811BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3540801BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.m */; settings = {ASSET_TAGS = (); }; };
 		FDD763441B9A4EC400946CDE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763431B9A4EC400946CDE /* main.m */; };
 		FDD763471B9A4EC400946CDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD763461B9A4EC400946CDE /* AppDelegate.m */; };
 		FDD7634D1B9A4EC400946CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD7634B1B9A4EC400946CDE /* Main.storyboard */; };
@@ -46,6 +50,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD35406F1BA1CF89004CC521 /* LECMSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECMSegue.h; sourceTree = "<group>"; };
+		FD3540701BA1CF89004CC521 /* LECMSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECMSegue.m; sourceTree = "<group>"; };
+		FD3540731BA1E5B2004CC521 /* LEAlertFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAlertFactory.h; sourceTree = "<group>"; };
+		FD3540741BA1E5B2004CC521 /* LEAlertFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAlertFactory.m; sourceTree = "<group>"; };
+		FD3540791BA1E9D6004CC521 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		FD35407A1BA1E9D6004CC521 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FD35407C1BA1EA3C004CC521 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD35407E1BA1EA73004CC521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD35407F1BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LECMFactory+DictionaryRepresentation.h"; sourceTree = "<group>"; };
+		FD3540801BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LECMFactory+DictionaryRepresentation.m"; sourceTree = "<group>"; };
 		FDD7633F1B9A4EC400946CDE /* CarManufacturers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarManufacturers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD763431B9A4EC400946CDE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDD763451B9A4EC400946CDE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,11 +125,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD3540721BA1E55B004CC521 /* segue */ = {
+			isa = PBXGroup;
+			children = (
+				FD35406F1BA1CF89004CC521 /* LECMSegue.h */,
+				FD3540701BA1CF89004CC521 /* LECMSegue.m */,
+			);
+			name = segue;
+			sourceTree = "<group>";
+		};
+		FD3540761BA1E5B9004CC521 /* AlertFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FD3540731BA1E5B2004CC521 /* LEAlertFactory.h */,
+				FD3540741BA1E5B2004CC521 /* LEAlertFactory.m */,
+			);
+			name = AlertFactory;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		FDD763361B9A4EC400946CDE = {
 			isa = PBXGroup;
 			children = (
 				FDD763411B9A4EC400946CDE /* CarManufacturers */,
 				FDD763A71B9ABE3200946CDE /* CMconstants.h */,
+				FD35407D1BA1EA3C004CC521 /* Localizable.strings */,
 				FDD7638F1B9A59E100946CDE /* CarManufacturers.plist */,
 				FDD7635B1B9A4EC400946CDE /* CarManufacturersTests */,
 				FDD763661B9A4EC400946CDE /* CarManufacturersUITests */,
@@ -136,10 +170,12 @@
 		FDD763411B9A4EC400946CDE /* CarManufacturers */ = {
 			isa = PBXGroup;
 			children = (
+				FD3540761BA1E5B9004CC521 /* AlertFactory */,
 				FDD764461B9B5BF100946CDE /* Validator */,
 				FDD763971B9A6DB000946CDE /* CM model */,
 				FDD7637B1B9A551700946CDE /* cells */,
 				FDD763821B9A557F00946CDE /* controllers */,
+				FD3540721BA1E55B004CC521 /* segue */,
 				FDD763A61B9ABDB000946CDE /* Categories */,
 				FDD763461B9A4EC400946CDE /* AppDelegate.m */,
 				FDD763451B9A4EC400946CDE /* AppDelegate.h */,
@@ -277,6 +313,8 @@
 			children = (
 				FDD763941B9A6DA600946CDE /* LEDataSource.h */,
 				FDD763951B9A6DA600946CDE /* LEDataSource.m */,
+				FD35407F1BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.h */,
+				FD3540801BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.m */,
 			);
 			name = LEDataSource;
 			sourceTree = "<group>";
@@ -423,6 +461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD35407B1BA1EA3C004CC521 /* Localizable.strings in Resources */,
 				FDD763521B9A4EC400946CDE /* LaunchScreen.storyboard in Resources */,
 				FDD7634F1B9A4EC400946CDE /* Assets.xcassets in Resources */,
 				FDD763901B9A59E100946CDE /* CarManufacturers.plist in Resources */,
@@ -459,11 +498,14 @@
 				FDD763A11B9A75F000946CDE /* LECMAddNewViewController.m in Sources */,
 				FDD764451B9B5BDE00946CDE /* LECMValidator.m in Sources */,
 				FDD7638E1B9A589A00946CDE /* LECMMainViewController.m in Sources */,
+				FD3540711BA1CF89004CC521 /* LECMSegue.m in Sources */,
 				FDD763441B9A4EC400946CDE /* main.m in Sources */,
 				FDD763931B9A6D7F00946CDE /* LECMFactory.m in Sources */,
 				FDD763811B9A557700946CDE /* LECMTableViewController.m in Sources */,
 				FDD7637A1B9A550A00946CDE /* LECMCollectionCell.m in Sources */,
 				FDD763771B9A54EC00946CDE /* LECMTableCell.m in Sources */,
+				FD3540811BA1F43B004CC521 /* LECMFactory+DictionaryRepresentation.m in Sources */,
+				FD3540751BA1E5B2004CC521 /* LEAlertFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,10 +541,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FD35407D1BA1EA3C004CC521 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD35407C1BA1EA3C004CC521 /* ru */,
+				FD35407E1BA1EA73004CC521 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		FDD7634B1B9A4EC400946CDE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FDD7634C1B9A4EC400946CDE /* Base */,
+				FD3540791BA1E9D6004CC521 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -511,6 +563,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FDD763511B9A4EC400946CDE /* Base */,
+				FD35407A1BA1E9D6004CC521 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
