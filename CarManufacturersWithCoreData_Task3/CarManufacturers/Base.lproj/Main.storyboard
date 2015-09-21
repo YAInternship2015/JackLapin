@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zKZ-mT-tmC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="15A282a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zKZ-mT-tmC">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -161,32 +162,51 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-ZG-Mdn">
                                             <rect key="frame" x="4" y="4" width="129" height="129"/>
                                             <animations/>
+                                            <gestureRecognizers/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfb-NO-cvM">
+                                            <rect key="frame" x="8" y="8" width="121" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstItem="Vfb-NO-cvM" firstAttribute="top" secondItem="Okg-ER-cCw" secondAttribute="topMargin" id="K5N-tO-cj9"/>
                                     <constraint firstItem="gQN-ZG-Mdn" firstAttribute="centerX" secondItem="Okg-ER-cCw" secondAttribute="centerX" id="PGU-o1-4vY"/>
                                     <constraint firstItem="gQN-ZG-Mdn" firstAttribute="top" secondItem="Okg-ER-cCw" secondAttribute="topMargin" constant="-4" id="TCj-Ts-Shs"/>
+                                    <constraint firstItem="Vfb-NO-cvM" firstAttribute="centerX" secondItem="gQN-ZG-Mdn" secondAttribute="centerX" id="WAf-ie-G3A"/>
                                     <constraint firstItem="gQN-ZG-Mdn" firstAttribute="centerY" secondItem="Okg-ER-cCw" secondAttribute="centerY" id="hQY-G0-wzt"/>
+                                    <constraint firstItem="Vfb-NO-cvM" firstAttribute="leading" secondItem="Okg-ER-cCw" secondAttribute="leadingMargin" id="lC8-dR-Z71"/>
                                     <constraint firstItem="gQN-ZG-Mdn" firstAttribute="leading" secondItem="Okg-ER-cCw" secondAttribute="leadingMargin" constant="-4" id="lWI-XX-lqz"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="CMImage" destination="gQN-ZG-Mdn" id="DGh-PT-Iy6"/>
+                                    <outlet property="CMName" destination="Vfb-NO-cvM" id="Z8p-Zs-ZUi"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="Nyz-X9-YHD" id="G0E-1t-9Kh"/>
                             <outlet property="delegate" destination="Nyz-X9-YHD" id="wup-k5-X8U"/>
+                            <outletCollection property="gestureRecognizers" destination="J5X-gr-HRO" appends="YES" id="Mgz-ke-Tau"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVK-u6-Soy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="J5X-gr-HRO">
+                    <connections>
+                        <action selector="handleLongPressAction:" destination="Nyz-X9-YHD" id="QeN-AH-qwk"/>
+                        <outlet property="delegate" destination="Nyz-X9-YHD" id="2z6-Zr-LcI"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5234" y="1244"/>
+            <point key="canvasLocation" x="-5234.5" y="1243.5"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="zJ5-l6-tkh">

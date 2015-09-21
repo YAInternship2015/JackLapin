@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,27 +15,55 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDD7633E1B9A4EC400946CDE"
-               BuildableName = "CarManufacturers.app"
-               BlueprintName = "CarManufacturers"
-               ReferencedContainer = "container:CarManufacturers.xcodeproj">
+               BuildableName = "CarManufacturersWithCoreData.app"
+               BlueprintName = "CarManufacturersWithCoreData"
+               ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FDD763571B9A4EC400946CDE"
+               BuildableName = "CarManufacturersWithCoreData.xctest"
+               BlueprintName = "CarManufacturersWithCoreDataTests"
+               ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FDD763621B9A4EC400946CDE"
+               BuildableName = "CarManufacturersWithCoreData.xctest"
+               BlueprintName = "CarManufacturersWithCoreDataUITests"
+               ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDD763571B9A4EC400946CDE"
-               BuildableName = "CarManufacturersTests.xctest"
-               BlueprintName = "CarManufacturersTests"
-               ReferencedContainer = "container:CarManufacturers.xcodeproj">
+               BuildableName = "CarManufacturersWithCoreData.xctest"
+               BlueprintName = "CarManufacturersWithCoreDataTests"
+               ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +71,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDD763621B9A4EC400946CDE"
-               BuildableName = "CarManufacturersUITests.xctest"
-               BlueprintName = "CarManufacturersUITests"
-               ReferencedContainer = "container:CarManufacturers.xcodeproj">
+               BuildableName = "CarManufacturersWithCoreData.xctest"
+               BlueprintName = "CarManufacturersWithCoreDataUITests"
+               ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,51 +81,48 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDD7633E1B9A4EC400946CDE"
-            BuildableName = "CarManufacturers.app"
-            BlueprintName = "CarManufacturers"
-            ReferencedContainer = "container:CarManufacturers.xcodeproj">
+            BuildableName = "CarManufacturersWithCoreData.app"
+            BlueprintName = "CarManufacturersWithCoreData"
+            ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDD7633E1B9A4EC400946CDE"
-            BuildableName = "CarManufacturers.app"
-            BlueprintName = "CarManufacturers"
-            ReferencedContainer = "container:CarManufacturers.xcodeproj">
+            BuildableName = "CarManufacturersWithCoreData.app"
+            BlueprintName = "CarManufacturersWithCoreData"
+            ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDD7633E1B9A4EC400946CDE"
-            BuildableName = "CarManufacturers.app"
-            BlueprintName = "CarManufacturers"
-            ReferencedContainer = "container:CarManufacturers.xcodeproj">
+            BuildableName = "CarManufacturersWithCoreData.app"
+            BlueprintName = "CarManufacturersWithCoreData"
+            ReferencedContainer = "container:CarManufacturersWithCoreData.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -11,9 +11,6 @@
 NSInteger const minLenghAllowed = 3;
 
 @implementation LECMValidator
-{
-    
-}
 
 + (BOOL)isValidModelTitle:(NSString *)title error:(NSError **)error {
     if ([title length]<minLenghAllowed){

@@ -1,18 +1,20 @@
 //
 //  LECMFactory.h
-//  CarManufacturers
+//  CarManufacturersWithCoreData
 //
-//  Created by Jack Lapin on 05.09.15.
+//  Created by Jack Lapin on 21.09.15.
 //  Copyright © 2015 Jack Lapin. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface LECMFactory : NSObject
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *imageName;
-
-+ (LECMFactory *)modelWithName:(NSString *)name;
+@interface LECMFactory : NSManagedObject
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "LECMFactory+CoreDataProperties.h"

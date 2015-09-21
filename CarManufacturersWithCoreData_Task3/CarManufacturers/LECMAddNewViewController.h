@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LEDataSource.h"
 
 @interface LECMAddNewViewController : UIViewController
+
+@property (nonatomic, strong) LEDataSource* dataSource;
 
 @end

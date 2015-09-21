@@ -7,14 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LECMFactory+CoreDataProperties.h"
 @class LECMFactory;
 
+@class LECMCollectionCell;
+
+@protocol LECMCollectionCellDelegate <NSObject>
+
+- (void)collectionCellLongPressed:(LECMCollectionCell*)cell;
+
+@end
 
 
 @interface LECMCollectionCell : UICollectionViewCell
 
-//#warning в метод должна передаваться модель, а не NSDictionary
-- (void)configWithModel:(LECMFactory *)model;
+@property (nonatomic, weak) id <LECMCollectionCellDelegate> delegate;
+@property (nonatomic, strong) NSIndexPath* indexPath;
+
+- (void)configWithModel:(LECMFactory *)model indexPath:(NSIndexPath*)indexPath delegate:(id<LECMCollectionCellDelegate>)delegate;
 
 @end

@@ -15,7 +15,7 @@ static NSString *const NoImage = @"CMNoImage";
 
 static NSString *const TableControllerID = @"LECMTableViewController";
 static NSString *const CollectionControllerID = @"LECMCollectionViewController";
-
+static NSString *const AddNewViewControllerID = @"addNewController";
 
 #pragma mark - Notifications
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LECMFactory.h"
+#import "LECMFactory+CoreDataProperties.h"
 
 @interface LECMTableCell : UITableViewCell
 

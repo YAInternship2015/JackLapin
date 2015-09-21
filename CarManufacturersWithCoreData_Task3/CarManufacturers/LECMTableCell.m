@@ -12,7 +12,6 @@
 @interface LECMTableCell ()
 
 @property (nonatomic, weak) IBOutlet UIImageView *CMImage;
-
 @property (nonatomic, weak) IBOutlet UILabel *CMName;
 
 @end
@@ -21,8 +20,9 @@
 
 - (void)configWithCM:(LECMFactory *)model {
     self.backgroundColor = [UIColor greenColor];
-    self.CMName.text = model.name;
-    self.CMImage.image = [UIImage imageNamed:model.imageName];
+    self.CMName.text = [model valueForKey:@"name"];
+    self.CMImage.image =  ([model valueForKey:@"imageName"])?[UIImage imageNamed:[model valueForKey:@"imageName"]]:[UIImage imageNamed:NoImage];
+    
 }
 
 @end

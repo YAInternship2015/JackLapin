@@ -10,15 +10,10 @@ float const animationDuration = 0.5f;
 
 #import "CMconstants.h"
 #import "LECMContainerViewController.h"
-#import "LECMCollectionViewController.h"
-#import "LECMTableViewController.h"
-
-
 
 @interface LECMContainerViewController ()
 
-@property (nonatomic, strong) LECMTableViewController *tableController;
-@property (nonatomic, strong) LECMCollectionViewController *collectionController;
+
 @property (nonatomic, strong) UIViewController *currentViewController;
 @property (nonatomic, assign) BOOL isCollectionControllerActivated;
 

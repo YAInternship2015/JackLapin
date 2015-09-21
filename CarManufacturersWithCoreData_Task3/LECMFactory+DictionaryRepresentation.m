@@ -7,6 +7,7 @@
 //
 
 #import "LECMFactory+DictionaryRepresentation.h"
+#import "LECMFactory+CoreDataProperties.h"
 
 @implementation LECMFactory (DictionaryRepresentation)
 

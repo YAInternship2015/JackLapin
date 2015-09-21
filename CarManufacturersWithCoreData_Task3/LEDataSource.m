@@ -8,28 +8,46 @@
 #import "CMconstants.h"
 #import "LEDataSource.h"
 #import "LECMFactory+DictionaryRepresentation.h"
-#import "CMModel+CoreDataProperties.h"
 
-@interface LEDataSource ()
+@interface LEDataSource () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSArray *CMfactoriesArray;
+
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
 
 @implementation LEDataSource
 
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 #pragma mark - Lifecycle
 
-- (instancetype)initWithDelegate:(id<CMDataSourceDelegate>)delegate {
-    self = [self init];
-    if (self) {
-        self.delegate = delegate;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadArrayWithPlist)
-                                                     name:NotificationDataFileContentDidChange object:nil];
-        [self loadArrayWithPlist];
-    }
-    return self;
++ (LEDataSource *)sharedDataSource {
+    static LEDataSource * sharedManagerObject ;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        if (!sharedManagerObject) {
+            sharedManagerObject = [LEDataSource new];
+            if ([sharedManagerObject countModels] == 0) {
+                NSMutableArray* arr = [[NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]] mutableCopy];
+                for (int i = 0; i < arr.count; i++) {
+                    NSDictionary * model = arr[i];
+                    NSString * name = [model valueForKey:@"name"];
+                    NSString * image = [model valueForKey:@"imageName"];
+                    [sharedManagerObject addnewCMWithName:name imageName:image];
+                }
+            }
+        }
+    });
+    
+    return sharedManagerObject;
 }
 
 - (void)dealloc {
@@ -38,60 +56,152 @@
 
 #pragma mark - DataSource methods
 
-- (void)loadArrayWithPlist {
-    _CMfactoriesArray = [NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
-    
-    
-    //#warning перед тем, как вызвать у делегата метод, который был объявлен в протоколе делегата, необходимо убедиться, что делегат действительно реализовал этот метод. Для этого существует метод respondsToSelector:... , иначе можно словить креш
-    // Проверку пставить можно, но этод метод обьявлен как @required, что обязует любой класс реализующий данный протокол реализовывать этот метод
-    // Если проверка селектора даже для required метода является хорошим тоном, то - не проблема :
-    if ([self.delegate respondsToSelector:@selector(dataWasChanged:)]) {
-        [self.delegate dataWasChanged:self];
-    }
-    
-}
-
-
 - (NSUInteger)countModels {
-    return [self.CMfactoriesArray count];
+    if ([[self.fetchedResultsController sections] count] > 0) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
+        return [sectionInfo numberOfObjects];
+    } else
+        return 0;
 }
 
-- (LECMFactory *)modelForIndex:(NSInteger)index {
-    LECMFactory * model = [LECMFactory new];
-    NSMutableDictionary * dict = (NSMutableDictionary*)[self.CMfactoriesArray objectAtIndex:index];
-    model.name =[dict objectForKey:@"name"];
-    model.imageName =[dict objectForKey:@"imageName"];
+- (LECMFactory *)modelForIndex:(NSIndexPath*)indexPath {
+    LECMFactory * model = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return model;
-}
-
-- (void)reloadArrayWithPlist {
-    [self loadArrayWithPlist];
 }
 
 + (void)copyPlistToAppDocumentsFolder {
     NSString *documentsPath = [NSString documentsFolderPath];
     NSString *resourcesPath = [NSString resourcesFolderPath];
-    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
-    
     if ([fileManager fileExistsAtPath:documentsPath] == NO) {
         [fileManager copyItemAtPath:resourcesPath toPath:documentsPath error:&error];
     }
+    
+}
+
+- (NSURL *)applicationDocumentsDirectory {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 #pragma mark - DataManage methods
 
-+ (void)addCM:(LECMFactory *)cmObject {
-    NSDictionary *newModel = [cmObject dictionaryFromModelRepresentation:cmObject];
-    NSMutableArray *tempModelsArray = [NSMutableArray arrayWithContentsOfFile:[NSString documentsFolderPath]];
-    [tempModelsArray addObject:newModel];
+- (void)addnewCMWithName:(NSString *)name imageName:(NSString *)imageName {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSString * entityClassName = NSStringFromClass([LECMFactory class]);
+    LECMFactory *cmObject = [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:context];
     
-    if ([tempModelsArray writeToFile:[NSString documentsFolderPath] atomically:YES]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationDataFileContentDidChange object:nil];
-    } else {
-        NSLog(@"New object not added");
-    }
+#pragma mark TODO:  создать категорию (LECMFactory+Parser) добавить метод updateWithName:imageName:
+    [cmObject setValue:name forKey:@"name"];
+    [cmObject setValue:imageName forKey:@"imageName"];
+    [self saveContext];
 }
 
+- (void)deleteModelForIndex:(NSIndexPath *)index {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    [context deleteObject:[self.fetchedResultsController objectAtIndexPath:index]];
+    [self saveContext];
+}
+
+#pragma mark - Core Data stack
+- (NSManagedObjectModel *)managedObjectModel {
+    // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"LECMFactory" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it.
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LECMFactory.sqlite"];
+    NSError *error = nil;
+    NSString *failureReason = @"There was an error creating or loading the application's saved data.";
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
+        dict[NSLocalizedFailureReasonErrorKey] = failureReason;
+        dict[NSUnderlyingErrorKey] = error;
+        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return _persistentStoreCoordinator;
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (!coordinator) {
+        return nil;
+    }
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    return _managedObjectContext;
+}
+
+#pragma mark - FetchedResultsController
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    [self.delegate dataWasChanged:anObject withType:type atIndex:indexPath newIndexPath:newIndexPath];
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.delegate dataWillChange];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.delegate dataDidChangeContent];
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* description =
+    [NSEntityDescription entityForName:@"LECMFactory"
+                inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:description];
+    [fetchRequest setFetchBatchSize:20];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    _fetchedResultsController = [[NSFetchedResultsController alloc]
+                                 initWithFetchRequest:fetchRequest
+                                 managedObjectContext:context
+                                 sectionNameKeyPath:nil
+                                 cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    NSError *error = nil;
+    if (![_fetchedResultsController performFetch:&error]) {
+        NSLog(@"%@, %@", error, [error userInfo]);
+    }
+    return _fetchedResultsController;
+}
+
+#pragma mark - Core Data Saving support
+
+- (void)saveContext {
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        NSError *error = nil;
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 @end

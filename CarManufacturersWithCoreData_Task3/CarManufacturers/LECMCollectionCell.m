@@ -10,16 +10,29 @@
 #import "CMconstants.h"
 #import "LECMFactory.h"
 
+
+
 @interface LECMCollectionCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *CMImage;
+@property (nonatomic, weak) IBOutlet UIImageView *CMImage;
+@property (nonatomic, weak) IBOutlet UILabel *CMName;
 
 @end
 
 @implementation LECMCollectionCell
 
-- (void)configWithModel:(LECMFactory *)model {
-    self.CMImage.image = [UIImage imageNamed:model.imageName];
+- (void)configWithModel:(LECMFactory *)model indexPath:(NSIndexPath *)indexPath delegate:(id<LECMCollectionCellDelegate>)delegate
+{
+    self.CMName.text = [model valueForKey:@"name"];
+    self.CMImage.image =  ([model valueForKey:@"imageName"])?[UIImage imageNamed:[model valueForKey:@"imageName"]]:[UIImage imageNamed:NoImage];
+    self.indexPath = indexPath;
+    self.delegate = delegate;
+}
+
+- (void)logTapSelector {
+    if ([self.delegate respondsToSelector:@selector(collectionCellLongPressed:)]) {
+        [self.delegate collectionCellLongPressed:self];
+    }
 }
 
 @end

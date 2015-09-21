@@ -9,35 +9,33 @@
 #import <Foundation/Foundation.h>
 #import "NSString+ApplcationPathes.h"
 #import <CoreData/CoreData.h>
+#import "LECMFactory+CoreDataProperties.h"
 
-@class LECMFactory;
-
-@protocol CMDataSourceDelegate;
+@protocol LEDataSourceDelegate;
 
 @interface LEDataSource : NSObject <NSFetchedResultsControllerDelegate>
 
-@property (weak, nonatomic) id<CMDataSourceDelegate>delegate;
++ (LEDataSource*) sharedDataSource;
 
-- (instancetype)initWithDelegate:(id<CMDataSourceDelegate>)delegate;
+@property (nonatomic, strong) id<LEDataSourceDelegate> delegate;
 
 - (NSUInteger)countModels;
+- (LECMFactory *)modelForIndex:(NSIndexPath*)indexPath;
+- (void)addnewCMWithName:(NSString *)name imageName:(NSString *)imageName;
+- (void)deleteModelForIndex:(NSIndexPath *)index;
 
-//#warning датасорс должен возвращать модель, а не NSDictionary
-
-- (LECMFactory *)modelForIndex:(NSInteger)index;
-
-
-//#warning методы, которые не вызываются извне, не стоит показывать в *.h файле
 
 + (void)copyPlistToAppDocumentsFolder;
-+ (void)addCM:(LECMFactory *)cmObject;
 
 @end
 
-@protocol CMDataSourceDelegate <NSObject>
+@protocol LEDataSourceDelegate <NSObject>
 
 @required
 
-- (void)dataWasChanged:(LEDataSource *)dataSource;
+-(void)dataWasChanged:(LEDataSource *)dataSource withType:(NSFetchedResultsChangeType)changeType atIndex:(NSIndexPath *) indexPath newIndexPath:(NSIndexPath *)newIndexPath ;
+-(void)dataWillChange;
+-(void)dataDidChangeContent;
+
 
 @end

@@ -8,10 +8,13 @@
 
 #import "LECMMainViewController.h"
 #import "LECMContainerViewController.h"
+#import "LECMAddNewViewController.h"
+
+
 
 @interface LECMMainViewController ()
 
-@property (strong, nonatomic) LECMContainerViewController *containerViewController;
+@property (nonatomic, strong) LECMContainerViewController *containerViewController;
 
 @end
 
@@ -23,6 +26,9 @@
   
     if ([segue.identifier isEqualToString:@"EmbedContainer"]) {
         self.containerViewController = segue.destinationViewController;
+    }
+    if ([segue.identifier isEqualToString:AddNewViewControllerID]) {
+        ((LECMAddNewViewController*)segue.destinationViewController).dataSource = [self.containerViewController.tableController dataSource];
     }
 }
 

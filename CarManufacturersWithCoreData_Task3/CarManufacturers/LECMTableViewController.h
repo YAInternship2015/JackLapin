@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LEDataSource.h"
+
 
 @interface LECMTableViewController : UITableViewController
+
+@property (nonatomic, strong) LEDataSource *dataSource;
 
 @end

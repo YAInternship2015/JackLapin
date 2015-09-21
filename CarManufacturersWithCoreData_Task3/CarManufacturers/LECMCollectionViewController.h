@@ -10,5 +10,4 @@
 
 @interface LECMCollectionViewController : UICollectionViewController
 
-
 @end
