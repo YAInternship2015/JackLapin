@@ -11,6 +11,7 @@
 
 @interface LEDataSource () <NSFetchedResultsControllerDelegate>
 
+#warning этот массив никем не используется
 @property (strong, nonatomic) NSArray *CMfactoriesArray;
 
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
@@ -35,6 +36,7 @@
     dispatch_once(&onceToken, ^{
         if (!sharedManagerObject) {
             sharedManagerObject = [LEDataSource new];
+#warning весь код инициализации лучше перенести в отдельный метод, который будет вызываться из метода init
             if ([sharedManagerObject countModels] == 0) {
                 NSMutableArray* arr = [[NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]] mutableCopy];
                 for (int i = 0; i < arr.count; i++) {
@@ -51,6 +53,7 @@
 }
 
 - (void)dealloc {
+#warning это класс ни на что не подписывался
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

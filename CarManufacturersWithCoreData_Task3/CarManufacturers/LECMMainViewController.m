@@ -23,7 +23,7 @@
 #pragma mark - UIViewController methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  
+#warning AddNewViewControllerID вынести в константы, а @"EmbedContainer" почему-то нет
     if ([segue.identifier isEqualToString:@"EmbedContainer"]) {
         self.containerViewController = segue.destinationViewController;
     }

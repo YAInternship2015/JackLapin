@@ -29,6 +29,7 @@
     self.delegate = delegate;
 }
 
+#warning этот метод кто-то вызывает? Если нет, то не нужны ни делегат, ни indexPath
 - (void)logTapSelector {
     if ([self.delegate respondsToSelector:@selector(collectionCellLongPressed:)]) {
         [self.delegate collectionCellLongPressed:self];

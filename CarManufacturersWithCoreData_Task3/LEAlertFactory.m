@@ -14,12 +14,15 @@
 
 @implementation LEAlertFactory
 
+#warning + (UIAlertController *)showAlertWithTitle:(NSString *)title message:(NSString *)message {
 + (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+#warning здесь уплыло выравнивание кода
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:title
                                   message:message
                                   preferredStyle:UIAlertControllerStyleAlert];
     
+#warning текст @"OK" должен быть в Localizable.strings
     UIAlertAction* ok = [UIAlertAction
                          actionWithTitle:@"OK"
                          style:UIAlertActionStyleDefault
