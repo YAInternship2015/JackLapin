@@ -15,6 +15,7 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 
+#warning это можно удалить
 - (IBAction)saveButtonPressed:(id)sender;
 
 @end

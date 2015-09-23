@@ -74,7 +74,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
-
+#warning чтобы не нужно было отсавлять пустые методы из протокола, объявите их @optional в протоколе и перед вызовом этих методов проверяйте, реализовал ли объект из с помощью метода respondsToSelector: 
 -(void)dataDidChangeContent{
     
 }

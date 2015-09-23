@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#warning не смог запустить Ваш проект, попробуйте склонировать его себе в отдельную директорию и запустить
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;

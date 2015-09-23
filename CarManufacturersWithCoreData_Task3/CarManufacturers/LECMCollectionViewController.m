@@ -12,6 +12,7 @@
 #import "LEDataSource.h"
 #import "LECMCollectionCell.h"
 
+#warning static const NSInteger kQuantityOfCellsInRow = 4, остальные по аналогии
 int const quantityOfCellsInRow = 4;
 int const preferesCellSize = 100;
 float const cellSpacing = 30.f;
@@ -41,6 +42,7 @@ float const cellSpacing = 30.f;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat mainScreen = CGRectGetWidth([UIScreen mainScreen].bounds);
+#warning цифры 1 и 5 - магичесикие, объявите их локальными константами
     CGFloat cellSize = (mainScreen / preferesCellSize < quantityOfCellsInRow) ? (mainScreen - cellSpacing) / (quantityOfCellsInRow -1) : (mainScreen - cellSpacing-5) / quantityOfCellsInRow;
     return CGSizeMake(cellSize, cellSize);
 }
@@ -60,6 +62,7 @@ float const cellSpacing = 30.f;
 
 #pragma mark - LECMCollectionCellDelegate
 
+#warning мне кажется протокол этот не нужен
 - (void)collectionCellLongPressed:(LECMCollectionCell *)cell{
     
 }
