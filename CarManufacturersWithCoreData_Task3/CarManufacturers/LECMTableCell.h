@@ -11,7 +11,6 @@
 
 @interface LECMTableCell : UITableViewCell
 
-#warning не используйте в именах CM, достаточно названия модели, configWithFactory или configWithModel:
-- (void)configWithCM:(LECMFactory *)model;
+- (void)configWithModel:(LECMFactory *)model;
 
 @end

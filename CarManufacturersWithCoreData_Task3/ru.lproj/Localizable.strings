@@ -8,3 +8,4 @@
 
 "The Name must be at least 3 characters." = "Наименование не может содержать менее 3-х символов";
 "Error" = "Ошибка";
+"OK" = "ОК";

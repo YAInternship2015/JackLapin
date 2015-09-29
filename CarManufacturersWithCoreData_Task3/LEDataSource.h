@@ -15,19 +15,16 @@
 
 @interface LEDataSource : NSObject <NSFetchedResultsControllerDelegate>
 
-#warning + (LEDataSource *)sharedDataSource;
-+ (LEDataSource*) sharedDataSource;
++ (LEDataSource *)sharedDataSource;
 
 @property (nonatomic, strong) id<LEDataSourceDelegate> delegate;
 
-#warning или modelsCount, или countOfModels
-- (NSUInteger)countModels;
-#warning modelAtindex:
-- (LECMFactory *)modelForIndex:(NSIndexPath*)indexPath;
-#warning здесь вообще плозое имя метода, лучше как-то вроде addNewModelWithName:imageName:
-- (void)addnewCMWithName:(NSString *)name imageName:(NSString *)imageName;
-#warning deleteModelAtIndex:
-- (void)deleteModelForIndex:(NSIndexPath *)index;
+- (NSUInteger)countOfModels;
+- (LECMFactory *)modelAtIndex:(NSIndexPath*)indexPath;
+
+- (void)addNewModelWithName:(NSString *)name imageName:(NSString *)imageName;
+
+- (void)deleteModelAtIndex:(NSIndexPath *)index;
 
 
 + (void)copyPlistToAppDocumentsFolder;
@@ -38,17 +35,13 @@
 
 @required
 
-#warning такие длинные селекторы принято выравнивать следующим обращом:
-//- (void)dataWasChanged:(LEDataSource *)dataSource
-//              withType:(NSFetchedResultsChangeType)changeType
-//               atIndex:(NSIndexPath *)indexPath
-//          newIndexPath:(NSIndexPath *)newIndexPath;
+- (void)dataWasChanged:(LEDataSource *)dataSource
+              withType:(NSFetchedResultsChangeType)changeType
+               atIndex:(NSIndexPath *) indexPath
+          newIndexPath:(NSIndexPath *)newIndexPath ;
 
-
-#warning забыли пробелы перед (void)
--(void)dataWasChanged:(LEDataSource *)dataSource withType:(NSFetchedResultsChangeType)changeType atIndex:(NSIndexPath *) indexPath newIndexPath:(NSIndexPath *)newIndexPath ;
--(void)dataWillChange;
--(void)dataDidChangeContent;
-
+@optional
+- (void)dataWillChange;
+- (void)dataDidChangeContent;
 
 @end

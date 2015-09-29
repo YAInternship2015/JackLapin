@@ -12,7 +12,6 @@
 
 @interface LECMTableViewController : UITableViewController
 
-#warning это свойство должно быть в *.m
-@property (nonatomic, strong) LEDataSource *dataSource;
+- (LEDataSource *) dataSource;
 
 @end

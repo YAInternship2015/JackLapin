@@ -11,7 +11,6 @@
 
 @interface LECMAddNewViewController : UIViewController
 
-#warning свойство перенесите в *.m, а в *.h оставьте только сеттер
-@property (nonatomic, strong) LEDataSource* dataSource;
+- (void) setDataSorce :(LEDataSource *) dataSource;
 
 @end
