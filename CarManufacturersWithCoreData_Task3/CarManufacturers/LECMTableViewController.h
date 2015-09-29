@@ -12,6 +12,6 @@
 
 @interface LECMTableViewController : UITableViewController
 
-@property (nonatomic, strong) LEDataSource *dataSource;
+- (LEDataSource *) dataSource;
 
 @end

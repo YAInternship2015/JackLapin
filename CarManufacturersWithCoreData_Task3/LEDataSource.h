@@ -15,14 +15,16 @@
 
 @interface LEDataSource : NSObject <NSFetchedResultsControllerDelegate>
 
-+ (LEDataSource*) sharedDataSource;
++ (LEDataSource *)sharedDataSource;
 
 @property (nonatomic, strong) id<LEDataSourceDelegate> delegate;
 
-- (NSUInteger)countModels;
-- (LECMFactory *)modelForIndex:(NSIndexPath*)indexPath;
-- (void)addnewCMWithName:(NSString *)name imageName:(NSString *)imageName;
-- (void)deleteModelForIndex:(NSIndexPath *)index;
+- (NSUInteger)countOfModels;
+- (LECMFactory *)modelAtIndex:(NSIndexPath*)indexPath;
+
+- (void)addNewModelWithName:(NSString *)name imageName:(NSString *)imageName;
+
+- (void)deleteModelAtIndex:(NSIndexPath *)index;
 
 
 + (void)copyPlistToAppDocumentsFolder;
@@ -33,9 +35,13 @@
 
 @required
 
--(void)dataWasChanged:(LEDataSource *)dataSource withType:(NSFetchedResultsChangeType)changeType atIndex:(NSIndexPath *) indexPath newIndexPath:(NSIndexPath *)newIndexPath ;
--(void)dataWillChange;
--(void)dataDidChangeContent;
+- (void)dataWasChanged:(LEDataSource *)dataSource
+              withType:(NSFetchedResultsChangeType)changeType
+               atIndex:(NSIndexPath *) indexPath
+          newIndexPath:(NSIndexPath *)newIndexPath ;
 
+@optional
+- (void)dataWillChange;
+- (void)dataDidChangeContent;
 
 @end

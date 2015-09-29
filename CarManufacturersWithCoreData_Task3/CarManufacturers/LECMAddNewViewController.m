@@ -14,8 +14,7 @@
 @interface LECMAddNewViewController () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
-
-- (IBAction)saveButtonPressed:(id)sender;
+@property (nonatomic, strong) LEDataSource* dataSource;
 
 @end
 
@@ -26,6 +25,11 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.view addGestureRecognizer:tap];
 }
+
+- (void) setDataSorce :(LEDataSource *) dataSource{
+    self.dataSource = dataSource;
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -46,7 +50,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
     else{
-        [self.dataSource addnewCMWithName:name imageName:NoImage];
+        [self.dataSource addNewModelWithName:name imageName:NoImage];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

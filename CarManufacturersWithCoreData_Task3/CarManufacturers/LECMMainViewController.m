@@ -23,12 +23,11 @@
 #pragma mark - UIViewController methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  
-    if ([segue.identifier isEqualToString:@"EmbedContainer"]) {
+    if ([segue.identifier isEqualToString:EmbedContainerID]) {
         self.containerViewController = segue.destinationViewController;
     }
     if ([segue.identifier isEqualToString:AddNewViewControllerID]) {
-        ((LECMAddNewViewController*)segue.destinationViewController).dataSource = [self.containerViewController.tableController dataSource];
+        [((LECMAddNewViewController*)segue.destinationViewController) setDataSorce:(self.containerViewController.tableController.dataSource)];
     }
 }
 

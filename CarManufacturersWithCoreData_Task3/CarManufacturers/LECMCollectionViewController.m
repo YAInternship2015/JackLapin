@@ -12,13 +12,14 @@
 #import "LEDataSource.h"
 #import "LECMCollectionCell.h"
 
-int const quantityOfCellsInRow = 4;
-int const preferesCellSize = 100;
-float const cellSpacing = 30.f;
+int const kLessQuantityOfCellsInRow = 3;
+int const kBigQuantityOfCellsInRow = 4;
+int const kPrefereCellSize = 120;
+float const kCellSpacing = 10.f;
 
 
 
-@interface LECMCollectionViewController () <LECMCollectionCellDelegate, UICollectionViewDataSource, UICollectionViewDelegate, LEDataSourceDelegate>
+@interface LECMCollectionViewController () < UICollectionViewDataSource, UICollectionViewDelegate, LEDataSourceDelegate>
 
 @property (nonatomic, strong) LEDataSource *dataSource;
 @property (nonatomic, strong) NSMutableArray *itemChanges;
@@ -41,28 +42,28 @@ float const cellSpacing = 30.f;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat mainScreen = CGRectGetWidth([UIScreen mainScreen].bounds);
-    CGFloat cellSize = (mainScreen / preferesCellSize < quantityOfCellsInRow) ? (mainScreen - cellSpacing) / (quantityOfCellsInRow -1) : (mainScreen - cellSpacing-5) / quantityOfCellsInRow;
+    CGFloat cellSize = (mainScreen / kPrefereCellSize < kLessQuantityOfCellsInRow) ?
+    (mainScreen - kCellSpacing) / (kLessQuantityOfCellsInRow) :
+    (mainScreen - kCellSpacing) / (kBigQuantityOfCellsInRow);
+    
     return CGSizeMake(cellSize, cellSize);
 }
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.dataSource countModels];
+    return [self.dataSource countOfModels];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LECMCollectionCell *cell = (LECMCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([LECMCollectionCell class]) forIndexPath:indexPath];
-    [cell configWithModel:[self.dataSource modelForIndex:indexPath] indexPath:indexPath delegate:self];
+    [cell configWithModel:[self.dataSource modelAtIndex:indexPath]];
     return cell;
 }
 
 
 #pragma mark - LECMCollectionCellDelegate
 
-- (void)collectionCellLongPressed:(LECMCollectionCell *)cell{
-    
-}
 
 #pragma mark - IBactions
 
@@ -77,7 +78,7 @@ float const cellSpacing = 30.f;
             cell.layer.transform = CATransform3DMakeRotation(M_PI,1.0,0.0,0.0);;
         } completion:^(BOOL finished) {
             [weakSelf.collectionView performBatchUpdates:^{
-                [weakSelf.dataSource deleteModelForIndex:indexPath];
+                [weakSelf.dataSource deleteModelAtIndex:indexPath];
             } completion:nil];
         }];
     }
@@ -87,7 +88,7 @@ float const cellSpacing = 30.f;
     self.itemChanges = [[NSMutableArray alloc] init];
 }
 
--(void)dataWasChanged:(LEDataSource *)dataSource withType:(NSFetchedResultsChangeType)changeType atIndex:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
+- (void)dataWasChanged:(LEDataSource *)dataSource withType:(NSFetchedResultsChangeType)changeType atIndex:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
     NSMutableDictionary *change = [[NSMutableDictionary alloc] init];
     switch(changeType) {
         case NSFetchedResultsChangeInsert:
@@ -104,7 +105,7 @@ float const cellSpacing = 30.f;
     [self.itemChanges addObject:change];
 }
 
--(void)dataDidChangeContent{
+- (void)dataDidChangeContent{
     [self.collectionView performBatchUpdates:^{
         for (NSDictionary *change in self.itemChanges) {
             [change enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {

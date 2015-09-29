@@ -11,6 +11,6 @@
 
 @interface LECMTableCell : UITableViewCell
 
-- (void)configWithCM:(LECMFactory *)model;
+- (void)configWithModel:(LECMFactory *)model;
 
 @end

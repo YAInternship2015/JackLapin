@@ -11,6 +11,6 @@
 
 @interface LECMAddNewViewController : UIViewController
 
-@property (nonatomic, strong) LEDataSource* dataSource;
+- (void) setDataSorce :(LEDataSource *) dataSource;
 
 @end

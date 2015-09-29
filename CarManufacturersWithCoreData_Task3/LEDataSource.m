@@ -11,8 +11,6 @@
 
 @interface LEDataSource () <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) NSArray *CMfactoriesArray;
-
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -34,29 +32,30 @@
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         if (!sharedManagerObject) {
-            sharedManagerObject = [LEDataSource new];
-            if ([sharedManagerObject countModels] == 0) {
-                NSMutableArray* arr = [[NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]] mutableCopy];
-                for (int i = 0; i < arr.count; i++) {
-                    NSDictionary * model = arr[i];
-                    NSString * name = [model valueForKey:@"name"];
-                    NSString * image = [model valueForKey:@"imageName"];
-                    [sharedManagerObject addnewCMWithName:name imageName:image];
-                }
-            }
+            sharedManagerObject = [[LEDataSource alloc] init];
         }
     });
     
     return sharedManagerObject;
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (LEDataSource *) init {
+    LEDataSource * sharedManagerObject = [super init];
+    if ([sharedManagerObject countOfModels] == 0) {
+        NSMutableArray* arr = [[NSArray arrayWithContentsOfFile:[NSString documentsFolderPath]] mutableCopy];
+        for (int i = 0; i < arr.count; i++) {
+            NSDictionary * model = arr[i];
+            NSString * name = [model valueForKey:@"name"];
+            NSString * image = [model valueForKey:@"imageName"];
+            [sharedManagerObject addNewModelWithName:name imageName:image];
+        }
+    }
+    return sharedManagerObject;
 }
 
 #pragma mark - DataSource methods
 
-- (NSUInteger)countModels {
+- (NSUInteger)countOfModels {
     if ([[self.fetchedResultsController sections] count] > 0) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:0];
         return [sectionInfo numberOfObjects];
@@ -64,7 +63,7 @@
         return 0;
 }
 
-- (LECMFactory *)modelForIndex:(NSIndexPath*)indexPath {
+- (LECMFactory *)modelAtIndex:(NSIndexPath*)indexPath {
     LECMFactory * model = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return model;
 }
@@ -86,7 +85,7 @@
 
 #pragma mark - DataManage methods
 
-- (void)addnewCMWithName:(NSString *)name imageName:(NSString *)imageName {
+- (void)addNewModelWithName:(NSString *)name imageName:(NSString *)imageName {
     NSManagedObjectContext *context = self.managedObjectContext;
     NSString * entityClassName = NSStringFromClass([LECMFactory class]);
     LECMFactory *cmObject = [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:context];
@@ -97,7 +96,7 @@
     [self saveContext];
 }
 
-- (void)deleteModelForIndex:(NSIndexPath *)index {
+- (void)deleteModelAtIndex:(NSIndexPath *)index {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     [context deleteObject:[self.fetchedResultsController objectAtIndexPath:index]];
     [self saveContext];
@@ -157,11 +156,15 @@
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.delegate dataWillChange];
+    if ([self.delegate respondsToSelector:@selector(dataWillChange)]) {
+        [self.delegate dataWillChange];
+    }
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.delegate dataDidChangeContent];
+    if ([self.delegate respondsToSelector:@selector(dataDidChangeContent)]) {
+        [self.delegate dataDidChangeContent];
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

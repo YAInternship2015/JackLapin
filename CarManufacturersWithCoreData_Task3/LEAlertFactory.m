@@ -14,14 +14,14 @@
 
 @implementation LEAlertFactory
 
-+ (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:title
-                                  message:message
-                                  preferredStyle:UIAlertControllerStyleAlert];
++ (UIAlertController *)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController * alert = [UIAlertController
+                                alertControllerWithTitle:title
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"OK"
+                         actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"OK", nil)]
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {

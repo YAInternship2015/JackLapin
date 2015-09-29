@@ -18,11 +18,13 @@
 
 @implementation LECMTableCell
 
-- (void)configWithCM:(LECMFactory *)model {
-    self.backgroundColor = [UIColor greenColor];
+- (void)configWithModel:(LECMFactory *)model {
     self.CMName.text = [model valueForKey:@"name"];
     self.CMImage.image =  ([model valueForKey:@"imageName"])?[UIImage imageNamed:[model valueForKey:@"imageName"]]:[UIImage imageNamed:NoImage];
-    
+}
+
+-(void)awakeFromNib {
+    self.backgroundColor = [UIColor greenColor];
 }
 
 @end
