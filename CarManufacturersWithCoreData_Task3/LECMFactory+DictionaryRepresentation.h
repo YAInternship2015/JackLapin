@@ -10,7 +10,6 @@
 
 @interface LECMFactory (DictionaryRepresentation)
 
-#warning - (NSDictionary *)dictionaryFromModelRepresentation:(LECMFactory *)model;
--(NSDictionary*) dictionaryFromModelRepresentation :(LECMFactory*) model;
+- (NSDictionary *)dictionaryFromModelRepresentation:(LECMFactory *)model;
 
 @end

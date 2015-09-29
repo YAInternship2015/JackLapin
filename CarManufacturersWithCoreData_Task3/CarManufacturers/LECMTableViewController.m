@@ -13,15 +13,22 @@
 @interface LECMTableViewController () <UITableViewDataSource,
                                         UITableViewDelegate,
                                         LEDataSourceDelegate>
+@property (nonatomic, strong) LEDataSource *dataSource;
 
 @end
 
 @implementation LECMTableViewController
 
+@synthesize dataSource = _dataSource;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = [LEDataSource sharedDataSource];
     
+}
+
+- (LEDataSource *) dataSource {
+  return _dataSource;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -32,7 +39,7 @@
 #pragma mark -  UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource countModels];
+    return [self.dataSource countOfModels];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -42,14 +49,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = NSStringFromClass([LECMTableCell class]);
     LECMTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    [cell configWithCM:[self.dataSource modelForIndex:indexPath]];
+    [cell configWithModel:[self.dataSource modelAtIndex:indexPath]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.dataSource deleteModelForIndex:indexPath];
+        [self.dataSource deleteModelAtIndex:indexPath];
     }
 }
 
@@ -73,16 +80,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView endUpdates];
     [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
-
-#warning чтобы не нужно было отсавлять пустые методы из протокола, объявите их @optional в протоколе и перед вызовом этих методов проверяйте, реализовал ли объект из с помощью метода respondsToSelector: 
--(void)dataDidChangeContent{
-    
-}
-
--(void)dataWillChange {
-    
-}
-
 
 @end
 
