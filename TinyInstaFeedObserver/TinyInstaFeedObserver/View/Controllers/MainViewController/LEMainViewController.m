@@ -20,6 +20,7 @@ static NSString *const responseType = @"code&scope=basic+likes";
 @interface LEMainViewController ()
 
 @property (nonatomic, strong) LEContainerViewController *containerViewController;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -27,13 +28,24 @@ static NSString *const responseType = @"code&scope=basic+likes";
 
 #pragma mark - UIViewController methods
 
+-(void)viewDidLoad {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCaptionToLoginButton:)
+                                                 name:NotificationLoginWasAcquired object:nil];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:EmbedContainerID]) {
         self.containerViewController = segue.destinationViewController;
     }
-    if ([segue.identifier isEqualToString:@"AddNewViewControllerID"]) {
-//        [((LECMAddNewViewController*)segue.destinationViewController) setDataSorce:(self.containerViewController.tableController.dataSource)];
-    }
+}
+
+- (void) setCaptionToLoginButton :(NSNotification *) notification{
+    NSString *loggedUserName = [@"Logged as - " stringByAppendingString:[notification object]];
+    self.loginButton.titleLabel.text = loggedUserName;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (IBAction)changeView:(id)sender {

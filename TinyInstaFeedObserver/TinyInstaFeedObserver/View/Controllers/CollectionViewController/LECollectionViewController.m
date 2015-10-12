@@ -42,7 +42,7 @@ float const kCellSpacing = 10.f;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat mainScreen = CGRectGetWidth([UIScreen mainScreen].bounds);
-    CGFloat cellSize = (mainScreen / kPrefereCellSize < kLessQuantityOfCellsInRow) ?
+    CGFloat cellSize = (mainScreen / kPrefereCellSize > kLessQuantityOfCellsInRow) ?
     (mainScreen - kCellSpacing) / (kLessQuantityOfCellsInRow) :
     (mainScreen - kCellSpacing) / (kBigQuantityOfCellsInRow);
     

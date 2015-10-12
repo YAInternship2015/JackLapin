@@ -20,3 +20,4 @@ static NSString *const EmbedContainerID = @"EmbedContainer";
 #pragma mark - Notifications
 
 static NSString *const NotificationDataFileContentDidChange = @"NotificationDataFileContentDidChange";
+static NSString *const NotificationLoginWasAcquired= @"NotificationLoginWasAcquired";

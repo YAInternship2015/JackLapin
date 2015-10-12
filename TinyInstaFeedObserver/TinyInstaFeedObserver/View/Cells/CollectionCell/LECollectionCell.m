@@ -8,12 +8,13 @@
 #import "constants.h"
 #import "FOModel.h"
 #import "LECollectionCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface LECollectionCell()
 
-@property (nonatomic, weak) IBOutlet UIImageView *CMImage;
-@property (nonatomic, weak) IBOutlet UILabel *CMName;
+@property (nonatomic, weak) IBOutlet UIImageView *FOImage;
+@property (nonatomic, weak) IBOutlet UILabel *FOComment;
 
 @end
 
@@ -21,8 +22,10 @@
 
 - (void)configWithModel:(FOModel *)model
 {
-    self.CMName.text = [model valueForKey:@"name"];
-    self.CMImage.image =  ([model valueForKey:@"imageName"])?[UIImage imageNamed:[model valueForKey:@"imageName"]]:[UIImage imageNamed:NoImage];
+    self.FOComment.text = [model valueForKey:@"caption"];
+    NSURL *imageURL = [model valueForKey:@"imageURL"];
+    
+   [self.FOImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:NoImage]];
 
 }
 

@@ -15,10 +15,14 @@
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+@property NSInteger *added;
+
 @end
 
 
 @implementation LEDataSource
+
+
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -32,14 +36,26 @@
     dispatch_once(&onceToken, ^{
         if (!sharedManagerObject) {
             sharedManagerObject = [[LEDataSource alloc] init];
+            
         }
     });
+    
+//    [sharedManagerObject deleteAll];
+//    [sharedManagerObject saveContext];
     
     return sharedManagerObject;
 }
 
 
 #pragma mark - DataSource methods
+
+- (void) deleteAll {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"FOModel"];
+    NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+    
+    NSError *deleteError = nil;
+    [_persistentStoreCoordinator executeRequest:delete withContext:_managedObjectContext error:&deleteError];
+}
 
 - (NSUInteger)countOfModels {
     if ([[self.fetchedResultsController sections] count] > 0) {
@@ -54,6 +70,29 @@
     return model;
 }
 
+- (void)deleteModelAtIndex:(NSIndexPath *)index {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    [context deleteObject:[self.fetchedResultsController objectAtIndexPath:index]];
+    [self saveContext];
+}
+
+-(FOModel *)modelWithID:(NSString *)idString {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSString *entityClassName = NSStringFromClass([FOModel class]);
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityClassName inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSError *error = nil;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"modelID == %@", idString];
+    [request setEntity:entity];
+    [request setPredicate:predicate];
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (results.count > 0) {
+        FOModel *existedModel = [results objectAtIndex:0];
+        return existedModel;
+    }
+    return nil;
+}
+
 
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -66,7 +105,6 @@
     NSString *entityClassName = NSStringFromClass([FOModel class]);
     FOModel *objectForInsert = [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:context];
     
-#pragma mark TODO:  создать категорию (LECMFactory+Parser) добавить метод updateWithName:imageName:
     [objectForInsert setValue:caption forKey:@"caption"];
     [objectForInsert setValue:imageURL forKey:@"imageURL"];
     [objectForInsert setValue:modelID forKey:@"modelID"];
@@ -90,7 +128,7 @@
         return _persistentStoreCoordinator;
     }
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LECMFactory.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FOModel.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {

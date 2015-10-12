@@ -22,8 +22,11 @@
                       imageURL:(NSString *)imageURL
                        modelID:(NSString *)modelID;
     
-    - (NSUInteger)countOfModels;
-    - (FOModel *)modelAtIndex:(NSIndexPath*)indexPath;
+- (NSUInteger)countOfModels;
+- (FOModel *)modelAtIndex:(NSIndexPath *)indexPath;
+- (FOModel *)modelWithID:(NSString *)idString;
+
+- (void)deleteModelAtIndex:(NSIndexPath *)index;
     
     
     @end
