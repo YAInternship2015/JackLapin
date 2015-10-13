@@ -13,6 +13,7 @@
 #import "NSDictionary+UrlEncoding.h"
 #import "constants.h"
 #import "ColorCube/CCColorCube.h"
+#import "LEAlertFactory.h"
 
 static NSString *const kTokenRequestURL = @"https://api.instagram.com/oauth/access_token";
 static NSString *const kBaseRequestURL = @"https://api.instagram.com/v1/tags/automotive/media/recent?";
@@ -66,7 +67,7 @@ NSString *userAvURLString;
     
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     NSArray *arr =[colorCube extractBrightColorsFromImage:image avoidColor:[UIColor blackColor] count:kColorsFromUserAvatar];
-
+    
     self.individualUserColorPattern = arr;
     
 }
@@ -158,12 +159,24 @@ NSString *userAvURLString;
             [self.dataSource insertModelWithCaption:caption imageURL:imageSR modelID:idString];
         }
     }
- 
+    
 }
 
 + (void) needMore{
     LELoader *loader = [LELoader dataLoader];
-    [loader getData];
+    if (!loader.token) {
+        UIAlertController * alert = [LEAlertFactory showAlertWithTitle:
+                                     [NSString stringWithFormat:NSLocalizedString(@"Warning", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"To see more, you should logIn first!", nil)]];
+        UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        alertWindow.rootViewController = [[UIViewController alloc] init];
+        alertWindow.windowLevel = UIWindowLevelAlert + 1;
+        [alertWindow makeKeyAndVisible];
+        [alertWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    }
+    else {
+        [loader getData];
+    }
 }
 
 

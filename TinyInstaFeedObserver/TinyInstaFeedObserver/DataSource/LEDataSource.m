@@ -107,6 +107,7 @@
     [objectForInsert setValue:caption forKey:@"caption"];
     [objectForInsert setValue:imageURL forKey:@"imageURL"];
     [objectForInsert setValue:modelID forKey:@"modelID"];
+    [objectForInsert setValue:[NSDate date] forKey:@"dateAdded"];
     
     [self saveContext];
 }
@@ -187,7 +188,7 @@
                 inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:description];
     [fetchRequest setFetchBatchSize:20];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"modelID" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     _fetchedResultsController = [[NSFetchedResultsController alloc]

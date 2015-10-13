@@ -1,8 +1,8 @@
 //
-//  InstaFeedObserver+CoreDataProperties.m
+//  FOModel+CoreDataProperties.m
 //  TinyInstaFeedObserver
 //
-//  Created by Jack Lapin on 01.10.15.
+//  Created by Jack Lapin on 14.10.15.
 //  Copyright © 2015 Jack Lapin. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,8 +13,9 @@
 
 @implementation FOModel (CoreDataProperties)
 
-@dynamic modelID;
 @dynamic caption;
+@dynamic dateAdded;
 @dynamic imageURL;
+@dynamic modelID;
 
 @end

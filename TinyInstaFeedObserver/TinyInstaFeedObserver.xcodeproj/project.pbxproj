@@ -14,13 +14,14 @@
 		FD65A43C1BC6CC45004B4A50 /* LEAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */; };
 		FD9B205E1BCDB304001ADD53 /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205B1BCDB304001ADD53 /* CCColorCube.m */; };
 		FD9B205F1BCDB304001ADD53 /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */; };
+		FD9B20681BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B20671BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m */; };
+		FD9B206C1BCDC0C3001ADD53 /* LEAlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B206B1BCDC0C3001ADD53 /* LEAlertFactory.m */; };
 		FDD39EFA1BBDACB000DB1650 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39EF91BBDACB000DB1650 /* main.m */; };
 		FDD39EFD1BBDACB000DB1650 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39EFC1BBDACB000DB1650 /* AppDelegate.m */; };
 		FDD39F031BBDACB000DB1650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD39F011BBDACB000DB1650 /* Main.storyboard */; };
 		FDD39F051BBDACB000DB1650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD39F041BBDACB000DB1650 /* Assets.xcassets */; };
 		FDD39F081BBDACB000DB1650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD39F061BBDACB000DB1650 /* LaunchScreen.storyboard */; };
 		FDD39F151BBDAD7800DB1650 /* FOModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDD39F131BBDAD7800DB1650 /* FOModel.xcdatamodeld */; };
-		FDD39F261BBDB24C00DB1650 /* FOModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39F231BBDB24C00DB1650 /* FOModel+CoreDataProperties.m */; };
 		FDD39F271BBDB24C00DB1650 /* FOModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39F251BBDB24C00DB1650 /* FOModel.m */; };
 		FDD39F2B1BBDB3AC00DB1650 /* LEDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39F2A1BBDB3AC00DB1650 /* LEDataSource.m */; };
 		FDD39F441BBDC0B000DB1650 /* LECollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39F381BBDC0B000DB1650 /* LECollectionViewController.m */; };
@@ -47,6 +48,10 @@
 		FD9B205B1BCDB304001ADD53 /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
 		FD9B205C1BCDB304001ADD53 /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
 		FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
+		FD9B20661BCDBEB9001ADD53 /* FOModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FOModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FD9B20671BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FOModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FD9B206A1BCDC0C3001ADD53 /* LEAlertFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAlertFactory.h; sourceTree = "<group>"; };
+		FD9B206B1BCDC0C3001ADD53 /* LEAlertFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAlertFactory.m; sourceTree = "<group>"; };
 		FDD39EF51BBDACB000DB1650 /* TinyInstaFeedObserver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyInstaFeedObserver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD39EF91BBDACB000DB1650 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDD39EFB1BBDACB000DB1650 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,8 +61,6 @@
 		FDD39F071BBDACB000DB1650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDD39F091BBDACB100DB1650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDD39F141BBDAD7800DB1650 /* FOModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FOModel.xcdatamodel; sourceTree = "<group>"; };
-		FDD39F221BBDB24C00DB1650 /* FOModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FOModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		FDD39F231BBDB24C00DB1650 /* FOModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FOModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FDD39F241BBDB24C00DB1650 /* FOModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOModel.h; sourceTree = "<group>"; };
 		FDD39F251BBDB24C00DB1650 /* FOModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOModel.m; sourceTree = "<group>"; };
 		FDD39F291BBDB3AC00DB1650 /* LEDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDataSource.h; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		FD2B580B1BBDE7EC00D58FA7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FD9B20691BCDC0C3001ADD53 /* AlertFactory */,
 				FD9B20591BCDB304001ADD53 /* ColorCube */,
 				FD65A4361BC6CB9E004B4A50 /* DataManager */,
 				FD65A4351BC6CB95004B4A50 /* APIClient */,
@@ -147,6 +151,15 @@
 				FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */,
 			);
 			path = ColorCube;
+			sourceTree = "<group>";
+		};
+		FD9B20691BCDC0C3001ADD53 /* AlertFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FD9B206A1BCDC0C3001ADD53 /* LEAlertFactory.h */,
+				FD9B206B1BCDC0C3001ADD53 /* LEAlertFactory.m */,
+			);
+			path = AlertFactory;
 			sourceTree = "<group>";
 		};
 		FDD39EEC1BBDACB000DB1650 = {
@@ -197,8 +210,8 @@
 		FDD39F0F1BBDAD0000DB1650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FDD39F221BBDB24C00DB1650 /* FOModel+CoreDataProperties.h */,
-				FDD39F231BBDB24C00DB1650 /* FOModel+CoreDataProperties.m */,
+				FD9B20661BCDBEB9001ADD53 /* FOModel+CoreDataProperties.h */,
+				FD9B20671BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m */,
 				FDD39F241BBDB24C00DB1650 /* FOModel.h */,
 				FDD39F251BBDB24C00DB1650 /* FOModel.m */,
 				FDD39F131BBDAD7800DB1650 /* FOModel.xcdatamodeld */,
@@ -404,8 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9B20681BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m in Sources */,
 				FD9B205F1BCDB304001ADD53 /* CCLocalMaximum.m in Sources */,
-				FDD39F261BBDB24C00DB1650 /* FOModel+CoreDataProperties.m in Sources */,
 				FDD39EFD1BBDACB000DB1650 /* AppDelegate.m in Sources */,
 				FD65A43C1BC6CC45004B4A50 /* LEAPIClient.m in Sources */,
 				FDD39F4A1BBDC31200DB1650 /* LETableCell.m in Sources */,
@@ -420,6 +433,7 @@
 				FD65A4391BC6CC0F004B4A50 /* LEDataManager.m in Sources */,
 				FDD39F271BBDB24C00DB1650 /* FOModel.m in Sources */,
 				FD9B205E1BCDB304001ADD53 /* CCColorCube.m in Sources */,
+				FD9B206C1BCDC0C3001ADD53 /* LEAlertFactory.m in Sources */,
 				FDD39F441BBDC0B000DB1650 /* LECollectionViewController.m in Sources */,
 				FDD39F4D1BBDC43A00DB1650 /* LECollectionCell.m in Sources */,
 			);

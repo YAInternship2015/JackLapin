@@ -1,8 +1,8 @@
 //
-//  InstaFeedObserver+CoreDataProperties.h
+//  FOModel+CoreDataProperties.h
 //  TinyInstaFeedObserver
 //
-//  Created by Jack Lapin on 01.10.15.
+//  Created by Jack Lapin on 14.10.15.
 //  Copyright © 2015 Jack Lapin. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FOModel (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *modelID;
 @property (nullable, nonatomic, retain) NSString *caption;
+@property (nonatomic) NSTimeInterval dateAdded;
 @property (nullable, nonatomic, retain) NSString *imageURL;
+@property (nullable, nonatomic, retain) NSString *modelID;
 
 @end
 
