@@ -6,7 +6,7 @@
 #import "LETableCell.h"
 #import "constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "CCColorCube.h"
+#import "LELoader.h"
 
 @interface LETableCell ()
 
@@ -18,6 +18,7 @@
 @implementation LETableCell
 
 NSInteger labelTextWidth;
+int countOfColor = 0;
 
 - (void)configWithModel:(FOModel *)model {
     self.FOCaption.text = [model valueForKey:@"caption"];
@@ -27,10 +28,14 @@ NSInteger labelTextWidth;
     
     [self.FOImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:NoImage]];
     
-//    //    self.FOImage.image
-//    NSData * imgData = [NSData dataWithContentsOfURL:imageURL];
-//    CCColorCube * colorTube = [[CCColorCube alloc] init];
-//    NSArray *arrOfBrigthColors = [colorTube extractBrightColorsFromImage:[UIImage imageWithData:imgData] avoidColor:[UIColor whiteColor] count:1];
+    LELoader *loader = [LELoader dataLoader];
+    
+    if (countOfColor >= kColorsFromUserAvatar) { countOfColor = 0; }
+    
+    if (loader.individualUserColorPattern.count > 0) {
+        self.backgroundColor = [loader.individualUserColorPattern objectAtIndex: countOfColor];
+        countOfColor++;
+    }
     
     //  self.backgroundColor = [arrOfBrigthColors objectAtIndex: 0];
     
@@ -49,7 +54,7 @@ NSInteger labelTextWidth;
     
     [self setNeedsUpdateConstraints];
     if (size.height > 99) {
-        self.FOCaption.adjustsFontSizeToFitWidth = true;
+      //  self.FOCaption.adjustsFontSizeToFitWidth = true;
         
     }
     [self layoutIfNeeded];

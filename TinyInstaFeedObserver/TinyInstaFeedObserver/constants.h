@@ -10,6 +10,11 @@
 
 static NSString *const NoImage = @"NoImage";
 
+static NSInteger countOfBackgroundColors = 20;
+//NSInteger const kTableCellImagePreferedSize = 99;
+
+static int const kColorsFromUserAvatar = 8;
+
 
 #pragma mark - Stroryboard IDs
 
@@ -21,3 +26,4 @@ static NSString *const EmbedContainerID = @"EmbedContainer";
 
 static NSString *const NotificationDataFileContentDidChange = @"NotificationDataFileContentDidChange";
 static NSString *const NotificationLoginWasAcquired= @"NotificationLoginWasAcquired";
+static NSString *const NotificationNewDataNeedToDownload= @"NotificationNewDataNeedToDownload";

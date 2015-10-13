@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TinyInstaFeedObserver/Utilities/LELoader.m"
-            timestampString = "466377977.591707"
+            filePath = "TinyInstaFeedObserver/View/Controllers/CollectionViewController/LECollectionViewController.m"
+            timestampString = "466433737.395181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-getData"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TinyInstaFeedObserver/View/Controllers/CollectionViewController/LECollectionViewController.m"
-            timestampString = "466382295.008116"
+            filePath = "TinyInstaFeedObserver/DataSource/LEDataSource.m"
+            timestampString = "466434441.533732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-deleteAll"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

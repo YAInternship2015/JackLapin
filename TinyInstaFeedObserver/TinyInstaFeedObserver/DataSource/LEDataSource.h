@@ -21,27 +21,28 @@
 - (void)insertModelWithCaption:(NSString *)caption
                       imageURL:(NSString *)imageURL
                        modelID:(NSString *)modelID;
-    
+
 - (NSUInteger)countOfModels;
 - (FOModel *)modelAtIndex:(NSIndexPath *)indexPath;
 - (FOModel *)modelWithID:(NSString *)idString;
 
 - (void)deleteModelAtIndex:(NSIndexPath *)index;
-    
-    
-    @end
-    
-    @protocol LEDataSourceDelegate <NSObject>
-    
-    @required
-    
-    - (void)dataWasChanged:(LEDataSource *)dataSource
-withType:(NSFetchedResultsChangeType)changeType
-atIndex:(NSIndexPath *)indexPath
-newIndexPath:(NSIndexPath *)newIndexPath ;
-    
-    @optional
-    - (void)dataWillChange;
-    - (void)dataDidChangeContent;
-    
-    @end
+- (void) deleteAll;
+
+
+@end
+
+@protocol LEDataSourceDelegate <NSObject>
+
+@required
+
+- (void)dataWasChanged:(LEDataSource *)dataSource
+              withType:(NSFetchedResultsChangeType)changeType
+               atIndex:(NSIndexPath *)indexPath
+          newIndexPath:(NSIndexPath *)newIndexPath ;
+
+@optional
+- (void)dataWillChange;
+- (void)dataDidChangeContent;
+
+@end

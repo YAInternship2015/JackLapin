@@ -16,6 +16,7 @@ int const kLessQuantityOfCellsInRow = 3;
 int const kBigQuantityOfCellsInRow = 4;
 int const kPrefereCellSize = 120;
 float const kCellSpacing = 10.f;
+int const kValueToUploadCollection = 3;
 
 
 
@@ -78,7 +79,7 @@ float const kCellSpacing = 10.f;
             cell.layer.transform = CATransform3DMakeRotation(M_PI,1.0,0.0,0.0);;
         } completion:^(BOOL finished) {
             [weakSelf.collectionView performBatchUpdates:^{
-           //     [weakSelf.dataSource deleteModelAtIndex:indexPath];
+                //     [weakSelf.dataSource deleteModelAtIndex:indexPath];
             } completion:nil];
         }];
     }
@@ -127,6 +128,14 @@ float const kCellSpacing = 10.f;
     } completion:^(BOOL finished) {
         self.itemChanges = nil;
     }];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (([self.dataSource countOfModels] - indexPath.row) == kValueToUploadCollection) {
+        NSLog(@"Time to load new data in collection");
+     //   [[NSNotificationCenter defaultCenter] description];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationNewDataNeedToDownload object:nil];
+    }
 }
 
 @end

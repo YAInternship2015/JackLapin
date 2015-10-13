@@ -39,10 +39,6 @@
             
         }
     });
-    
-//    [sharedManagerObject deleteAll];
-//    [sharedManagerObject saveContext];
-    
     return sharedManagerObject;
 }
 
@@ -52,9 +48,12 @@
 - (void) deleteAll {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"FOModel"];
     NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
-    
     NSError *deleteError = nil;
     [_persistentStoreCoordinator executeRequest:delete withContext:_managedObjectContext error:&deleteError];
+    [self saveContext];
+    if ([self.delegate respondsToSelector:@selector(dataDidChangeContent)]) {
+        [self.delegate dataDidChangeContent];
+    }
 }
 
 - (NSUInteger)countOfModels {

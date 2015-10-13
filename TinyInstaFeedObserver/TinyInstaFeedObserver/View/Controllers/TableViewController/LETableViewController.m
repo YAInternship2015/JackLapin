@@ -9,8 +9,7 @@
 #import "LETableViewController.h"
 #import "LETableCell.h"
 
-NSInteger const kImagePreferedSize = 99;
-NSInteger const kValueToUpload = 3;
+NSInteger const kValueToUploadTable = 3;
 
 @interface LETableViewController () <UITableViewDataSource,
 UITableViewDelegate,
@@ -84,8 +83,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (([self.dataSource countOfModels] - indexPath.row) == kValueToUpload) {
-        NSLog(@"%@", indexPath);
+    if (([self.dataSource countOfModels] - indexPath.row) == kValueToUploadTable) {
+        NSLog(@"Time to load new data in table");
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationNewDataNeedToDownload object:nil];
     }
 }
 
@@ -98,11 +98,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:attributes
                                      context:nil].size;
-    if (size.height > kImagePreferedSize){
+    if (size.height > 99){
         return size.height;
     }
     else{
-        return kImagePreferedSize;
+        return 99;
     }
 }
 

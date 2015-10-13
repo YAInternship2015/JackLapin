@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		4DB6D102509F5A8C8A70A500 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E59DA43B6E64EC932B8C86 /* libPods.a */; };
 		FD2B58111BBDF04000D58FA7 /* LELoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2B58101BBDF04000D58FA7 /* LELoader.m */; };
-		FD2EF4FF1BCC7AA6005B0598 /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EF4FC1BCC7AA6005B0598 /* CCColorCube.m */; };
-		FD2EF5001BCC7AA6005B0598 /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EF4FE1BCC7AA6005B0598 /* CCLocalMaximum.m */; };
 		FD4E62F61BC1C17E008062C3 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E62F51BC1C17E008062C3 /* NSDictionary+UrlEncoding.m */; };
 		FD65A4391BC6CC0F004B4A50 /* LEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65A4381BC6CC0F004B4A50 /* LEDataManager.m */; };
 		FD65A43C1BC6CC45004B4A50 /* LEAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */; };
+		FD9B205E1BCDB304001ADD53 /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205B1BCDB304001ADD53 /* CCColorCube.m */; };
+		FD9B205F1BCDB304001ADD53 /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */; };
 		FDD39EFA1BBDACB000DB1650 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39EF91BBDACB000DB1650 /* main.m */; };
 		FDD39EFD1BBDACB000DB1650 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39EFC1BBDACB000DB1650 /* AppDelegate.m */; };
 		FDD39F031BBDACB000DB1650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD39F011BBDACB000DB1650 /* Main.storyboard */; };
@@ -37,16 +37,16 @@
 		71229CADAF8F3A55F9773087 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD2B580F1BBDF04000D58FA7 /* LELoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LELoader.h; sourceTree = "<group>"; };
 		FD2B58101BBDF04000D58FA7 /* LELoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LELoader.m; sourceTree = "<group>"; };
-		FD2EF4FB1BCC7AA6005B0598 /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
-		FD2EF4FC1BCC7AA6005B0598 /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
-		FD2EF4FD1BCC7AA6005B0598 /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
-		FD2EF4FE1BCC7AA6005B0598 /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
 		FD4E62F41BC1C17E008062C3 /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
 		FD4E62F51BC1C17E008062C3 /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
 		FD65A4371BC6CC0F004B4A50 /* LEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDataManager.h; sourceTree = "<group>"; };
 		FD65A4381BC6CC0F004B4A50 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataManager.m; sourceTree = "<group>"; };
 		FD65A43A1BC6CC45004B4A50 /* LEAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAPIClient.h; sourceTree = "<group>"; };
 		FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAPIClient.m; sourceTree = "<group>"; };
+		FD9B205A1BCDB304001ADD53 /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
+		FD9B205B1BCDB304001ADD53 /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
+		FD9B205C1BCDB304001ADD53 /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
+		FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
 		FDD39EF51BBDACB000DB1650 /* TinyInstaFeedObserver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyInstaFeedObserver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD39EF91BBDACB000DB1650 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDD39EFB1BBDACB000DB1650 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		FD2B580B1BBDE7EC00D58FA7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				FD2EF4FA1BCC7AA6005B0598 /* ColorCube */,
+				FD9B20591BCDB304001ADD53 /* ColorCube */,
 				FD65A4361BC6CB9E004B4A50 /* DataManager */,
 				FD65A4351BC6CB95004B4A50 /* APIClient */,
 				FD4E62F41BC1C17E008062C3 /* NSDictionary+UrlEncoding.h */,
@@ -118,17 +118,6 @@
 				FD2B58101BBDF04000D58FA7 /* LELoader.m */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		FD2EF4FA1BCC7AA6005B0598 /* ColorCube */ = {
-			isa = PBXGroup;
-			children = (
-				FD2EF4FB1BCC7AA6005B0598 /* CCColorCube.h */,
-				FD2EF4FC1BCC7AA6005B0598 /* CCColorCube.m */,
-				FD2EF4FD1BCC7AA6005B0598 /* CCLocalMaximum.h */,
-				FD2EF4FE1BCC7AA6005B0598 /* CCLocalMaximum.m */,
-			);
-			path = ColorCube;
 			sourceTree = "<group>";
 		};
 		FD65A4351BC6CB95004B4A50 /* APIClient */ = {
@@ -147,6 +136,17 @@
 				FD65A4381BC6CC0F004B4A50 /* LEDataManager.m */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		FD9B20591BCDB304001ADD53 /* ColorCube */ = {
+			isa = PBXGroup;
+			children = (
+				FD9B205A1BCDB304001ADD53 /* CCColorCube.h */,
+				FD9B205B1BCDB304001ADD53 /* CCColorCube.m */,
+				FD9B205C1BCDB304001ADD53 /* CCLocalMaximum.h */,
+				FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */,
+			);
+			path = ColorCube;
 			sourceTree = "<group>";
 		};
 		FDD39EEC1BBDACB000DB1650 = {
@@ -404,7 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2EF5001BCC7AA6005B0598 /* CCLocalMaximum.m in Sources */,
+				FD9B205F1BCDB304001ADD53 /* CCLocalMaximum.m in Sources */,
 				FDD39F261BBDB24C00DB1650 /* FOModel+CoreDataProperties.m in Sources */,
 				FDD39EFD1BBDACB000DB1650 /* AppDelegate.m in Sources */,
 				FD65A43C1BC6CC45004B4A50 /* LEAPIClient.m in Sources */,
@@ -419,7 +419,7 @@
 				FDD39F451BBDC0B000DB1650 /* LEContainerViewController.m in Sources */,
 				FD65A4391BC6CC0F004B4A50 /* LEDataManager.m in Sources */,
 				FDD39F271BBDB24C00DB1650 /* FOModel.m in Sources */,
-				FD2EF4FF1BCC7AA6005B0598 /* CCColorCube.m in Sources */,
+				FD9B205E1BCDB304001ADD53 /* CCColorCube.m in Sources */,
 				FDD39F441BBDC0B000DB1650 /* LECollectionViewController.m in Sources */,
 				FDD39F4D1BBDC43A00DB1650 /* LECollectionCell.m in Sources */,
 			);

@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 // Flags that determine how the colors are extract
 typedef enum CCFlags: NSUInteger

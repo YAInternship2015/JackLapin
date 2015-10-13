@@ -22,11 +22,13 @@
 @property int detailViewTag;
 @property int flag;
 
+@property NSArray *individualUserColorPattern;
+
+
 @property(nonatomic, strong) NSURLConnection *tokenRequestConnection;
 
 + (id) dataLoader;
 - (void) getToken;
-- (void) getMoreData;
 - (void) getData;
 
 @end

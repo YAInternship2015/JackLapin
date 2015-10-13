@@ -62,7 +62,7 @@
                             </connections>
                         </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E93-R9-Dot">
-                            <rect key="frame" x="55" y="7" width="500" height="30"/>
+                            <rect key="frame" x="58" y="7" width="485" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -71,6 +71,11 @@
                                 <action selector="loginAction:" destination="1lu-ZT-d05" eventType="touchUpInside" id="LdG-zz-mq0"/>
                             </connections>
                         </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="M1U-4g-t4o">
+                            <connections>
+                                <action selector="deleteAllInLocalDB:" destination="1lu-ZT-d05" id="8KX-HJ-Hq1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

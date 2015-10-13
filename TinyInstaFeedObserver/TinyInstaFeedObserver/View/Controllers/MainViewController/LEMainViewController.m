@@ -21,6 +21,7 @@ static NSString *const responseType = @"code&scope=basic+likes";
 
 @property (nonatomic, strong) LEContainerViewController *containerViewController;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (nonatomic, strong) LEDataSource *dataSource;
 
 @end
 
@@ -31,6 +32,7 @@ static NSString *const responseType = @"code&scope=basic+likes";
 -(void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCaptionToLoginButton:)
                                                  name:NotificationLoginWasAcquired object:nil];
+    self.dataSource = [LEDataSource sharedDataSource];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -62,6 +64,10 @@ static NSString *const responseType = @"code&scope=basic+likes";
     NSURL *authUrl = [NSURL URLWithString:fullAuthUrlString];
     
     [[UIApplication sharedApplication] openURL:authUrl];
+}
+
+- (IBAction)deleteAllInLocalDB :(id)sender {
+    [self.dataSource deleteAll];
 }
 
 @end
