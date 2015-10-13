@@ -9,9 +9,12 @@
 #import "LETableViewController.h"
 #import "LETableCell.h"
 
+NSInteger const kImagePreferedSize = 99;
+NSInteger const kValueToUpload = 3;
+
 @interface LETableViewController () <UITableViewDataSource,
-                                        UITableViewDelegate,
-                                        LEDataSourceDelegate>
+UITableViewDelegate,
+LEDataSourceDelegate>
 @property (nonatomic, strong) LEDataSource *dataSource;
 
 @end
@@ -27,7 +30,7 @@
 }
 
 - (LEDataSource *) dataSource {
-  return _dataSource;
+    return _dataSource;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -78,6 +81,29 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     [self.tableView endUpdates];
     [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (([self.dataSource countOfModels] - indexPath.row) == kValueToUpload) {
+        NSLog(@"%@", indexPath);
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *text = [[self.dataSource modelAtIndex:indexPath] valueForKey:@"caption"];
+    NSString *identifier = NSStringFromClass([LETableCell class]);
+    LETableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    NSDictionary *attributes = @{NSFontAttributeName: cell.FOCaption.font};
+    CGSize size = [text boundingRectWithSize:CGSizeMake(cell.FOCaption.frame.size.width, CGFLOAT_MAX)
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:attributes
+                                     context:nil].size;
+    if (size.height > kImagePreferedSize){
+        return size.height;
+    }
+    else{
+        return kImagePreferedSize;
+    }
 }
 
 @end
