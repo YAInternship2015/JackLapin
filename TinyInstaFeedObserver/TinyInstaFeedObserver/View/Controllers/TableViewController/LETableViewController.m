@@ -84,13 +84,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (([self.dataSource countOfModels] - indexPath.row) == kValueToUploadTable) {
-        NSLog(@"Time to load new data in table");
         [[NSNotificationCenter defaultCenter] postNotificationName:NotificationNewDataNeedToDownload object:nil];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = [[self.dataSource modelAtIndex:indexPath] valueForKey:@"caption"];
+    NSString *text = [[self.dataSource modelAtIndex:indexPath] valueForKey:kModelDecription];
     NSString *identifier = NSStringFromClass([LETableCell class]);
     LETableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     NSDictionary *attributes = @{NSFontAttributeName: cell.FOCaption.font};
@@ -98,11 +97,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:attributes
                                      context:nil].size;
-    if (size.height > 99){
+    if (size.height > kCellImagePreferedSize){
         return size.height;
     }
     else{
-        return 99;
+        return kCellImagePreferedSize;
     }
 }
 

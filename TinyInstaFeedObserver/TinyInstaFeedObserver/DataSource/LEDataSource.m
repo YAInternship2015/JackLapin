@@ -104,10 +104,10 @@
     NSString *entityClassName = NSStringFromClass([FOModel class]);
     FOModel *objectForInsert = [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:context];
     
-    [objectForInsert setValue:caption forKey:@"caption"];
-    [objectForInsert setValue:imageURL forKey:@"imageURL"];
-    [objectForInsert setValue:modelID forKey:@"modelID"];
-    [objectForInsert setValue:[NSDate date] forKey:@"dateAdded"];
+    [objectForInsert setValue:caption forKey:kModelDecription];
+    [objectForInsert setValue:imageURL forKey:kModelImg];
+    [objectForInsert setValue:modelID forKey:kModelId];
+    [objectForInsert setValue:[NSDate date] forKey:kModelDateAdded];
     
     [self saveContext];
 }
@@ -188,7 +188,7 @@
                 inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:description];
     [fetchRequest setFetchBatchSize:20];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kModelDateAdded ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     _fetchedResultsController = [[NSFetchedResultsController alloc]

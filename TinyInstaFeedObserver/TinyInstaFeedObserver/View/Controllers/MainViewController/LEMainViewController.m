@@ -8,13 +8,7 @@
 
 #import "LEMainViewController.h"
 #import "LEContainerViewController.h"
-
-static NSString *const redirectUri = @"tinyInstaFeedObserver://";
-static NSString *const clientID = @"26b5f5babdea4c788158b2e892094435";
-static NSString *const authUrlString = @"https://api.instagram.com/oauth/authorize/";
-static NSString *const responseType = @"code&scope=basic+likes";
-
-
+#import "LEAPIClient.h"
 
 
 @interface LEMainViewController ()
@@ -55,15 +49,7 @@ static NSString *const responseType = @"code&scope=basic+likes";
 }
 
 - (IBAction)loginAction:(id)sender{
-    NSString *fullAuthUrlString = [[NSString alloc]
-                                   initWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=%@",
-                                   authUrlString,
-                                   clientID,
-                                   redirectUri,
-                                   responseType];
-    NSURL *authUrl = [NSURL URLWithString:fullAuthUrlString];
-    
-    [[UIApplication sharedApplication] openURL:authUrl];
+    [LEAPIClient loginToInstagram];
 }
 
 - (IBAction)deleteAllInLocalDB :(id)sender {

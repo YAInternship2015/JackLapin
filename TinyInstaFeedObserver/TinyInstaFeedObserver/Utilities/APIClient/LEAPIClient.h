@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "constants.h"
 
 @interface LEAPIClient : NSObject
+
++ (void) loginToInstagram;
 
 @end

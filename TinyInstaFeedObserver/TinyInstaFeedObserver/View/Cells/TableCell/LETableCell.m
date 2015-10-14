@@ -21,24 +21,16 @@ NSInteger labelTextWidth;
 int countOfColor = 0;
 
 - (void)configWithModel:(FOModel *)model {
-    self.FOCaption.text = [model valueForKey:@"caption"];
-    NSURL *imageURL = [model valueForKey:@"imageURL"];
-    
-    [self cellWidthMessage:[model valueForKey:@"caption"]];
-    
+    self.FOCaption.text = [model valueForKey:kModelDecription];
+    NSURL *imageURL = [model valueForKey:kModelImg];
+    [self cellWidthMessage:[model valueForKey:kModelDecription]];
     [self.FOImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:NoImage]];
-    
     LELoader *loader = [LELoader dataLoader];
-    
     if (countOfColor >= kColorsFromUserAvatar) { countOfColor = 0; }
-    
     if (loader.individualUserColorPattern.count > 0) {
         self.backgroundColor = [loader.individualUserColorPattern objectAtIndex: countOfColor];
         countOfColor++;
     }
-    
-    //  self.backgroundColor = [arrOfBrigthColors objectAtIndex: 0];
-    
 }
 
 -(void)awakeFromNib {
@@ -49,16 +41,12 @@ int countOfColor = 0;
 }
 
 - (void)cellWidthMessage:(NSString *)message {
-    
     CGSize size = [self heightCellWith:message];
-    
     [self setNeedsUpdateConstraints];
-    if (size.height > 99) {
+    if (size.height > kCellImagePreferedSize) {
       //  self.FOCaption.adjustsFontSizeToFitWidth = true;
-        
     }
     [self layoutIfNeeded];
-    
 }
 
 - (CGSize)heightCellWith:(NSString *)message {

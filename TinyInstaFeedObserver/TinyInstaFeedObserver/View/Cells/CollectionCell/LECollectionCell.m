@@ -22,8 +22,8 @@
 
 - (void)configWithModel:(FOModel *)model
 {
-    self.FOComment.text = [model valueForKey:@"caption"];
-    NSURL *imageURL = [model valueForKey:@"imageURL"];
+    self.FOComment.text = [model valueForKey:kModelDecription];
+    NSURL *imageURL = [model valueForKey:kModelImg];
     
    [self.FOImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:NoImage]];
 
