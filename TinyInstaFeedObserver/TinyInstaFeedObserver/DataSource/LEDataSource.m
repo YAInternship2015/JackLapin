@@ -188,7 +188,7 @@
                 inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:description];
     [fetchRequest setFetchBatchSize:20];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kModelDateAdded ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kModelDateAdded ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     _fetchedResultsController = [[NSFetchedResultsController alloc]

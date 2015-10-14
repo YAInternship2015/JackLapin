@@ -36,7 +36,8 @@
 }
 
 - (void) setCaptionToLoginButton :(NSNotification *) notification{
-    NSString *loggedUserName = [@"Logged as - " stringByAppendingString:[notification object]];
+    NSString *loggedUserName = [[NSString stringWithFormat:NSLocalizedString(@"Logged as - ", nil)]
+                                stringByAppendingString:[notification object]];
     self.loginButton.titleLabel.text = loggedUserName;
 }
 

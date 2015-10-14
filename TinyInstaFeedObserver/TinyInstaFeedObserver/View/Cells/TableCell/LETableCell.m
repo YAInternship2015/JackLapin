@@ -25,6 +25,7 @@ int countOfColor = 0;
     NSURL *imageURL = [model valueForKey:kModelImg];
     [self cellWidthMessage:[model valueForKey:kModelDecription]];
     [self.FOImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:NoImage]];
+    
     LELoader *loader = [LELoader dataLoader];
     if (countOfColor >= kColorsFromUserAvatar) { countOfColor = 0; }
     if (loader.individualUserColorPattern.count > 0) {
@@ -32,6 +33,7 @@ int countOfColor = 0;
         countOfColor++;
     }
 }
+
 
 -(void)awakeFromNib {
     [super awakeFromNib];
@@ -44,7 +46,7 @@ int countOfColor = 0;
     CGSize size = [self heightCellWith:message];
     [self setNeedsUpdateConstraints];
     if (size.height > kCellImagePreferedSize) {
-      //  self.FOCaption.adjustsFontSizeToFitWidth = true;
+        //  self.FOCaption.adjustsFontSizeToFitWidth = true;
     }
     [self layoutIfNeeded];
 }

@@ -16,6 +16,7 @@
 		FD9B205F1BCDB304001ADD53 /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */; };
 		FD9B20681BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B20671BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m */; };
 		FD9B206C1BCDC0C3001ADD53 /* LEAlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B206B1BCDC0C3001ADD53 /* LEAlertFactory.m */; };
+		FD9B20721BCE8F02001ADD53 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD9B20741BCE8F02001ADD53 /* Localizable.strings */; };
 		FDD39EFA1BBDACB000DB1650 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39EF91BBDACB000DB1650 /* main.m */; };
 		FDD39EFD1BBDACB000DB1650 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD39EFC1BBDACB000DB1650 /* AppDelegate.m */; };
 		FDD39F031BBDACB000DB1650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD39F011BBDACB000DB1650 /* Main.storyboard */; };
@@ -52,6 +53,10 @@
 		FD9B20671BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FOModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FD9B206A1BCDC0C3001ADD53 /* LEAlertFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAlertFactory.h; sourceTree = "<group>"; };
 		FD9B206B1BCDC0C3001ADD53 /* LEAlertFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAlertFactory.m; sourceTree = "<group>"; };
+		FD9B20701BCE8E93001ADD53 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		FD9B20711BCE8E93001ADD53 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FD9B20731BCE8F02001ADD53 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD9B20751BCE8F05001ADD53 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FDD39EF51BBDACB000DB1650 /* TinyInstaFeedObserver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyInstaFeedObserver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD39EF91BBDACB000DB1650 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDD39EFB1BBDACB000DB1650 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 		FDD39EF81BBDACB000DB1650 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FD9B20741BCE8F02001ADD53 /* Localizable.strings */,
 				FDD39F041BBDACB000DB1650 /* Assets.xcassets */,
 				FDD39F061BBDACB000DB1650 /* LaunchScreen.storyboard */,
 				FDD39F091BBDACB100DB1650 /* Info.plist */,
@@ -355,6 +361,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = FDD39EEC1BBDACB000DB1650;
 			productRefGroup = FDD39EF61BBDACB000DB1650 /* Products */;
@@ -372,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDD39F081BBDACB000DB1650 /* LaunchScreen.storyboard in Resources */,
+				FD9B20721BCE8F02001ADD53 /* Localizable.strings in Resources */,
 				FDD39F051BBDACB000DB1650 /* Assets.xcassets in Resources */,
 				FDD39F031BBDACB000DB1650 /* Main.storyboard in Resources */,
 			);
@@ -442,10 +450,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		FD9B20741BCE8F02001ADD53 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD9B20731BCE8F02001ADD53 /* en */,
+				FD9B20751BCE8F05001ADD53 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		FDD39F011BBDACB000DB1650 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FDD39F021BBDACB000DB1650 /* Base */,
+				FD9B20701BCE8E93001ADD53 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -454,6 +472,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FDD39F071BBDACB000DB1650 /* Base */,
+				FD9B20711BCE8E93001ADD53 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

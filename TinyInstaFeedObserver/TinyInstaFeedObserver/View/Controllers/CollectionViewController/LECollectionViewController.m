@@ -6,7 +6,6 @@
 //  Copyright © 2015 Jack Lapin. All rights reserved.
 //
 
-#import "LECollectionViewController.h"
 #import "LEContainerViewController.h"
 #import "LECollectionViewController.h"
 #import "LEDataSource.h"
@@ -79,7 +78,7 @@ int const kValueToUploadCollection = 3;
             cell.layer.transform = CATransform3DMakeRotation(M_PI,1.0,0.0,0.0);;
         } completion:^(BOOL finished) {
             [weakSelf.collectionView performBatchUpdates:^{
-                //     [weakSelf.dataSource deleteModelAtIndex:indexPath];
+                     [weakSelf.dataSource deleteModelAtIndex:indexPath];
             } completion:nil];
         }];
     }
