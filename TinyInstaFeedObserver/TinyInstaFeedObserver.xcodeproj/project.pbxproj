@@ -41,6 +41,7 @@
 		FD2B58101BBDF04000D58FA7 /* LELoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LELoader.m; sourceTree = "<group>"; };
 		FD4E62F41BC1C17E008062C3 /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
 		FD4E62F51BC1C17E008062C3 /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
+		FD4F1C0E1BD002A600EC5DE5 /* header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = header.pch; sourceTree = "<group>"; };
 		FD65A4371BC6CC0F004B4A50 /* LEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDataManager.h; sourceTree = "<group>"; };
 		FD65A4381BC6CC0F004B4A50 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataManager.m; sourceTree = "<group>"; };
 		FD65A43A1BC6CC45004B4A50 /* LEAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAPIClient.h; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 		FDD39EF71BBDACB000DB1650 /* TinyInstaFeedObserver */ = {
 			isa = PBXGroup;
 			children = (
+				FD4F1C0E1BD002A600EC5DE5 /* header.pch */,
 				FDD39F0F1BBDAD0000DB1650 /* Model */,
 				FDD39F281BBDB38E00DB1650 /* DataSource */,
 				FD2B580B1BBDE7EC00D58FA7 /* Utilities */,
@@ -565,6 +567,8 @@
 			baseConfigurationReference = 05A249FE7591DCD1705BB648 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TinyInstaFeedObserver/header.pch";
 				INFOPLIST_FILE = TinyInstaFeedObserver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -578,6 +582,8 @@
 			baseConfigurationReference = 71229CADAF8F3A55F9773087 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TinyInstaFeedObserver/header.pch";
 				INFOPLIST_FILE = TinyInstaFeedObserver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

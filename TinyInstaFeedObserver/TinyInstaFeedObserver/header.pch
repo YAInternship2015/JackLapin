@@ -1,0 +1,31 @@
+//
+//  header.pch
+//  TinyInstaFeedObserver
+//
+//  Created by Jack Lapin on 15.10.15.
+//  Copyright © 2015 Jack Lapin. All rights reserved.
+//
+
+#import "LEAPIClient.h"
+#import "LEDataSource.h"
+
+
+#define  captionObject(i, arr)\
+[[arr[i] objectForKey:@"caption"] objectForKey:@"text"]
+
+#define  imageSRObject(i, arr)\
+[[[arr[i] objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"]
+
+#define  idStringObject(i, arr)\
+[arr[i] objectForKey:@"id"]
+
+#define modelIDObject(i, arr, dataSource)\
+[[dataSource modelWithID:idStringObject(i, arr)] valueForKey:@"modelID"]
+
+#ifndef header_pch
+#define header_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* header_pch */

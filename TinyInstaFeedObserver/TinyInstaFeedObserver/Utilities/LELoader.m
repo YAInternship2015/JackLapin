@@ -21,6 +21,7 @@
 
 
 
+
 @interface LELoader()
 
 @property(nonatomic, strong) NSMutableData *data;
@@ -43,8 +44,11 @@ NSString *userAvURLString;
         loader = [[LELoader alloc] init];
         loader.sharedCache = [[NSCache alloc] init];
         loader.dataSource = [LEDataSource sharedDataSource];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needMore)
+        [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
                                                      name:NotificationNewDataNeedToDownload object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(userAvatarPrepare)
+                                                     name:NotificationLoginWasAcquired object:nil];
         
     }
     return loader;
@@ -54,8 +58,8 @@ NSString *userAvURLString;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) userAvatarPrepare : (NSString *) URLString {
-    NSURL *imgURL = [NSURL URLWithString:URLString];
+- (void) userAvatarPrepare {
+    NSURL *imgURL = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"userAvURLString"]];
     NSData *userAvData = [NSData dataWithContentsOfURL:imgURL];
     UIImage *image = [UIImage imageWithData:userAvData];
     
@@ -66,99 +70,27 @@ NSString *userAvURLString;
     
 }
 
-// Метод запрашивает access_token на основании полученного урл, после получения его вызывает метод по обработке полученных данных
-
-- (void) getToken
-{
-    __block NSString *userName = @"";
-    NSDictionary *params =
-    @{@"code":self.code,
-      @"client_id":kClientID,
-      @"client_secret":kClientSecret,
-      @"grant_type":kGrant_type,
-      @"redirect_uri":kRedirectURI
-      };
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager POST:kTokenRequestURL
-       parameters:params
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              NSLog(@"%@", responseObject);
-              self.token = [responseObject objectForKey:@"access_token"];
-              userName = [[responseObject objectForKey:@"user"] objectForKey:@"username"];
-              if (userName.length > 0 ) {
-                  [[NSNotificationCenter defaultCenter] postNotificationName:NotificationLoginWasAcquired object:userName];
-              }
-              userAvURLString = [[responseObject objectForKey:@"user"] objectForKey:@"profile_picture"];
-              [self userAvatarPrepare:userAvURLString];
-              [self getData];
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"Error: %@", error);
-          }];
-}
-
-- (void) getData {
-    NSString *urlString = kBaseRequestURL;
-    if (self.nextUrl) {
-        urlString = self.nextUrl;
-    }
-    NSDictionary *params = @{@"access_token":self.token, @"count":@"10"};
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager GET:urlString
-      parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSDictionary *temp = responseObject;
-             self.dataDict = temp;
-             [self parseData];
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Error: %@", error);
-         }];
-}
-
 // Скидывает данные в массив для дальнейшей обработки
 //
-- (void) parseData
+- (void) parseDataDictionary:(NSDictionary *)dataDict
 {
     
-    NSArray *tempArray = [self.dataDict objectForKey:@"data"];
+    NSArray *tempArray = [dataDict objectForKey:@"data"];
     self.dataArray = tempArray;
     
-    self.nextUrl = [[self.dataDict objectForKey:@"pagination"] objectForKey:@"next_url"];
+    self.nextUrl = [[dataDict objectForKey:@"pagination"] objectForKey:@"next_url"];
     
     for (int i = 0; i < [self.dataArray count]; i++) {
-        NSString *idString = [self.dataArray[i] objectForKey:@"id"];
-        NSString *userName = [[self.dataArray[i] objectForKey:@"user"] objectForKey:@"full_name"];
-        NSString *userAvatar = [[self.dataArray[i] objectForKey:@"user"] objectForKey:@"profile_picture"];
-        NSString *imageSR = [[[self.dataArray[i] objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"];
-        NSNumber *liked = [self.dataArray[i] objectForKey:@"user_has_liked"];
-        NSNumber *comments = [[self.dataArray[i] objectForKey:@"comments"] objectForKey:@"count"];
-        NSNumber *numberOfLikes = [[self.dataArray[i] objectForKey:@"likes"] objectForKey:@"count"];
-        NSString *caption = [[self.dataArray[i] objectForKey:@"caption"] objectForKey:@"text"];
-        NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
-        [temp setObject:idString forKey:@"id"];
-        [temp setObject:imageSR forKey:@"imageSR"];
-        [temp setObject:caption forKey:@"caption"];
-        [temp setObject:liked forKey:@"liked"];
-        [temp setObject:userName forKey:@"userName"];
-        [temp setObject:userAvatar forKey:@"userAvatar"];
-        [temp setObject:comments forKey:@"comments"];
-        [temp setObject:numberOfLikes forKey:@"numberOfLikes"];
-        [self.parsedData addObject:temp];
-        
-        if (![[self.dataSource modelWithID:idString] valueForKey:@"modelID"]){
-            [self.dataSource insertModelWithCaption:caption imageURL:imageSR modelID:idString];
+        if (!modelIDObject(i, self.dataArray, self.dataSource)){
+            [self.dataSource insertModelWithCaption:captionObject(i, self.dataArray) imageURL:imageSRObject(i, self.dataArray) modelID:idStringObject(i, self.dataArray)];
         }
     }
     
 }
 
-+ (void) needMore{
-    LELoader *loader = [LELoader dataLoader];
-    if (!loader.token) {
+- (void) needMore{
+//    LELoader *loader = [LELoader dataLoader];
+    if (![[NSUserDefaults standardUserDefaults] stringForKey:@"token"]) {
         UIAlertController * alert = [LEAlertFactory showAlertWithTitle:
                                      [NSString stringWithFormat:NSLocalizedString(@"Warning", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"To see more, you should logIn first!", nil)]];
@@ -169,7 +101,11 @@ NSString *userAvURLString;
         [alertWindow.rootViewController presentViewController:alert animated:YES completion:nil];
     }
     else {
-        [loader getData];
+        [LEAPIClient getDataNextURL:self.nextUrl compliteBlock:^(NSDictionary *answer) {
+            [self parseDataDictionary:answer];
+        } failure:^(NSError *error) {
+            NSLog(@"%@", error);
+        }];
     }
 }
 

@@ -44,3 +44,4 @@ static NSString *const EmbedContainerID = @"EmbedContainer";
 static NSString *const NotificationDataFileContentDidChange = @"NotificationDataFileContentDidChange";
 static NSString *const NotificationLoginWasAcquired= @"NotificationLoginWasAcquired";
 static NSString *const NotificationNewDataNeedToDownload= @"NotificationNewDataNeedToDownload";
+static NSString *const NotificationUserAvatarPrepare= @"NotificationUserAvatarPrepare";

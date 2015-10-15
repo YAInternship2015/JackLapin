@@ -8,7 +8,6 @@
 
 #import "LEMainViewController.h"
 #import "LEContainerViewController.h"
-#import "LEAPIClient.h"
 
 
 @interface LEMainViewController ()
@@ -39,6 +38,7 @@
     NSString *loggedUserName = [[NSString stringWithFormat:NSLocalizedString(@"Logged as - ", nil)]
                                 stringByAppendingString:[notification object]];
     self.loginButton.titleLabel.text = loggedUserName;
+    
 }
 
 - (void)dealloc {
