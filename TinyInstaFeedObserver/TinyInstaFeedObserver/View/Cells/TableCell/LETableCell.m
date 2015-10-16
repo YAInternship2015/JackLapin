@@ -4,7 +4,6 @@
 //
 
 #import "LETableCell.h"
-#import "constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LELoader.h"
 

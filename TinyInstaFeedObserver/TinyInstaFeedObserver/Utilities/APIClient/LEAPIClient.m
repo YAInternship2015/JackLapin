@@ -48,16 +48,7 @@
               if (userName.length > 0 ) {
                   [[NSNotificationCenter defaultCenter] postNotificationName:NotificationLoginWasAcquired object:userName];
               }
-              
               [self getDataNextURL:nil compliteBlock:complBlock failure:failure];
-              
-              
-              
-//              complBlock(responseObject);
-              
-//              userAvURLString = [[responseObject objectForKey:@"user"] objectForKey:@"profile_picture"];
-//              [self userAvatarPrepare:userAvURLString];
-//              [self getData];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"Error: %@", error);

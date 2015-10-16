@@ -131,7 +131,6 @@ int const kValueToUploadCollection = 3;
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (([self.dataSource countOfModels] - indexPath.row) == kValueToUploadCollection) {
-        NSLog(@"Time to load new data in collection");
         [[NSNotificationCenter defaultCenter] postNotificationName:NotificationNewDataNeedToDownload object:nil];
     }
 }

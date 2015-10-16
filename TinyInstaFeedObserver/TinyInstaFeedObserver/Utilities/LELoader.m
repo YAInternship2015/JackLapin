@@ -11,22 +11,16 @@
 #import "FOModel+CoreDataProperties.h"
 #import "AFNetworking.h"
 #import "NSDictionary+UrlEncoding.h"
-#import "constants.h"
 #import "ColorCube/CCColorCube.h"
 #import "LEAlertFactory.h"
 
 
 
-
-
-
-
-
 @interface LELoader()
 
-@property(nonatomic, strong) NSMutableData *data;
 @property (nonatomic, strong) LEDataSource* dataSource;
-
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSString *nextUrl;
 
 @end
 
@@ -42,7 +36,6 @@ NSString *userAvURLString;
     if (nil == loader)
     {
         loader = [[LELoader alloc] init];
-        loader.sharedCache = [[NSCache alloc] init];
         loader.dataSource = [LEDataSource sharedDataSource];
         [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
                                                      name:NotificationNewDataNeedToDownload object:nil];
@@ -70,14 +63,11 @@ NSString *userAvURLString;
     
 }
 
-// Скидывает данные в массив для дальнейшей обработки
 //
 - (void) parseDataDictionary:(NSDictionary *)dataDict
 {
-    
     NSArray *tempArray = [dataDict objectForKey:@"data"];
     self.dataArray = tempArray;
-    
     self.nextUrl = [[dataDict objectForKey:@"pagination"] objectForKey:@"next_url"];
     
     for (int i = 0; i < [self.dataArray count]; i++) {
@@ -89,7 +79,6 @@ NSString *userAvURLString;
 }
 
 - (void) needMore{
-//    LELoader *loader = [LELoader dataLoader];
     if (![[NSUserDefaults standardUserDefaults] stringForKey:@"token"]) {
         UIAlertController * alert = [LEAlertFactory showAlertWithTitle:
                                      [NSString stringWithFormat:NSLocalizedString(@"Warning", nil)]
