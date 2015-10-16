@@ -52,6 +52,7 @@ NSString *userAvURLString;
 }
 
 - (void) userAvatarPrepare {
+#warning работа с аватарой юзера должна быть в категории в юзеру
     NSURL *imgURL = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"userAvURLString"]];
     NSData *userAvData = [NSData dataWithContentsOfURL:imgURL];
     UIImage *image = [UIImage imageWithData:userAvData];
@@ -80,6 +81,7 @@ NSString *userAvURLString;
 
 - (void) needMore{
     if (![[NSUserDefaults standardUserDefaults] stringForKey:@"token"]) {
+#warning плохой код, вы лезете в UI из NSObject. С UI должен работать вью контроллер
         UIAlertController * alert = [LEAlertFactory showAlertWithTitle:
                                      [NSString stringWithFormat:NSLocalizedString(@"Warning", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"To see more, you should logIn first!", nil)]];

@@ -28,6 +28,7 @@ int countOfColor = 0;
     LELoader *loader = [LELoader dataLoader];
     if (countOfColor >= kColorsFromUserAvatar) { countOfColor = 0; }
     if (loader.individualUserColorPattern.count > 0) {
+#warning в этом месте приложение падает после логина, в массиве 7 элементов, обращание к элементу под индексом 7
         self.backgroundColor = [loader.individualUserColorPattern objectAtIndex: countOfColor];
         countOfColor++;
     }
@@ -41,6 +42,7 @@ int countOfColor = 0;
     
 }
 
+#warning непонятно, зачем нужны следующие два метода, с нормальным autolayout и методом heightForCellAtIndexPath у делегата таблицы все должно работать само
 - (void)cellWidthMessage:(NSString *)message {
     CGSize size = [self heightCellWith:message];
     [self setNeedsUpdateConstraints];

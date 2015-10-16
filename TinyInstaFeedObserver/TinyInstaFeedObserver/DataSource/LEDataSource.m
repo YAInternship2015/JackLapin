@@ -14,6 +14,7 @@
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+#warning очень плохое имя свойства + оно не используется никем
 @property NSInteger *added;
 
 @end
@@ -22,7 +23,7 @@
 @implementation LEDataSource
 
 
-
+#warning @synthesize можно не писать
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -43,7 +44,7 @@
 
 
 #pragma mark - DataSource methods
-
+#warning - (void)deleteAll
 - (void) deleteAll {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"FOModel"];
     NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
@@ -84,13 +85,13 @@
     [request setEntity:entity];
     [request setPredicate:predicate];
     NSArray *results = [context executeFetchRequest:request error:&error];
+#warning можно без проверки возвращать [results firstObject]
     if (results.count > 0) {
         FOModel *existedModel = [results objectAtIndex:0];
         return existedModel;
     }
     return nil;
 }
-
 
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -186,6 +187,7 @@
     [NSEntityDescription entityForName:@"FOModel"
                 inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:description];
+#warning размер "пачки" надо вынести в константы
     [fetchRequest setFetchBatchSize:20];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kModelDateAdded ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];

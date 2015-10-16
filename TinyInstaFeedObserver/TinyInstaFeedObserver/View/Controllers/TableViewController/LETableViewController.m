@@ -28,6 +28,7 @@ LEDataSourceDelegate>
     
 }
 
+#warning этот метод можно удалить
 - (LEDataSource *) dataSource {
     return _dataSource;
 }

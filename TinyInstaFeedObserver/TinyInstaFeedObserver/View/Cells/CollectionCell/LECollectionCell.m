@@ -11,6 +11,7 @@
 
 @interface LECollectionCell()
 
+#warning пользуйтесь camel case'ом
 @property (nonatomic, weak) IBOutlet UIImageView *FOImage;
 @property (nonatomic, weak) IBOutlet UILabel *FOComment;
 

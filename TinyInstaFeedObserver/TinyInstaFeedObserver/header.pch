@@ -9,8 +9,11 @@
 #import "LEAPIClient.h"
 #import "LEDataSource.h"
 
+#warning Вообще очень жирный pch файл. Можно было просто разнести их ве по разным файлам с константами, чтобы все классы не видели все константы. Хотя бы добавьте префикс приложения ко всем именам
+
 #pragma mark UI constants and dimentions
 
+#warning дефолтную картинку правильно поместить в категорию UIImage
 static NSString *const NoImage = @"NoImage";
 static int const kCellImagePreferedSize = 99;
 static int const kColorsFromUserAvatar = 8;
