@@ -23,6 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     NSLog(@"url recieved: %@", url);
+#warning этот код не должен быть в AppDelegate, всю авторизацию можно вынести в отдельный логин сервис, которому вы будете передавать параметр отсюда
     NSString *code = [url absoluteString];
     code = [code stringByReplacingOccurrencesOfString:@"tinyinstafeedobserver:?code=" withString:@""];
     LELoader *loader = [LELoader dataLoader];
