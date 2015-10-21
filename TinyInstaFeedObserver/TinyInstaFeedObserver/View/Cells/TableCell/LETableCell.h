@@ -11,6 +11,4 @@
 
 - (void)configWithModel:(FOModel *)model;
 
-@property (nonatomic, weak) IBOutlet UILabel *FOCaption;
-
 @end

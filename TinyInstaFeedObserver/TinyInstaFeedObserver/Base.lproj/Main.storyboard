@@ -208,8 +208,8 @@
                                     <constraint firstItem="Ioc-0f-bju" firstAttribute="centerX" secondItem="z7c-qi-r9j" secondAttribute="centerX" constant="2" id="ze7-fo-dla"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="FOComment" destination="xGh-xI-gvE" id="dYd-FO-fpe"/>
-                                    <outlet property="FOImage" destination="Ioc-0f-bju" id="pFQ-ji-kPX"/>
+                                    <outlet property="modelCaption" destination="xGh-xI-gvE" id="OnF-lM-I12"/>
+                                    <outlet property="modelImage" destination="Ioc-0f-bju" id="VKD-dD-yYV"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -276,8 +276,8 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="FOCaption" destination="jrx-vB-r72" id="I7U-Ma-lwm"/>
-                                    <outlet property="FOImage" destination="ZaQ-Ro-x4d" id="o20-9J-VDA"/>
+                                    <outlet property="modelCaption" destination="jrx-vB-r72" id="ls8-Vm-Aea"/>
+                                    <outlet property="modelImage" destination="ZaQ-Ro-x4d" id="Wwd-TM-0qJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

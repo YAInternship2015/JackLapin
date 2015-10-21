@@ -7,13 +7,14 @@
 #import "FOModel.h"
 #import "LECollectionCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+placeHolderImage.h"
+
 
 
 @interface LECollectionCell()
 
-#warning пользуйтесь camel case'ом
-@property (nonatomic, weak) IBOutlet UIImageView *FOImage;
-@property (nonatomic, weak) IBOutlet UILabel *FOComment;
+@property (nonatomic, weak) IBOutlet UIImageView *modelImage;
+@property (nonatomic, weak) IBOutlet UILabel *modelCaption;
 
 @end
 
@@ -21,10 +22,9 @@
 
 - (void)configWithModel:(FOModel *)model
 {
-    self.FOComment.text = [model valueForKey:kModelDecription];
+    self.modelCaption.text = [model valueForKey:kModelDecription];
     NSURL *imageURL = [model valueForKey:kModelImg];
-    
-   [self.FOImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:NoImage]];
+   [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceholderImage]];
 
 }
 

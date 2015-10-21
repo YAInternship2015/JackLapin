@@ -8,6 +8,8 @@
 
 #import "LEMainViewController.h"
 #import "LEContainerViewController.h"
+#import "LELoginService.h"
+
 
 
 @interface LEMainViewController ()
@@ -50,8 +52,7 @@
 }
 
 - (IBAction)loginAction:(id)sender{
-#warning добавьте прослойку между api клиентом и контроллером, что-то вроде аккаунт сервиса, который будет уметь логинить юзера и будет держать его токен
-    [LEAPIClient loginToInstagram];
+    [LELoginService startLoginAction];
 }
 
 - (IBAction)deleteAllInLocalDB :(id)sender {

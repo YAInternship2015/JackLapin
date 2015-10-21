@@ -28,11 +28,6 @@ LEDataSourceDelegate>
     
 }
 
-#warning этот метод можно удалить
-- (LEDataSource *) dataSource {
-    return _dataSource;
-}
-
 -(void)viewWillAppear:(BOOL)animated {
     self.dataSource.delegate = self;
     [self.tableView reloadData];
@@ -53,6 +48,10 @@ LEDataSourceDelegate>
     LETableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     [cell configWithModel:[self.dataSource modelAtIndex:indexPath]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
@@ -80,29 +79,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             break;
     }
     [self.tableView endUpdates];
-  //  [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (([self.dataSource countOfModels] - indexPath.row) == kValueToUploadTable) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NotificationNewDataNeedToDownload object:nil];
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = [[self.dataSource modelAtIndex:indexPath] valueForKey:kModelDecription];
-    NSString *identifier = NSStringFromClass([LETableCell class]);
-    LETableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    NSDictionary *attributes = @{NSFontAttributeName: cell.FOCaption.font};
-    CGSize size = [text boundingRectWithSize:CGSizeMake(cell.FOCaption.frame.size.width, CGFLOAT_MAX)
-                                     options:NSStringDrawingUsesLineFragmentOrigin
-                                  attributes:attributes
-                                     context:nil].size;
-    if (size.height > kCellImagePreferedSize){
-        return size.height;
-    }
-    else{
-        return kCellImagePreferedSize;
     }
 }
 

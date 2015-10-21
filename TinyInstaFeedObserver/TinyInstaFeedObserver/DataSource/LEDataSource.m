@@ -9,9 +9,9 @@
 
 @interface LEDataSource () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 
@@ -19,12 +19,6 @@
 
 
 @implementation LEDataSource
-
-
-#warning @synthesize можно не писать
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 #pragma mark - Lifecycle
 
@@ -42,12 +36,12 @@
 
 
 #pragma mark - DataSource methods
-#warning - (void)deleteAll
-- (void) deleteAll {
+
+- (void)deleteAll {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"FOModel"];
     NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
     NSError *deleteError = nil;
-    [_persistentStoreCoordinator executeRequest:delete withContext:_managedObjectContext error:&deleteError];
+    [self.persistentStoreCoordinator executeRequest:delete withContext:self.managedObjectContext error:&deleteError];
     [self saveContext];
     if ([self.delegate respondsToSelector:@selector(dataDidChangeContent)]) {
         [self.delegate dataDidChangeContent];
@@ -180,8 +174,7 @@
     [NSEntityDescription entityForName:@"FOModel"
                 inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:description];
-#warning размер "пачки" надо вынести в константы
-    [fetchRequest setFetchBatchSize:20];
+    [fetchRequest setFetchBatchSize:kFetchBatchSize];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kModelDateAdded ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];

@@ -13,14 +13,16 @@
 #import "NSDictionary+UrlEncoding.h"
 #import "ColorCube/CCColorCube.h"
 #import "LEAlertFactory.h"
-
-
+#import "InstaUser.h"
 
 @interface LELoader()
 
 @property (nonatomic, strong) LEDataSource* dataSource;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSString *nextUrl;
+@property (nonatomic, strong) NSString *code;
+@property (nonatomic, strong) NSURLConnection *tokenRequestConnection;
+@property (nonatomic, strong) NSString *token;
 
 @end
 
@@ -52,19 +54,13 @@ NSString *userAvURLString;
 }
 
 - (void) userAvatarPrepare {
-#warning работа с аватарой юзера должна быть в категории в юзеру
-    NSURL *imgURL = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"userAvURLString"]];
-    NSData *userAvData = [NSData dataWithContentsOfURL:imgURL];
-    UIImage *image = [UIImage imageWithData:userAvData];
-    
-    CCColorCube *colorCube = [[CCColorCube alloc] init];
-    NSArray *arr =[colorCube extractBrightColorsFromImage:image avoidColor:[UIColor blackColor] count:kColorsFromUserAvatar];
-    
-    self.individualUserColorPattern = arr;
-    
+    NSString *imgURLstring = [[NSUserDefaults standardUserDefaults] stringForKey:@"userAvURLString"];
+    NSString *userLogin = [[NSUserDefaults standardUserDefaults] stringForKey:@"userLogin"];
+    NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"fullUserName"];
+    InstaUser *user = [InstaUser createUserWithLogin:userLogin name:userName avatarURLstring:imgURLstring];
+    self.individualUserColorPattern = [user colorsFromUserAvatar];
 }
 
-//
 - (void) parseDataDictionary:(NSDictionary *)dataDict
 {
     NSArray *tempArray = [dataDict objectForKey:@"data"];
@@ -76,20 +72,11 @@ NSString *userAvURLString;
             [self.dataSource insertModelWithCaption:captionObject(i, self.dataArray) imageURL:imageSRObject(i, self.dataArray) modelID:idStringObject(i, self.dataArray)];
         }
     }
-    
 }
 
 - (void) needMore{
     if (![[NSUserDefaults standardUserDefaults] stringForKey:@"token"]) {
-#warning плохой код, вы лезете в UI из NSObject. С UI должен работать вью контроллер
-        UIAlertController * alert = [LEAlertFactory showAlertWithTitle:
-                                     [NSString stringWithFormat:NSLocalizedString(@"Warning", nil)]
-                                                        message:[NSString stringWithFormat:NSLocalizedString(@"To see more, you should logIn first!", nil)]];
-        UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        alertWindow.rootViewController = [[UIViewController alloc] init];
-        alertWindow.windowLevel = UIWindowLevelAlert + 1;
-        [alertWindow makeKeyAndVisible];
-        [alertWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        NSLog(@"Need to get token first");
     }
     else {
         [LEAPIClient getDataNextURL:self.nextUrl compliteBlock:^(NSDictionary *answer) {
