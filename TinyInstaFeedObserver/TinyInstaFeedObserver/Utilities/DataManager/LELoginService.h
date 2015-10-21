@@ -13,5 +13,4 @@
 + (void) loginWithUrl :(NSURL *) url;
 + (void) startLoginAction;
 
-
 @end

@@ -18,5 +18,4 @@
 
 - (NSArray *) colorsFromUserAvatar;
 
-
 @end
