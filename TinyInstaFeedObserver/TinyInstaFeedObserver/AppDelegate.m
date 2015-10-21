@@ -27,8 +27,6 @@
     NSString *code = [url absoluteString];
     code = [code stringByReplacingOccurrencesOfString:@"tinyinstafeedobserver:?code=" withString:@""];
     LELoader *loader = [LELoader dataLoader];
-//    [loader setCode:code];
-//    [loader getToken];
     
     [LEAPIClient getTokenWithCode:code complite:^(NSDictionary *answer) {
         [loader parseDataDictionary:answer];

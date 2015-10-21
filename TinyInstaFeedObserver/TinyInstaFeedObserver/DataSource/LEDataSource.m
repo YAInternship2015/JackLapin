@@ -14,8 +14,6 @@
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
-#warning очень плохое имя свойства + оно не используется никем
-@property NSInteger *added;
 
 @end
 
@@ -85,12 +83,7 @@
     [request setEntity:entity];
     [request setPredicate:predicate];
     NSArray *results = [context executeFetchRequest:request error:&error];
-#warning можно без проверки возвращать [results firstObject]
-    if (results.count > 0) {
-        FOModel *existedModel = [results objectAtIndex:0];
-        return existedModel;
-    }
-    return nil;
+    return [results firstObject];
 }
 
 - (NSURL *)applicationDocumentsDirectory {

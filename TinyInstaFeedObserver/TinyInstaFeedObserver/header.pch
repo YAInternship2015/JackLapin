@@ -16,7 +16,7 @@
 #warning дефолтную картинку правильно поместить в категорию UIImage
 static NSString *const NoImage = @"NoImage";
 static int const kCellImagePreferedSize = 99;
-static int const kColorsFromUserAvatar = 8;
+static int const kColorsFromUserAvatar = 16;
 
 #pragma mark Data Model Attributes names
 
