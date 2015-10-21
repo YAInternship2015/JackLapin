@@ -40,14 +40,14 @@
 		51E59DA43B6E64EC932B8C86 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		71229CADAF8F3A55F9773087 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD2B580F1BBDF04000D58FA7 /* LELoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LELoader.h; path = ../LELoader.h; sourceTree = "<group>"; };
-		FD2B58101BBDF04000D58FA7 /* LELoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LELoader.m; path = ../LELoader.m; sourceTree = "<group>"; };
+		FD2B58101BBDF04000D58FA7 /* LELoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = LELoader.m; path = ../LELoader.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FD4E62F41BC1C17E008062C3 /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
 		FD4E62F51BC1C17E008062C3 /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
 		FD4F1C0E1BD002A600EC5DE5 /* header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = header.pch; sourceTree = "<group>"; };
-		FD65A43A1BC6CC45004B4A50 /* LEAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAPIClient.h; sourceTree = "<group>"; };
-		FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAPIClient.m; sourceTree = "<group>"; };
+		FD65A43A1BC6CC45004B4A50 /* LEAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LEAPIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LEAPIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FD71A58A1BD7C4F000CE4169 /* LELoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LELoginService.h; sourceTree = "<group>"; };
-		FD71A58B1BD7C4F000CE4169 /* LELoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LELoginService.m; sourceTree = "<group>"; };
+		FD71A58B1BD7C4F000CE4169 /* LELoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LELoginService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FD71A5921BD7D05C00CE4169 /* UIImage+placeHolderImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+placeHolderImage.h"; sourceTree = "<group>"; };
 		FD71A5931BD7D05C00CE4169 /* UIImage+placeHolderImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+placeHolderImage.m"; sourceTree = "<group>"; };
 		FD71A5951BD7EA1D00CE4169 /* InstaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaUser.h; sourceTree = "<group>"; };

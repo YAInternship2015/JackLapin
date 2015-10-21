@@ -9,6 +9,8 @@
 #import "LEAPIClient.h"
 #import <AFNetworking.h>
 
+static const NSString * kCountPagination = @"10";
+
 #pragma mark Instagram connect
 
 static NSString *const kBaseRequestURL = @"https://api.instagram.com/v1/tags/automotive/media/recent?";
@@ -16,9 +18,9 @@ static NSString *const kBaseRequestURL = @"https://api.instagram.com/v1/tags/aut
 
 @implementation LEAPIClient
 
-+ (void) getDataNextURL:(NSString *)nextURL compliteBlock:(LESuccesBlock)block failure:(LEFailureBlock)failure {
++ (void) getDataNextURL:(NSString *)nextURL completeBlock:(LESuccesBlock)block failure:(LEFailureBlock)failure {
     NSString *urlString = nextURL ? nextURL : kBaseRequestURL;
-    NSDictionary *params = @{@"access_token": [[NSUserDefaults standardUserDefaults] stringForKey:@"token"], @"count":@"10"};
+    NSDictionary *params = @{@"access_token": [[NSUserDefaults standardUserDefaults] stringForKey:@"token"], @"count":kCountPagination};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager GET:urlString

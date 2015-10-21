@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "FOModel+CoreDataProperties.h"
 
+static int const kFetchBatchSize = 20;
+
 @protocol LEDataSourceDelegate;
 
 @interface LEDataSource : NSObject <NSFetchedResultsControllerDelegate>

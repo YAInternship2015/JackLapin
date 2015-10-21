@@ -17,10 +17,7 @@
 
 @end
 
-
-
 @implementation InstaUser
-
 
 +(InstaUser *)createUserWithLogin:(NSString *)login name:(NSString *)name avatarURLstring:(NSString *)avURLString {
     InstaUser * user = [[InstaUser alloc] init];

@@ -7,7 +7,6 @@
 //
 
 #import "LELoginService.h"
-#import "LELoader.h"
 #import <AFNetworking.h>
 #import "LEAPIClient.h"
 #import "InstaUser.h"
@@ -26,18 +25,6 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
 
 @implementation LELoginService
 
-+ (void)loginWithUrl:(NSURL *)url {
-    NSString *code = [url absoluteString];
-    code = [code stringByReplacingOccurrencesOfString:@"tinyinstafeedobserver:?code=" withString:@""];
-    LELoader *loader = [LELoader dataLoader];
-    
-    [self getTokenWithCode:code complite:^(NSDictionary *answer) {
-        [loader parseDataDictionary:answer];
-    } failure:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
-}
-
 +(void)startLoginAction {
     NSString *fullAuthUrlString = [[NSString alloc]
                                    initWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=%@",
@@ -49,7 +36,17 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
     [[UIApplication sharedApplication] openURL:authUrl];
 }
 
-+ (void) getTokenWithCode:(NSString *)code complite:(LESuccesBlock)complBlock failure:(LEFailureBlock)failure
++ (void)loginWithUrl:(NSURL *)url {
+    NSString *code = [url absoluteString];
+    code = [code stringByReplacingOccurrencesOfString:@"tinyinstafeedobserver:?code=" withString:@""];
+    [self getTokenWithCode:code complete:^(NSDictionary *answer) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationTokenWasAcquiredReadyToParce object:answer];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
++ (void) getTokenWithCode:(NSString *)code complete:(LESuccesBlock)complBlock failure:(LEFailureBlock)failure
 {
     __block NSString *userName = @"";
     NSDictionary *params =
@@ -67,7 +64,6 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSLog(@"%@", responseObject);
               NSString *token = [responseObject objectForKey:@"access_token"];
-              
               [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
               [[NSUserDefaults standardUserDefaults] setObject:[[responseObject objectForKey:@"user"] objectForKey:@"profile_picture"] forKey:@"userAvURLString"];
               [[NSUserDefaults standardUserDefaults] setObject:[[responseObject objectForKey:@"user"] objectForKey:@"full_name"] forKey:@"fullUserName"];
@@ -76,7 +72,7 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
               if (userName.length > 0 ) {
                   [[NSNotificationCenter defaultCenter] postNotificationName:NotificationLoginWasAcquired object:userName];
               }
-              [LEAPIClient getDataNextURL:nil compliteBlock:complBlock failure:failure];
+              [LEAPIClient getDataNextURL:nil completeBlock:complBlock failure:failure];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"Error: %@", error);

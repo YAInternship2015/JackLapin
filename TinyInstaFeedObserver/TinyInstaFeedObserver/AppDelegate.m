@@ -24,7 +24,8 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     NSLog(@"url recieved: %@", url);
-    [LELoginService loginWithUrl:url];
+    LELoader *loader = [LELoader dataLoader];
+    [loader getTokenWithRecievedURl:url];
     return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -15,6 +15,6 @@ typedef void (^LEFailureBlock)(NSError *error);
 
 @interface LEAPIClient : NSObject
 
-+ (void) getDataNextURL:(NSString *)nextURL compliteBlock:(LESuccesBlock)block failure:(LEFailureBlock)failure;
++ (void) getDataNextURL:(NSString *)nextURL completeBlock:(LESuccesBlock)block failure:(LEFailureBlock)failure;
 
 @end

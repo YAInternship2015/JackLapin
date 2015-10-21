@@ -13,7 +13,6 @@
 
 static int const kCellImagePreferedSize = 99;
 static int const kColorsFromUserAvatar = 16;
-static int const kFetchBatchSize = 20;
 
 #pragma mark Data Model Attributes names
 
@@ -34,6 +33,8 @@ static NSString *const NotificationDataFileContentDidChange = @"NotificationData
 static NSString *const NotificationLoginWasAcquired= @"NotificationLoginWasAcquired";
 static NSString *const NotificationNewDataNeedToDownload= @"NotificationNewDataNeedToDownload";
 static NSString *const NotificationUserAvatarPrepare= @"NotificationUserAvatarPrepare";
+static NSString *const NotificationTokenWasAcquiredReadyToParce= @"NotificationTokenWasAcquiredReadyToParce";
+
 
 #define  captionObject(i, arr)\
 [[arr[i] objectForKey:@"caption"] objectForKey:@"text"]
