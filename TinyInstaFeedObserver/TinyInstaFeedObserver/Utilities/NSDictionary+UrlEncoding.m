@@ -35,7 +35,7 @@ static NSString *toString(id object)
 static NSString *urlEncode(id object)
 {
     NSString *string = toString(object);
-    return [string stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    return [string stringByAddingPercentEncodingWithAllowedCharacters: [NSCharacterSet URLHostAllowedCharacterSet]];
 }
 
 @implementation NSDictionary (UrlEncoding)
