@@ -24,7 +24,7 @@
 {
     self.modelCaption.text = [model valueForKey:kModelDecription];
     NSURL *imageURL = [model valueForKey:kModelImg];
-   [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceHolderImage]];
+   [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage placeHolderImage]];
 
 }
 

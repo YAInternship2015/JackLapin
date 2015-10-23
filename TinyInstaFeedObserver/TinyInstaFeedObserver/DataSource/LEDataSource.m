@@ -7,6 +7,8 @@
 //
 #import "LEDataSource.h"
 
+static int const kFetchBatchSize = 20;
+
 @interface LEDataSource () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

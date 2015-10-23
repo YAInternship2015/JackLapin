@@ -11,7 +11,7 @@
 
 @implementation UIImage (PlaceHolderImage)
 
-+ (UIImage *)setPlaceHolderImage {
++ (UIImage *)placeHolderImage {
     return [UIImage imageNamed:@"NoImage"];
 }
 

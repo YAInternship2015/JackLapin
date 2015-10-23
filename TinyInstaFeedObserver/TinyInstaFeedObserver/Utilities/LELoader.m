@@ -45,17 +45,18 @@ NSString *userAvURLString;
     return loader;
 }
 
-- (LELoader *)init{
-#warning init не так пишется. А как же self = [super init];, затем if (self) и так далее? И возвращаемый тип не LELoader *, а id или instancetype
-   LELoader *loader = [super init];
-    loader.dataSource = [LEDataSource sharedDataSource];
-    [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
-                                                 name:NotificationNewDataNeedToDownload object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(userAvatarPrepare)
-                                                 name:NotificationLoginWasAcquired object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(parseDataWithNotification:)
-                                                 name:NotificationTokenWasAcquiredReadyToParce object:nil];
-    return loader;
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        self.dataSource = [LEDataSource sharedDataSource];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needMore)
+                                                     name:NotificationNewDataNeedToDownload object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userAvatarPrepare)
+                                                     name:NotificationLoginWasAcquired object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(parseDataWithNotification:)
+                                                     name:NotificationTokenWasAcquiredReadyToParce object:nil];
+    }
+    return self;
 }
 
 - (void)dealloc {

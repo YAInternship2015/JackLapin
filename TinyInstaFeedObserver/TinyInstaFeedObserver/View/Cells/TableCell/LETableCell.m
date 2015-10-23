@@ -23,7 +23,7 @@ int static countOfColor = 0;
 - (void)configWithModel:(FOModel *)model {
     self.modelCaption.text = [model valueForKey:kModelDecription];
     NSURL *imageURL = [model valueForKey:kModelImg];
-    [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceHolderImage]];
+    [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage placeHolderImage]];
     
     LELoader *loader = [LELoader dataLoader];
     if (countOfColor >= kColorsFromUserAvatar - 1) { countOfColor = 0; }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DB6D102509F5A8C8A70A500 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E59DA43B6E64EC932B8C86 /* libPods.a */; };
+		7CF6D1C4C98753ACB482B50B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E59DA43B6E64EC932B8C86 /* libPods.a */; };
 		FD2B58111BBDF04000D58FA7 /* LELoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2B58101BBDF04000D58FA7 /* LELoader.m */; };
 		FD4E62F61BC1C17E008062C3 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E62F51BC1C17E008062C3 /* NSDictionary+UrlEncoding.m */; };
 		FD65A43C1BC6CC45004B4A50 /* LEAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */; };
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DB6D102509F5A8C8A70A500 /* libPods.a in Frameworks */,
+				7CF6D1C4C98753ACB482B50B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +347,7 @@
 				FDD39EF21BBDACB000DB1650 /* Frameworks */,
 				FDD39EF31BBDACB000DB1650 /* Resources */,
 				AA2219ADD3372F248FF848EE /* Copy Pods Resources */,
+				588B153EE18EEBCD5E93FDF8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,6 +407,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		588B153EE18EEBCD5E93FDF8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AA2219ADD3372F248FF848EE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

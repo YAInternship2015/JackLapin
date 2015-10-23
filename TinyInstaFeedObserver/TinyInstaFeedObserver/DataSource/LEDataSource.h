@@ -10,9 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "FOModel+CoreDataProperties.h"
 
-#warning эту константу надо перенести в *.m - этот ворнинг вы не устранили
-static int const kFetchBatchSize = 20;
-
 @protocol LEDataSourceDelegate;
 
 @interface LEDataSource : NSObject <NSFetchedResultsControllerDelegate>
