@@ -46,6 +46,7 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
     }];
 }
 
+#warning опять же, вместо get лучше load или request
 + (void) getTokenWithCode:(NSString *)code complete:(LESuccesBlock)complBlock failure:(LEFailureBlock)failure
 {
     __block NSString *userName = @"";

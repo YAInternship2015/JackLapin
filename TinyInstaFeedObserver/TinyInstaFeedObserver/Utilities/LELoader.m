@@ -34,10 +34,12 @@ NSString *userAvURLString;
 
 + (id) dataLoader
 {
+#warning рпавильное объявление синглтона у вас есть в LEDataSource, сделайте здесь по аналогии
     const static LELoader *loader = nil;
     if (nil == loader)
     {
         loader = [[LELoader alloc] init];
+#warning вся дальнейшая инициализация объекта loader должна происходить в методе init
         loader.dataSource = [LEDataSource sharedDataSource];
         [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
                                                      name:NotificationNewDataNeedToDownload object:nil];
@@ -54,6 +56,7 @@ NSString *userAvURLString;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#warning вместо get лучше "load" или "request", так как операция длительная, а не мгновенная. И также в имени метода урл пишется либо уже весь капсом, либо camel case'ом
 -(void)getTokenWithRecievedURl:(NSURL *)url{
     [LELoginService loginWithUrl:url];
 }
@@ -69,6 +72,7 @@ NSString *userAvURLString;
 - (void)parseDataWithNotification:(NSNotification *)notification{
     NSDictionary * dictFromNotification = [NSDictionary dictionary];
     dictFromNotification = notification.object;
+#warning зачем нужна переменная dictFromNotification, если можно передать в следующий метод сразу notification.object?
     [self parseDataDictionary:dictFromNotification];
 }
 
@@ -90,6 +94,7 @@ NSString *userAvURLString;
     }
     else {
         [LEAPIClient getDataNextURL:self.nextUrl completeBlock:^(NSDictionary *answer) {
+#warning здесь нужен weakSelf
             [self parseDataDictionary:answer];
         } failure:^(NSError *error) {
             NSLog(@"%@", error);
