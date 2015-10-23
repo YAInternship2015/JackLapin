@@ -11,6 +11,7 @@
 
 @interface LELoader : NSObject
 
+#warning покажите это свойство здесь как readonly
 @property NSArray *individualUserColorPattern;
 
 + (id)dataLoader;

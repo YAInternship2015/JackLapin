@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "FOModel+CoreDataProperties.h"
 
+#warning эту константу надо перенести в *.m
 static int const kFetchBatchSize = 20;
 
 @protocol LEDataSourceDelegate;

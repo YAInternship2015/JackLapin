@@ -18,7 +18,9 @@
 
 @implementation LETableCell
 
+#warning зачем нужна эта переменная?
 NSInteger labelTextWidth;
+#warning эта переменная должна быть статической? Или почему она объявлена именно здесь?
 int countOfColor = 0;
 
 - (void)configWithModel:(FOModel *)model {

@@ -20,6 +20,7 @@ LEDataSourceDelegate>
 
 @implementation LETableViewController
 
+#warning этого можно не писать
 @synthesize dataSource = _dataSource;
 
 - (void)viewDidLoad {
