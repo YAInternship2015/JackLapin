@@ -85,7 +85,9 @@ NSString *userAvURLString;
     self.nextUrl = [[dataDict objectForKey:@"pagination"] objectForKey:@"next_url"];
     for (int i = 0; i < [self.dataArray count]; i++) {
         if (!modelIDObject(i, self.dataArray, self.dataSource)){
-            [self.dataSource insertModelWithCaption:captionObject(i, self.dataArray) imageURL:imageSRObject(i, self.dataArray) modelID:idStringObject(i, self.dataArray)];
+            [self.dataSource insertModelWithCaption:captionObject(i, self.dataArray)
+                                           imageURL:imageSRObject(i, self.dataArray)
+                                            modelID:idStringObject(i, self.dataArray)];
         }
     }
 }
