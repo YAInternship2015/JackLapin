@@ -10,6 +10,7 @@
 
 @interface UIImage (PlaceHolderImage)
 
+#warning а чего set? Это сеттер? Просто placeholderImage
 + (UIImage *)setPlaceHolderImage;
 
 @end
