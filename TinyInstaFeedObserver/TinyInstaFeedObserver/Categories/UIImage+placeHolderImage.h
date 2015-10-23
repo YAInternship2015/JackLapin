@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#warning имя категории пишется с большой буквы, также можно дабавлять префикс приложения
 @interface UIImage (placeHolderImage)
 
 + (UIImage *)setPlaceholderImage;
