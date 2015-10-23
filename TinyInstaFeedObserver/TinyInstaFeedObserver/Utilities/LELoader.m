@@ -46,6 +46,7 @@ NSString *userAvURLString;
 }
 
 - (LELoader *)init{
+#warning init не так пишется. А как же self = [super init];, затем if (self) и так далее? И возвращаемый тип не LELoader *, а id или instancetype
    LELoader *loader = [super init];
     loader.dataSource = [LEDataSource sharedDataSource];
     [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
