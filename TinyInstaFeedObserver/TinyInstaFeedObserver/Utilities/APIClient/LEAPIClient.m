@@ -18,7 +18,7 @@ static NSString *const kBaseRequestURL = @"https://api.instagram.com/v1/tags/aut
 
 @implementation LEAPIClient
 
-+ (void) getDataNextURL:(NSString *)nextURL completeBlock:(LESuccesBlock)block failure:(LEFailureBlock)failure {
++ (void) requestDataNextURL:(NSString *)nextURL completeBlock:(LESuccessBlock)block failure:(LEFailureBlock)failure {
     NSString *urlString = nextURL ? nextURL : kBaseRequestURL;
     NSDictionary *params = @{@"access_token": [[NSUserDefaults standardUserDefaults] stringForKey:@"token"], @"count":kCountPagination};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

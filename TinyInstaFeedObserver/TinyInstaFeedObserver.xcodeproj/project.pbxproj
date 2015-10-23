@@ -12,8 +12,8 @@
 		FD4E62F61BC1C17E008062C3 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E62F51BC1C17E008062C3 /* NSDictionary+UrlEncoding.m */; };
 		FD65A43C1BC6CC45004B4A50 /* LEAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */; };
 		FD71A58C1BD7C4F000CE4169 /* LELoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = FD71A58B1BD7C4F000CE4169 /* LELoginService.m */; };
-		FD71A5941BD7D05C00CE4169 /* UIImage+placeHolderImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD71A5931BD7D05C00CE4169 /* UIImage+placeHolderImage.m */; };
-		FD71A5971BD7EA1D00CE4169 /* InstaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD71A5961BD7EA1D00CE4169 /* InstaUser.m */; };
+		FD71A5941BD7D05C00CE4169 /* UIImage+PlaceHolderImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD71A5931BD7D05C00CE4169 /* UIImage+PlaceHolderImage.m */; };
+		FD71A5971BD7EA1D00CE4169 /* LEInstaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD71A5961BD7EA1D00CE4169 /* LEInstaUser.m */; };
 		FD9B205E1BCDB304001ADD53 /* CCColorCube.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205B1BCDB304001ADD53 /* CCColorCube.m */; };
 		FD9B205F1BCDB304001ADD53 /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B205D1BCDB304001ADD53 /* CCLocalMaximum.m */; };
 		FD9B20681BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B20671BCDBEB9001ADD53 /* FOModel+CoreDataProperties.m */; };
@@ -48,10 +48,10 @@
 		FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LEAPIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FD71A58A1BD7C4F000CE4169 /* LELoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LELoginService.h; sourceTree = "<group>"; };
 		FD71A58B1BD7C4F000CE4169 /* LELoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LELoginService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		FD71A5921BD7D05C00CE4169 /* UIImage+placeHolderImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+placeHolderImage.h"; sourceTree = "<group>"; };
-		FD71A5931BD7D05C00CE4169 /* UIImage+placeHolderImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+placeHolderImage.m"; sourceTree = "<group>"; };
-		FD71A5951BD7EA1D00CE4169 /* InstaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaUser.h; sourceTree = "<group>"; };
-		FD71A5961BD7EA1D00CE4169 /* InstaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaUser.m; sourceTree = "<group>"; };
+		FD71A5921BD7D05C00CE4169 /* UIImage+PlaceHolderImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PlaceHolderImage.h"; sourceTree = "<group>"; };
+		FD71A5931BD7D05C00CE4169 /* UIImage+PlaceHolderImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PlaceHolderImage.m"; sourceTree = "<group>"; };
+		FD71A5951BD7EA1D00CE4169 /* LEInstaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEInstaUser.h; sourceTree = "<group>"; };
+		FD71A5961BD7EA1D00CE4169 /* LEInstaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEInstaUser.m; sourceTree = "<group>"; };
 		FD9B205A1BCDB304001ADD53 /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
 		FD9B205B1BCDB304001ADD53 /* CCColorCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCColorCube.m; sourceTree = "<group>"; };
 		FD9B205C1BCDB304001ADD53 /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 			children = (
 				FD65A43A1BC6CC45004B4A50 /* LEAPIClient.h */,
 				FD65A43B1BC6CC45004B4A50 /* LEAPIClient.m */,
-				FD71A5951BD7EA1D00CE4169 /* InstaUser.h */,
-				FD71A5961BD7EA1D00CE4169 /* InstaUser.m */,
+				FD71A5951BD7EA1D00CE4169 /* LEInstaUser.h */,
+				FD71A5961BD7EA1D00CE4169 /* LEInstaUser.m */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -158,8 +158,8 @@
 		FD71A58E1BD7CEDC00CE4169 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				FD71A5921BD7D05C00CE4169 /* UIImage+placeHolderImage.h */,
-				FD71A5931BD7D05C00CE4169 /* UIImage+placeHolderImage.m */,
+				FD71A5921BD7D05C00CE4169 /* UIImage+PlaceHolderImage.h */,
+				FD71A5931BD7D05C00CE4169 /* UIImage+PlaceHolderImage.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 				FDD39F4A1BBDC31200DB1650 /* LETableCell.m in Sources */,
 				FD71A58C1BD7C4F000CE4169 /* LELoginService.m in Sources */,
 				FDD39F151BBDAD7800DB1650 /* FOModel.xcdatamodeld in Sources */,
-				FD71A5941BD7D05C00CE4169 /* UIImage+placeHolderImage.m in Sources */,
+				FD71A5941BD7D05C00CE4169 /* UIImage+PlaceHolderImage.m in Sources */,
 				FD2B58111BBDF04000D58FA7 /* LELoader.m in Sources */,
 				FDD39EFA1BBDACB000DB1650 /* main.m in Sources */,
 				FDD39F461BBDC0B000DB1650 /* LEMainViewController.m in Sources */,
@@ -479,7 +479,7 @@
 				FD9B206C1BCDC0C3001ADD53 /* LEAlertFactory.m in Sources */,
 				FDD39F441BBDC0B000DB1650 /* LECollectionViewController.m in Sources */,
 				FDD39F4D1BBDC43A00DB1650 /* LECollectionCell.m in Sources */,
-				FD71A5971BD7EA1D00CE4169 /* InstaUser.m in Sources */,
+				FD71A5971BD7EA1D00CE4169 /* LEInstaUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

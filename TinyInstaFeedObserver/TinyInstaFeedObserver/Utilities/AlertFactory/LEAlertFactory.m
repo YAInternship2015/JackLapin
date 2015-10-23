@@ -19,10 +19,8 @@
                                 alertControllerWithTitle:title
                                 message:message
                                 preferredStyle:UIAlertControllerStyleAlert];
-    
-#warning [NSString stringWithFormat:NSLocalizedString(@"OK", nil)] - зачем NSString преобразовывать в NSString? :)
     UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:[NSString stringWithFormat:NSLocalizedString(@"OK", nil)]
+                         actionWithTitle:NSLocalizedString(@"OK", nil)
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {

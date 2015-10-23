@@ -5,7 +5,7 @@
 
 #import "LETableCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIImage+placeHolderImage.h"
+#import "UIImage+PlaceHolderImage.h"
 #import "LELoader.h"
 @interface LETableCell ()
 
@@ -18,15 +18,12 @@
 
 @implementation LETableCell
 
-#warning зачем нужна эта переменная?
-NSInteger labelTextWidth;
-#warning эта переменная должна быть статической? Или почему она объявлена именно здесь?
-int countOfColor = 0;
+int static countOfColor = 0;
 
 - (void)configWithModel:(FOModel *)model {
     self.modelCaption.text = [model valueForKey:kModelDecription];
     NSURL *imageURL = [model valueForKey:kModelImg];
-    [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceholderImage]];
+    [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceHolderImage]];
     
     LELoader *loader = [LELoader dataLoader];
     if (countOfColor >= kColorsFromUserAvatar - 1) { countOfColor = 0; }

@@ -20,9 +20,6 @@ LEDataSourceDelegate>
 
 @implementation LETableViewController
 
-#warning этого можно не писать
-@synthesize dataSource = _dataSource;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = [LEDataSource sharedDataSource];

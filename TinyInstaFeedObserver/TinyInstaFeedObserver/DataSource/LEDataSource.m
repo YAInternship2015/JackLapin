@@ -28,7 +28,6 @@
     dispatch_once(&onceToken, ^{
         if (!sharedManagerObject) {
             sharedManagerObject = [[LEDataSource alloc] init];
-            
         }
     });
     return sharedManagerObject;

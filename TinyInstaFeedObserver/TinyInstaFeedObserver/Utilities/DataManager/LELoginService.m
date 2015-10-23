@@ -9,7 +9,7 @@
 #import "LELoginService.h"
 #import <AFNetworking.h>
 #import "LEAPIClient.h"
-#import "InstaUser.h"
+#import "LEInstaUser.h"
 
 #pragma mark Instagram connect
 
@@ -39,15 +39,14 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
 + (void)loginWithUrl:(NSURL *)url {
     NSString *code = [url absoluteString];
     code = [code stringByReplacingOccurrencesOfString:@"tinyinstafeedobserver:?code=" withString:@""];
-    [self getTokenWithCode:code complete:^(NSDictionary *answer) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationTokenWasAcquiredReadyToParce object:answer];
+    [self requestTokenWithCode:code complete:^(NSDictionary *response) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationTokenWasAcquiredReadyToParce object:response];
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }
 
-#warning опять же, вместо get лучше load или request
-+ (void) getTokenWithCode:(NSString *)code complete:(LESuccesBlock)complBlock failure:(LEFailureBlock)failure
++ (void) requestTokenWithCode:(NSString *)code complete:(LESuccessBlock)complBlock failure:(LEFailureBlock)failure
 {
     __block NSString *userName = @"";
     NSDictionary *params =
@@ -73,7 +72,7 @@ static NSString *const kResponseType = @"code&scope=basic+likes";
               if (userName.length > 0 ) {
                   [[NSNotificationCenter defaultCenter] postNotificationName:NotificationLoginWasAcquired object:userName];
               }
-              [LEAPIClient getDataNextURL:nil completeBlock:complBlock failure:failure];
+              [LEAPIClient requestDataNextURL:nil completeBlock:complBlock failure:failure];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"Error: %@", error);

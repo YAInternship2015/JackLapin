@@ -11,15 +11,11 @@
 
 @interface LELoader : NSObject
 
-#warning покажите это свойство здесь как readonly
-@property NSArray *individualUserColorPattern;
+@property (readonly) NSArray *individualUserColorPattern;
 
 + (id)dataLoader;
 
-- (void)getTokenWithRecievedURl:(NSURL *)url;
-
-//#warning этот метод вообще не должен быть виден наружу, он чисто внутренний. Загрузка постов всегда должна начинаться всегда не с прямого обращения к api клиенту, а через данный класс
-//- (void) parseDataDictionary:(NSDictionary *)dataDict;
+- (void)requestTokenWithRecievedUrl:(NSURL *)url;
 
 
 @end

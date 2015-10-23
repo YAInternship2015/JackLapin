@@ -13,7 +13,7 @@
 #import "NSDictionary+UrlEncoding.h"
 #import "ColorCube/CCColorCube.h"
 #import "LEAlertFactory.h"
-#import "InstaUser.h"
+#import "LEInstaUser.h"
 #import "LELoginService.h"
 
 
@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString *code;
 @property (nonatomic, strong) NSURLConnection *tokenRequestConnection;
 @property (nonatomic, strong) NSString *token;
+@property (readwrite) NSArray *individualUserColorPattern;
 
 @end
 
@@ -32,23 +33,27 @@ NSString *userAvURLString;
 
 @implementation LELoader
 
-+ (id) dataLoader
++ (id)dataLoader
 {
-#warning рпавильное объявление синглтона у вас есть в LEDataSource, сделайте здесь по аналогии
-    const static LELoader *loader = nil;
-    if (nil == loader)
-    {
-        loader = [[LELoader alloc] init];
-#warning вся дальнейшая инициализация объекта loader должна происходить в методе init
-        loader.dataSource = [LEDataSource sharedDataSource];
-        [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
-                                                     name:NotificationNewDataNeedToDownload object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(userAvatarPrepare)
-                                                     name:NotificationLoginWasAcquired object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(parseDataWithNotification:)
-                                                     name:NotificationTokenWasAcquiredReadyToParce object:nil];
-        
-    }
+    static LELoader * loader ;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        if (!loader) {
+            loader = [[LELoader alloc] init];
+        }
+    });
+    return loader;
+}
+
+- (LELoader *)init{
+   LELoader *loader = [super init];
+    loader.dataSource = [LEDataSource sharedDataSource];
+    [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(needMore)
+                                                 name:NotificationNewDataNeedToDownload object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(userAvatarPrepare)
+                                                 name:NotificationLoginWasAcquired object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:loader selector:@selector(parseDataWithNotification:)
+                                                 name:NotificationTokenWasAcquiredReadyToParce object:nil];
     return loader;
 }
 
@@ -56,8 +61,7 @@ NSString *userAvURLString;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#warning вместо get лучше "load" или "request", так как операция длительная, а не мгновенная. И также в имени метода урл пишется либо уже весь капсом, либо camel case'ом
--(void)getTokenWithRecievedURl:(NSURL *)url{
+-(void)requestTokenWithRecievedUrl:(NSURL *)url{
     [LELoginService loginWithUrl:url];
 }
 
@@ -65,15 +69,12 @@ NSString *userAvURLString;
     NSString *imgURLstring = [[NSUserDefaults standardUserDefaults] stringForKey:@"userAvURLString"];
     NSString *userLogin = [[NSUserDefaults standardUserDefaults] stringForKey:@"userLogin"];
     NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"fullUserName"];
-    InstaUser *user = [InstaUser createUserWithLogin:userLogin name:userName avatarURLstring:imgURLstring];
+    LEInstaUser *user = [LEInstaUser createUserWithLogin:userLogin name:userName avatarURLstring:imgURLstring];
     self.individualUserColorPattern = [user colorsFromUserAvatar];
 }
 
 - (void)parseDataWithNotification:(NSNotification *)notification{
-    NSDictionary * dictFromNotification = [NSDictionary dictionary];
-    dictFromNotification = notification.object;
-#warning зачем нужна переменная dictFromNotification, если можно передать в следующий метод сразу notification.object?
-    [self parseDataDictionary:dictFromNotification];
+    [self parseDataDictionary:notification.object];
 }
 
 - (void)parseDataDictionary:(NSDictionary *)dataDict
@@ -93,9 +94,9 @@ NSString *userAvURLString;
         NSLog(@"Need to get token first");
     }
     else {
-        [LEAPIClient getDataNextURL:self.nextUrl completeBlock:^(NSDictionary *answer) {
-#warning здесь нужен weakSelf
-            [self parseDataDictionary:answer];
+        __weak typeof(self) weakSelf = self;
+        [LEAPIClient requestDataNextURL:self.nextUrl completeBlock:^(NSDictionary *response) {
+            [weakSelf parseDataDictionary:response];
         } failure:^(NSError *error) {
             NSLog(@"%@", error);
         }];

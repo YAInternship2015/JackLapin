@@ -7,7 +7,7 @@
 #import "FOModel.h"
 #import "LECollectionCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIImage+placeHolderImage.h"
+#import "UIImage+PlaceHolderImage.h"
 
 
 
@@ -24,7 +24,7 @@
 {
     self.modelCaption.text = [model valueForKey:kModelDecription];
     NSURL *imageURL = [model valueForKey:kModelImg];
-   [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceholderImage]];
+   [self.modelImage sd_setImageWithURL:imageURL placeholderImage:[UIImage setPlaceHolderImage]];
 
 }
 

@@ -10,8 +10,7 @@
 
 @interface LELoginService : NSObject
 
-#warning тут много лишних пробелов
-+ (void) loginWithUrl :(NSURL *) url;
++ (void) loginWithUrl:(NSURL *)url;
 + (void) startLoginAction;
 
 @end

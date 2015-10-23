@@ -1,5 +1,5 @@
 //
-//  UIImage+placeHolderImage.h
+//  UIImage+PlaceHolderImage.h
 //  TinyInstaFeedObserver
 //
 //  Created by Jack Lapin on 21.10.15.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#warning имя категории пишется с большой буквы, также можно дабавлять префикс приложения
-@interface UIImage (placeHolderImage)
+@interface UIImage (PlaceHolderImage)
 
-+ (UIImage *)setPlaceholderImage;
++ (UIImage *)setPlaceHolderImage;
 
 @end
